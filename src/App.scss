@@ -1,0 +1,14 @@
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/fonts" as *;
+body {
+  font-family: "Newsreader", "Outfit", sans-serif;
+  margin: 0rem;
+  box-sizing: border-box;
+  background-image: linear-gradient($background-blue, $background-green);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

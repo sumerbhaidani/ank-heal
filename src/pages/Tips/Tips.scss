@@ -1,0 +1,15 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.tips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  @include tablet {
+    align-items: flex-start;
+  }
+  &__login-redirect {
+    margin: 0rem auto;
+  }
+}
