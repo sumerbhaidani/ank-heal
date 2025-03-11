@@ -8,6 +8,7 @@
   padding: 1rem;
   @include tablet {
     align-items: flex-start;
+    padding: 2rem;
   }
   &__login-redirect {
     margin: 0rem auto;

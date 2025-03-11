@@ -1,0 +1,20 @@
+@use "../../styles/partials/variables" as *;
+
+.login-form {
+  display: flex;
+  gap: 0.25rem;
+  flex-direction: column;
+  width: max-content;
+  margin: auto;
+  padding: 1.5rem;
+  border: 1px gray solid;
+  &__input {
+    margin-bottom: 0.55rem;
+  }
+  &__submit-button {
+    background-color: $background-blue;
+    border: none;
+    padding: 1rem;
+    border-radius: 2rem;
+  }
+}

@@ -21,7 +21,7 @@
     }
     &-name {
       margin: 0rem;
-      color: $black;
+      color: $white;
     }
   }
   &__nav {
@@ -38,9 +38,12 @@
     }
     &-redirect {
       text-decoration: none;
+      &.active {
+        text-decoration: underline;
+      }
     }
     &-link {
-      color: #000000;
+      color: $white;
     }
   }
 }
