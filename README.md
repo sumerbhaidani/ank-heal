@@ -9,7 +9,7 @@ The app is not meant to replace or be a physiotherapist or health professional, 
 
 Ankle injuries are one of the most common injuries. In the US, there are approxiately 2 million ankle injuries every year. Ankle injuries also have a high recurrence rate with up to 40% of individuals experiencing additional sprains, injuries, and chronic pain after their first injury.
 
-There are lots of ankle exercises, but there is no clarity about what to use when. This app is designed to give people an immediate suggestion about exercises they can do to recover/strengthen their ankle
+There are lots of ankle exercises, but there is no clarity about what to use when your ankle is hurting in certain places. This app is designed to give people an immediate suggestion about exercises they can do to recover/strengthen their ankle
 
 After personally dealing with multiple ankle injuries due to sports and not having time to go for physio, I decided something needs to be done
 
