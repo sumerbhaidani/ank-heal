@@ -4,11 +4,18 @@ body {
   font-family: "Newsreader", "Outfit", sans-serif;
   margin: 0rem;
   box-sizing: border-box;
-  // background-image: linear-gradient($background-blue, $background-green);
 }
 
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+button {
+  background-color: $background-blue;
+  border: none;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: $white;
 }

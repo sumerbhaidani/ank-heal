@@ -1,10 +1,11 @@
 import { useState } from "react";
-import viteLogo from "/vite.svg";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import Header from "./components/Header/Header.jsx";
 import Login from "./pages/Login/Login.jsx";
+import PastResults from "./pages/PastResults/PastResults.jsx";
+import Questionnaire from "./pages/Questionnaire/Questionnaire.jsx";
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/questionnaire" element />
-          <Route path="/:id/evaluations" element />
+          <Route path="/questionnaire" element={<Questionnaire />} />
+          <Route path="/:id/evaluations" element={<PastResults />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>

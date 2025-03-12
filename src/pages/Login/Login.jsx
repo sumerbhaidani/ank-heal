@@ -10,7 +10,11 @@ function Login() {
       <label htmlFor="" className="login-form__label">
         Password
       </label>
-      <input type="text" className="login-form__input" placeholder="Password" />
+      <input
+        type="password"
+        className="login-form__input"
+        placeholder="Password"
+      />
       <button className="login-form__submit-button">Login</button>
     </form>
   );

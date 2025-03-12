@@ -17,9 +17,8 @@ The app would be designed for regular people who enjoy sports who don't have imm
 
 ### Features
 
-There will be a static page that will have tips for ankle injuries (how to recover and strengthen injuries)
 There will be a login form that would accesss a specific user's credentials based on the data they provide.
-There will be a survey form that will ask the user about their ankle's mobility and strength. Based on the results of the questionaire, the survey will give a list of 4-6 exercises that should help with recovery
+There will be a survey form that will ask the user about their ankle's mobility and strength. Based on the results of the questionaire, the survey will give a list of 3-5 exercises that should help with recovery
 There will be a section where users can access their past survey results and most recent exercise list
 
 ## Implementation
@@ -42,15 +41,13 @@ Header - Each page will have a common header that will include the nav-bar to re
 
 Home Page - General page that shows the basic process of how the app works. Will have a login form where users login to view their data.
 
-General Tips - Page that includes general tips to avoid ankle injuries and provides(maybe have a CTA at end of page for survey).
-
 Survey Page - This is where you can start the questionnaire about your ankle health and after submitting you would get a list of exercises to do
 
 Past Results Page - See when you did your ankle evaluations, how you responded to each, and your most recent exercise list
 
 ### Data
 
-Based on it will eliminate certain exercises and only provide the exercises that would help them in their recovery. Will assign tags to certain exercises and eliminate exercises based on exercises
+Based on it will eliminate certain exercises and only provide the exercises that would help them in their recovery. Will assign tags to certain exercises and eliminate exercises based on exercises. Questions will be true/false and require ratings on a scale of 1-10.
 
 ### Endpoints
 
@@ -80,3 +77,5 @@ If scaling switch to Supabase (free version of Firebase has good features)
 Incorporate Gemini
 GET Past Results list and most recent exercise
 Improve UI/UX
+
+General Tips - Page that includes general tips to avoid ankle injuries and provides(maybe have a CTA at end of page for survey).
