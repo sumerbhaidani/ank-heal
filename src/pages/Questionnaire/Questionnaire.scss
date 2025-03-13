@@ -1,6 +1,20 @@
 .question-form {
   display: flex;
   flex-direction: column;
-  margin: 0rem auto;
+  margin: 0rem 3rem;
   padding: 2rem 0rem;
+  &__single-question {
+    padding-bottom: 1rem;
+    &--slider {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__range-response {
+    width: 100%;
+  }
+  &__button {
+    width: max-content;
+    align-self: center;
+  }
 }

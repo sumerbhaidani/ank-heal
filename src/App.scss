@@ -19,3 +19,8 @@ button {
   border-radius: 2rem;
   color: $white;
 }
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+}
