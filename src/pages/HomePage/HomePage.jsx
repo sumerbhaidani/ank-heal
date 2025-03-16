@@ -2,8 +2,7 @@ import "./HomePage.scss";
 import { Link } from "react-router-dom";
 
 function HomePage() {
-  // mugno and constant = https://www.ncbi.nlm.nih.gov/books/NBK560619/#:~:text=Ankle%20sprains%20are%20among%20the,the%20likelihood%20of%20further%20complications.
-  // herzog et al = https://pmc.ncbi.nlm.nih.gov/articles/PMC6602402/
+  // Stiff ankles can affect mobility
   return (
     <div className="home-page">
       <div className="home-page__cta">
@@ -11,7 +10,13 @@ function HomePage() {
           Ankle injuries are one of the most common injuries with approximately
           2 million cases reported every year in the United States alone
         </h2>
-        <p className="home-page__stat-source">Herzog et al. (2019)</p>
+        <a
+          href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6602402/"
+          target="_blank"
+          className="home-page__stat-link"
+        >
+          <p className="home-page__stat-source">Herzog et al. (2019)</p>
+        </a>
         <h3 className="home-page__stat-info">
           Imagine how many cases weren't reported. <br />
           Imagine how many cases occur worldwide{" "}
@@ -21,8 +26,13 @@ function HomePage() {
           individuals experiencing additional sprains, injuries and chronic pain
           after their first injury
         </h2>
-        <p className="home-page__stat-source">Mugno and Constant (2023)</p>
-
+        <a
+          href="https://www.ncbi.nlm.nih.gov/books/NBK560619/#:~:text=Ankle%20sprains%20are%20among%20the,the%20likelihood%20of%20further%20complications."
+          target="_blank"
+          className="home-page__stat-link"
+        >
+          <p className="home-page__stat-source">Mugno and Constant (2023)</p>
+        </a>
         <h4 className="home-page__explanation">
           Your ankles may be healthy, but there's always more you can do
           strengthen them! Click the link below to take a free evaluation
@@ -32,10 +42,6 @@ function HomePage() {
             Create an Account & Take an Evaluation Now!
           </button>
         </Link>
-        <h6 className="home-page__disclaimer">
-          This app is not designed to be or mimic a health professional. It is
-          always recommended to see a health professional for any injury{" "}
-        </h6>
       </div>
     </div>
   );

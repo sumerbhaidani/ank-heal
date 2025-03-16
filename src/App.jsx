@@ -6,6 +6,7 @@ import Header from "./components/Header/Header.jsx";
 import Login from "./pages/Login/Login.jsx";
 import PastResults from "./pages/PastResults/PastResults.jsx";
 import Questionnaire from "./pages/Questionnaire/Questionnaire.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/:id/evaluations" element={<PastResults />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );

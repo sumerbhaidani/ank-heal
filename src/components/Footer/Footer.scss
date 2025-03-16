@@ -1,0 +1,9 @@
+@use "../../styles/partials/variables" as *;
+.footer {
+  background-color: $background-blue;
+  color: $white;
+  &__disclaimer {
+    width: max-content;
+    margin: 2rem auto;
+  }
+}
