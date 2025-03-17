@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Questionnaire.scss";
 
 function Questionnaire() {
@@ -48,6 +48,8 @@ function Questionnaire() {
       if (!standQuestion || !balanceQuestion || !calfRaise || !smallHops)
         return alert("Please respond to all questions");
 
+      let tagArray = [];
+
       // First try
       // if (standQuestion === "Yes") {
       //   tagOutput.push("Standing");
@@ -68,62 +70,78 @@ function Questionnaire() {
       // TRY 2 - initial way w/function in function
       // Q1
       if (standQuestion === "Yes") {
-        setTagOutput((tags) => [...tags, "Standing"]);
+        tagArray.push("Standing");
       } else {
-        setTagOutput((tags) => [...tags, "Sitting1"]);
+        tagArray.push("Sitting1");
       }
 
       // Q2
       if (balanceQuestion === "Yes") {
-        setTagOutput((tags) => [...tags, "One leg balance"]);
+        tagArray.push("One leg balance");
       } else {
-        setTagOutput((tags) => [...tags, "Sitting2"]);
+        tagArray.push("Sitting2");
       }
       // why slider just go to last one check
       // Q3
       if (walkPain == 5) {
-        setTagOutput((tags) => [...tags, "Sitting3"]);
+        tagArray.push("Sitting3");
       } else if (walkPain == 3 || walkPain == 4) {
-        setTagOutput((tags) => [...tags, "Stride Pain"]);
+        tagArray.push("Stride Pain");
       } else if (walkPain == 1 || walkPain == 2) {
-        setTagOutput((tags) => [...tags, "Normal Stride"]);
+        tagArray.push("Normal Stride");
       }
 
       // Q4
       if (calfRaise === "Yes") {
-        setTagOutput((tags) => [...tags, "Heel Active"]);
+        tagArray.push("Heel Active");
       } else {
-        setTagOutput((tags) => [...tags, "Sitting4"]);
+        tagArray.push("Sitting4");
       }
 
       // Q5
       if (squatQuestion == 1) {
-        setTagOutput((tags) => [...tags, "Sitting5"]);
+        tagArray.push("Sitting5");
       } else if (squatQuestion == 2) {
-        setTagOutput((tags) => [...tags, "Slight Bend"]);
+        tagArray.push("Slight Bend");
       } else if (squatQuestion == 3) {
-        setTagOutput((tags) => [...tags, "Bend Pain"]);
+        tagArray.push("Bend Pain");
       } else if (squatQuestion == 4) {
-        setTagOutput((tags) => [...tags, "Slight Pain"]);
+        tagArray.push("Slight Pain");
       } else if (squatQuestion == 5) {
-        setTagOutput((tags) => [...tags, "Flexible"]);
+        tagArray.push("Flexible");
       }
 
       // Q6
       if (smallHops === "Yes") {
-        setTagOutput((tags) => [...tags, "Agile"]);
+        tagArray.push("Agile");
       } else {
-        setTagOutput((tags) => [...tags, "Sitting6"]);
+        tagArray.push("Sitting6");
       }
 
+      setTagOutput((tags) => [...tags, tagArray]);
       // Do I need await here - prolly no
-      await console.log("Form submitted", tagOutput);
+      // Below doesn't include full array, how to resolve?
+      console.log("Form submitted", tagOutput);
+
+      // POST Request here
+
+      // setStandQuestion("");
+      // setBalanceQuestion("");
+      // setWalkPain(1);
+      // setCalfRaise("");
+      // setSquatQuestion(1);
+      // setSmallHops("");
     } catch (error) {
       console.error("Error in submitting form", error);
     }
   };
+
+  useEffect(() => {
+    console.log("Form is submitted", tagOutput);
+    // This works
+  }, [tagOutput]);
   return (
-    <form action="" className="question-form" onSubmit={formSubmit}>
+    <form className="question-form" onSubmit={formSubmit}>
       <div className="question-form__single-question">
         <label htmlFor="" className="question-form__question">
           Are you able to stand on your feet?
