@@ -9,6 +9,8 @@ function Questionnaire() {
   const [squatQuestion, setSquatQuestion] = useState(1);
   const [smallHops, setSmallHops] = useState("");
 
+  const [tagOutput, setTagOutput] = useState([]);
+
   function handleStandQuestionChange(event) {
     // console.log(event.target.value);
     setStandQuestion(event.target.value);
@@ -39,9 +41,86 @@ function Questionnaire() {
     setSmallHops(e.target.value);
   }
 
-  const formSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted");
+  const formSubmit = async (e) => {
+    try {
+      e.preventDefault();
+
+      if (!standQuestion || !balanceQuestion || !calfRaise || !smallHops)
+        return alert("Please respond to all questions");
+
+      // First try
+      // if (standQuestion === "Yes") {
+      //   tagOutput.push("Standing");
+      // } else if (standQuestion === "No") {
+      //   tagOutput.push("Sitting");
+      // }
+
+      // TRY 1 - put each output in variable (avoid)
+      // let output = "";
+      // if (standQuestion === "Yes") {
+      //   let output = "Standing";
+      //   setTagOutput((tags) => [...tags, output]);
+      // } else if (standQuestion === "No") {
+      //   let output = "Sitting";
+      //   setTagOutput((tags) => [...tags, output]);
+      // }
+
+      // TRY 2 - initial way w/function in function
+      // Q1
+      if (standQuestion === "Yes") {
+        setTagOutput((tags) => [...tags, "Standing"]);
+      } /*if (standQuestion === "No") */ else {
+        setTagOutput((tags) => [...tags, "Sitting1"]);
+      }
+
+      // Q2
+      if (balanceQuestion === "Yes") {
+        setTagOutput((tags) => [...tags, "One leg balance"]);
+      } else if (balanceQuestion === "No") {
+        setTagOutput((tags) => [...tags, "Sitting2"]);
+      }
+      // why slider just go to last one check
+      // Q3
+      if (walkPain === 5) {
+        setTagOutput((tags) => [...tags, "Sitting3"]);
+      } else if (walkPain === 3 || walkPain === 4) {
+        setTagOutput((tags) => [...tags, "Stride Pain"]);
+      } /*if (walkPain === 1 || walkPain === 2)*/ else {
+        setTagOutput((tags) => [...tags, "Normal Stride"]);
+      }
+
+      // Q4
+      if (calfRaise === "Yes") {
+        setTagOutput((tags) => [...tags, "Heel Active"]);
+      } /*if (calfRaise === "No")*/ else {
+        setTagOutput((tags) => [...tags, "Sitting4"]);
+      }
+
+      // Q5
+      if (squatQuestion === 1) {
+        setTagOutput((tags) => [...tags, "Sitting5"]);
+      } else if (squatQuestion === 2) {
+        setTagOutput((tags) => [...tags, "Slight Bend"]);
+      } else if (squatQuestion === 3) {
+        setTagOutput((tags) => [...tags, "Bend Pain"]);
+      } else if (squatQuestion === 4) {
+        setTagOutput((tags) => [...tags, "Slight Pain"]);
+      } else if (squatQuestion === 5) {
+        setTagOutput((tags) => [...tags, "Flexible"]);
+      }
+
+      // Q6
+      if (smallHops === "Yes") {
+        setTagOutput((tags) => [...tags, "Agile"]);
+      } /* if (smallHops === "No") */ else {
+        setTagOutput((tags) => [...tags, "Sitting6"]);
+      }
+
+      // Do I need await here - prolly no
+      await console.log("Form submitted", tagOutput);
+    } catch (error) {
+      console.error("Error in submitting form", error);
+    }
   };
   return (
     <form action="" className="question-form" onSubmit={formSubmit}>
@@ -117,8 +196,8 @@ function Questionnaire() {
           On a scale of 1-5, how much does it hurt when you walk? Drag the
           slider to your response.
           <br />
-          (1 = no pain | 3 = feel slight pain but able to walk | 5 = very
-          painful and unable to walk){" "}
+          (1 = no pain, walking fine | 3 = slight pain but able to walk | 5 =
+          very painful and unable to walk){" "}
         </label>
         <div className="question-form__response">
           <input
