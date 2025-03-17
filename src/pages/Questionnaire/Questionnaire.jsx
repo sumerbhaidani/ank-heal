@@ -9,7 +9,7 @@ function Questionnaire() {
   const [squatQuestion, setSquatQuestion] = useState(1);
   const [smallHops, setSmallHops] = useState("");
 
-  const [tagOutput, setTagOutput] = useState([]);
+  // const [tagOutput, setTagOutput] = useState([]);
 
   function handleStandQuestionChange(event) {
     // console.log(event.target.value);
@@ -47,7 +47,6 @@ function Questionnaire() {
 
       if (!standQuestion || !balanceQuestion || !calfRaise || !smallHops)
         return alert("Please respond to all questions");
-      setTagOutput([]);
       let tagArray = [];
 
       // Q1
@@ -99,13 +98,14 @@ function Questionnaire() {
         tagArray.push("Sitting");
       }
 
-      setTagOutput((tags) => [...tags, ...tagArray]);
+      // tagOutput variable - no state and add
+      // setTagOutput((tags) => [...tags, ...tagArray]);
       // setTagOutput(tagArray); why doesn't this work?
       // Do I need await here - prolly no
       // Below doesn't include full array, how to resolve?
 
-      console.log("Form submitted", tagOutput);
-
+      console.log("Form submitted", tagArray);
+      //state may not be updated
       // POST Request here or in useEffect?
 
       setStandQuestion("");
@@ -119,11 +119,11 @@ function Questionnaire() {
     }
   };
 
-  useEffect(() => {
-    console.log("Form is submitted", tagOutput);
+  // useEffect(() => {
+  //   console.log("Form is submitted", tagOutput);
 
-    // This works
-  }, [tagOutput]);
+  //   // This works - would post go here
+  // }, [tagOutput]);
   return (
     <form className="question-form" onSubmit={formSubmit}>
       <div className="question-form__single-question">
