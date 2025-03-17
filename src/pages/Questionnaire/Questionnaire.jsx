@@ -69,50 +69,50 @@ function Questionnaire() {
       // Q1
       if (standQuestion === "Yes") {
         setTagOutput((tags) => [...tags, "Standing"]);
-      } /*if (standQuestion === "No") */ else {
+      } else {
         setTagOutput((tags) => [...tags, "Sitting1"]);
       }
 
       // Q2
       if (balanceQuestion === "Yes") {
         setTagOutput((tags) => [...tags, "One leg balance"]);
-      } else if (balanceQuestion === "No") {
+      } else {
         setTagOutput((tags) => [...tags, "Sitting2"]);
       }
       // why slider just go to last one check
       // Q3
-      if (walkPain === 5) {
+      if (walkPain == 5) {
         setTagOutput((tags) => [...tags, "Sitting3"]);
-      } else if (walkPain === 3 || walkPain === 4) {
+      } else if (walkPain == 3 || walkPain == 4) {
         setTagOutput((tags) => [...tags, "Stride Pain"]);
-      } /*if (walkPain === 1 || walkPain === 2)*/ else {
+      } else if (walkPain == 1 || walkPain == 2) {
         setTagOutput((tags) => [...tags, "Normal Stride"]);
       }
 
       // Q4
       if (calfRaise === "Yes") {
         setTagOutput((tags) => [...tags, "Heel Active"]);
-      } /*if (calfRaise === "No")*/ else {
+      } else {
         setTagOutput((tags) => [...tags, "Sitting4"]);
       }
 
       // Q5
-      if (squatQuestion === 1) {
+      if (squatQuestion == 1) {
         setTagOutput((tags) => [...tags, "Sitting5"]);
-      } else if (squatQuestion === 2) {
+      } else if (squatQuestion == 2) {
         setTagOutput((tags) => [...tags, "Slight Bend"]);
-      } else if (squatQuestion === 3) {
+      } else if (squatQuestion == 3) {
         setTagOutput((tags) => [...tags, "Bend Pain"]);
-      } else if (squatQuestion === 4) {
+      } else if (squatQuestion == 4) {
         setTagOutput((tags) => [...tags, "Slight Pain"]);
-      } else if (squatQuestion === 5) {
+      } else if (squatQuestion == 5) {
         setTagOutput((tags) => [...tags, "Flexible"]);
       }
 
       // Q6
       if (smallHops === "Yes") {
         setTagOutput((tags) => [...tags, "Agile"]);
-      } /* if (smallHops === "No") */ else {
+      } else {
         setTagOutput((tags) => [...tags, "Sitting6"]);
       }
 
