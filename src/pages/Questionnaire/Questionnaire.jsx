@@ -47,61 +47,40 @@ function Questionnaire() {
 
       if (!standQuestion || !balanceQuestion || !calfRaise || !smallHops)
         return alert("Please respond to all questions");
-
+      setTagOutput([]);
       let tagArray = [];
 
-      // First try
-      // if (standQuestion === "Yes") {
-      //   tagOutput.push("Standing");
-      // } else if (standQuestion === "No") {
-      //   tagOutput.push("Sitting");
-      // }
-
-      // TRY 1 - put each output in variable (avoid)
-      // let output = "";
-      // if (standQuestion === "Yes") {
-      //   let output = "Standing";
-      //   setTagOutput((tags) => [...tags, output]);
-      // } else if (standQuestion === "No") {
-      //   let output = "Sitting";
-      //   setTagOutput((tags) => [...tags, output]);
-      // }
-
-      // TRY 2 - initial way w/function in function
       // Q1
       if (standQuestion === "Yes") {
         tagArray.push("Standing");
-      } else {
-        tagArray.push("Sitting1");
+      } else if (!tagArray.includes("Sitting") && standQuestion === "No") {
+        tagArray.push("Sitting");
       }
 
       // Q2
       if (balanceQuestion === "Yes") {
         tagArray.push("One leg balance");
-      } else {
-        tagArray.push("Sitting2");
+      } else if (!tagArray.includes("Sitting") && balanceQuestion === "No") {
+        tagArray.push("Sitting");
       }
-      // why slider just go to last one check
       // Q3
-      if (walkPain == 5) {
-        tagArray.push("Sitting3");
+      if (walkPain == 1 || walkPain == 2) {
+        tagArray.push("Normal Stride");
       } else if (walkPain == 3 || walkPain == 4) {
         tagArray.push("Stride Pain");
-      } else if (walkPain == 1 || walkPain == 2) {
-        tagArray.push("Normal Stride");
+      } else if (walkPain == 5 && !tagArray.includes("Sitting")) {
+        tagArray.push("Sitting");
       }
 
       // Q4
       if (calfRaise === "Yes") {
         tagArray.push("Heel Active");
-      } else {
-        tagArray.push("Sitting4");
+      } else if (calfRaise === "No" && !tagArray.includes("Sitting")) {
+        tagArray.push("Sitting");
       }
 
       // Q5
-      if (squatQuestion == 1) {
-        tagArray.push("Sitting5");
-      } else if (squatQuestion == 2) {
+      if (squatQuestion == 2) {
         tagArray.push("Slight Bend");
       } else if (squatQuestion == 3) {
         tagArray.push("Bend Pain");
@@ -109,28 +88,32 @@ function Questionnaire() {
         tagArray.push("Slight Pain");
       } else if (squatQuestion == 5) {
         tagArray.push("Flexible");
+      } else if (squatQuestion == 1 && !tagArray.includes("Sitting")) {
+        tagArray.push("Sitting");
       }
 
       // Q6
       if (smallHops === "Yes") {
         tagArray.push("Agile");
-      } else {
-        tagArray.push("Sitting6");
+      } else if (!tagArray.includes("Sitting") && smallHops === "No") {
+        tagArray.push("Sitting");
       }
 
-      setTagOutput((tags) => [...tags, tagArray]);
+      setTagOutput((tags) => [...tags, ...tagArray]);
+      // setTagOutput(tagArray); why doesn't this work?
       // Do I need await here - prolly no
       // Below doesn't include full array, how to resolve?
+
       console.log("Form submitted", tagOutput);
 
-      // POST Request here
+      // POST Request here or in useEffect?
 
-      // setStandQuestion("");
-      // setBalanceQuestion("");
-      // setWalkPain(1);
-      // setCalfRaise("");
-      // setSquatQuestion(1);
-      // setSmallHops("");
+      setStandQuestion("");
+      setBalanceQuestion("");
+      setWalkPain(1);
+      setCalfRaise("");
+      setSquatQuestion(1);
+      setSmallHops("");
     } catch (error) {
       console.error("Error in submitting form", error);
     }
@@ -138,6 +121,7 @@ function Questionnaire() {
 
   useEffect(() => {
     console.log("Form is submitted", tagOutput);
+
     // This works
   }, [tagOutput]);
   return (
