@@ -9,13 +9,21 @@ import Questionnaire from "./pages/Questionnaire/Questionnaire.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
+  const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
+  // console.log(VITE_SERVER_PORT, VITE_SERVER_URL);
+  const PORT = VITE_SERVER_PORT || 5050;
+  const baseUrl = `${VITE_SERVER_URL + PORT}`;
+  console.log(baseUrl);
   return (
     <>
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/questionnaire" element={<Questionnaire />} />
+          <Route
+            path="/questionnaire"
+            element={<Questionnaire baseUrl={baseUrl} />}
+          />
           <Route path="/:id/evaluations" element={<PastResults />} />
           <Route path="/login" element={<Login />} />
         </Routes>

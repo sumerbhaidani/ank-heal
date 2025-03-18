@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import "./Questionnaire.scss";
 
-function Questionnaire() {
+function Questionnaire({ baseUrl }) {
   const [standQuestion, setStandQuestion] = useState("");
   const [balanceQuestion, setBalanceQuestion] = useState("");
   const [walkPain, setWalkPain] = useState(1);
@@ -98,16 +99,19 @@ function Questionnaire() {
         tagArray.push("Sitting");
       }
 
-      // tagOutput variable - no state and add
-      // setTagOutput((tags) => [...tags, ...tagArray]);
-      // setTagOutput(tagArray); why doesn't this work?
-      // Do I need await here - prolly no
-      // Below doesn't include full array, how to resolve?
-
-      console.log("Form submitted", tagArray);
-      //state may not be updated
-      // POST Request here or in useEffect?
-
+      console.log("Survey Tag Results: ", tagArray);
+      // POST Request here
+      async function sendResponse() {
+        try {
+          const response = await axios.post(`${baseUrl}/survey`, {
+            survey_tags: tagArray,
+          });
+          console.log(response.data);
+        } catch (e) {
+          console.error("There was an error in submitting your results", e);
+        }
+      }
+      sendResponse();
       setStandQuestion("");
       setBalanceQuestion("");
       setWalkPain(1);
@@ -118,12 +122,6 @@ function Questionnaire() {
       console.error("Error in submitting form", error);
     }
   };
-
-  // useEffect(() => {
-  //   console.log("Form is submitted", tagOutput);
-
-  //   // This works - would post go here
-  // }, [tagOutput]);
   return (
     <form className="question-form" onSubmit={formSubmit}>
       <div className="question-form__single-question">
