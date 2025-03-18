@@ -1,0 +1,15 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.form-modal {
+  color: $background-green;
+  width: max-content;
+  padding: 1rem 2rem;
+  margin: 1rem auto;
+  border-radius: 1rem;
+  text-align: center;
+
+  &__link {
+    color: $background-blue;
+  }
+}

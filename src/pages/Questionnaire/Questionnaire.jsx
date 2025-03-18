@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import FormModal from "../../components/FormModal/FormModal.jsx";
 import "./Questionnaire.scss";
 
 function Questionnaire({ baseUrl }) {
@@ -9,6 +10,12 @@ function Questionnaire({ baseUrl }) {
   const [calfRaise, setCalfRaise] = useState("");
   const [squatQuestion, setSquatQuestion] = useState(1);
   const [smallHops, setSmallHops] = useState("");
+
+  const [isFormSubmit, setisFormSubmit] = useState(false);
+
+  function handleSubmitModal() {
+    setisFormSubmit(!isFormSubmit);
+  }
 
   function handleStandQuestionChange(event) {
     setStandQuestion(event.target.value);
@@ -48,8 +55,11 @@ function Questionnaire({ baseUrl }) {
     try {
       e.preventDefault();
 
-      if (!standQuestion || !balanceQuestion || !calfRaise || !smallHops)
+      if (!standQuestion || !balanceQuestion || !calfRaise || !smallHops) {
+        setisFormSubmit(false);
         return alert("Please respond to all questions");
+      }
+
       let tagArray = [];
 
       // Q1
@@ -103,6 +113,8 @@ function Questionnaire({ baseUrl }) {
 
       sendResponse(tagArray);
 
+      setisFormSubmit(true);
+
       setStandQuestion("");
       setBalanceQuestion("");
       setWalkPain(1);
@@ -115,6 +127,10 @@ function Questionnaire({ baseUrl }) {
   };
   return (
     <form className="question-form" onSubmit={formSubmit}>
+      <h2 className="question-form__instruction">
+        Answer the questions below based on how your ankle feels. Ensure you
+        have enough space to move if needed
+      </h2>
       <div className="question-form__single-question">
         <label htmlFor="" className="question-form__question">
           Are you able to stand on your feet?
@@ -306,6 +322,7 @@ function Questionnaire({ baseUrl }) {
       <button type="submit" className="question-form__button">
         Submit Evaluation
       </button>
+      {isFormSubmit === true ? <FormModal /> : null}
     </form>
   );
 }

@@ -24,7 +24,7 @@ function App() {
             path="/questionnaire"
             element={<Questionnaire baseUrl={baseUrl} />}
           />
-          <Route path="/:id/evaluations" element={<PastResults />} />
+          <Route path="/:id/evaluation" element={<PastResults />} />
           <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
