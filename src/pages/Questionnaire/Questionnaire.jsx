@@ -13,10 +13,6 @@ function Questionnaire({ baseUrl }) {
 
   const [isFormSubmit, setisFormSubmit] = useState(false);
 
-  function handleSubmitModal() {
-    setisFormSubmit(!isFormSubmit);
-  }
-
   function handleStandQuestionChange(event) {
     setStandQuestion(event.target.value);
   }
@@ -46,6 +42,7 @@ function Questionnaire({ baseUrl }) {
       const response = await axios.post(`${baseUrl}/survey`, {
         survey_tags: arr,
       });
+      setisFormSubmit(true);
     } catch (error) {
       console.error("There was an error in submitting your results", error);
     }
@@ -62,20 +59,20 @@ function Questionnaire({ baseUrl }) {
 
       let tagArray = [];
 
-      // Q1
+      // Question 1
       if (standQuestion === "Yes") {
         tagArray.push("Standing");
       } else if (!tagArray.includes("Sitting") && standQuestion === "No") {
         tagArray.push("Sitting");
       }
 
-      // Q2
+      // Question 2
       if (balanceQuestion === "Yes") {
         tagArray.push("One leg balance");
       } else if (!tagArray.includes("Sitting") && balanceQuestion === "No") {
         tagArray.push("Sitting");
       }
-      // Q3
+      // Question 3
       if (walkPain == 1 || walkPain == 2) {
         tagArray.push("Normal Stride");
       } else if (walkPain == 3 || walkPain == 4) {
@@ -84,14 +81,14 @@ function Questionnaire({ baseUrl }) {
         tagArray.push("Sitting");
       }
 
-      // Q4
+      // Question 4
       if (calfRaise === "Yes") {
         tagArray.push("Heel Active");
       } else if (calfRaise === "No" && !tagArray.includes("Sitting")) {
         tagArray.push("Sitting");
       }
 
-      // Q5
+      // Question 5
       if (squatQuestion == 2) {
         tagArray.push("Slight Bend");
       } else if (squatQuestion == 3) {
@@ -104,7 +101,7 @@ function Questionnaire({ baseUrl }) {
         tagArray.push("Sitting");
       }
 
-      // Q6
+      // Question 6
       if (smallHops === "Yes") {
         tagArray.push("Agile");
       } else if (!tagArray.includes("Sitting") && smallHops === "No") {
@@ -112,8 +109,6 @@ function Questionnaire({ baseUrl }) {
       }
 
       sendResponse(tagArray);
-
-      setisFormSubmit(true);
 
       setStandQuestion("");
       setBalanceQuestion("");
