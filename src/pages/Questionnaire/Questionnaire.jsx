@@ -10,36 +10,38 @@ function Questionnaire({ baseUrl }) {
   const [squatQuestion, setSquatQuestion] = useState(1);
   const [smallHops, setSmallHops] = useState("");
 
-  // const [tagOutput, setTagOutput] = useState([]);
-
   function handleStandQuestionChange(event) {
-    // console.log(event.target.value);
     setStandQuestion(event.target.value);
   }
 
   function handleBalanceQuestionChange(e) {
-    // console.log(e.target.value);
     setBalanceQuestion(e.target.value);
   }
 
   const handleWalkPain = (e) => {
-    // console.log(e.target.value);
     setWalkPain(e.target.value);
   };
 
   function handleCalfRaise(e) {
-    // console.log(e.target.value);
     setCalfRaise(e.target.value);
   }
 
   function handleSquatQuestion(e) {
-    // console.log(e.target.value);
     setSquatQuestion(e.target.value);
   }
 
   function handleSmallHops(e) {
-    // console.log(e.target.value);
     setSmallHops(e.target.value);
+  }
+
+  async function sendResponse(arr) {
+    try {
+      const response = await axios.post(`${baseUrl}/survey`, {
+        survey_tags: arr,
+      });
+    } catch (error) {
+      console.error("There was an error in submitting your results", error);
+    }
   }
 
   const formSubmit = async (e) => {
@@ -99,19 +101,8 @@ function Questionnaire({ baseUrl }) {
         tagArray.push("Sitting");
       }
 
-      console.log("Survey Tag Results: ", tagArray);
-      // POST Request here
-      async function sendResponse() {
-        try {
-          const response = await axios.post(`${baseUrl}/survey`, {
-            survey_tags: tagArray,
-          });
-          console.log(response.data);
-        } catch (e) {
-          console.error("There was an error in submitting your results", e);
-        }
-      }
-      sendResponse();
+      sendResponse(tagArray);
+
       setStandQuestion("");
       setBalanceQuestion("");
       setWalkPain(1);
