@@ -19,7 +19,7 @@ function Header() {
         <NavLink to="/questionnaire" className="header__nav-redirect">
           <li className="header__nav-link">Survey</li>
         </NavLink>
-        <NavLink to="/:id/evaluations" className="header__nav-redirect">
+        <NavLink to="/:id/evaluation" className="header__nav-redirect">
           <li className="header__nav-link">Past Evaluations</li>
         </NavLink>
         <NavLink to="/login" className="header__nav-redirect">

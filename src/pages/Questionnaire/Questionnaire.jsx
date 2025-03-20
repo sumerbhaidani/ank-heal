@@ -10,6 +10,7 @@ function Questionnaire({ baseUrl }) {
   const [calfRaise, setCalfRaise] = useState("");
   const [squatQuestion, setSquatQuestion] = useState(1);
   const [smallHops, setSmallHops] = useState("");
+  const [surveyId, setSurveyId] = useState("");
 
   const [isFormSubmit, setisFormSubmit] = useState(false);
 
@@ -42,6 +43,7 @@ function Questionnaire({ baseUrl }) {
       const response = await axios.post(`${baseUrl}/survey`, {
         survey_tags: arr,
       });
+      setSurveyId(response.data.survey_id);
       setisFormSubmit(true);
     } catch (error) {
       console.error("There was an error in submitting your results", error);
@@ -108,7 +110,7 @@ function Questionnaire({ baseUrl }) {
         tagArray.push("Sitting");
       }
 
-      sendResponse(tagArray);
+      await sendResponse(tagArray);
 
       setStandQuestion("");
       setBalanceQuestion("");
@@ -317,7 +319,7 @@ function Questionnaire({ baseUrl }) {
       <button type="submit" className="question-form__button">
         Submit Evaluation
       </button>
-      {isFormSubmit === true ? <FormModal /> : null}
+      {isFormSubmit === true ? <FormModal id={surveyId} /> : null}
     </form>
   );
 }

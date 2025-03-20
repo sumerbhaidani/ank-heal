@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./FormModal.scss";
 
-function FormModal() {
+function FormModal({ id }) {
   return (
     <div className="form-modal">
       <p className="form-modal__success">
@@ -9,7 +9,7 @@ function FormModal() {
       </p>
       <p className="form-modal__redirect">
         Click{" "}
-        <Link to="/:id/evaluation" className="form-modal__link">
+        <Link to={`/${id}/evaluation`} className="form-modal__link">
           here
         </Link>{" "}
         to access your personalized workout list!

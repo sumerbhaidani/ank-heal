@@ -10,10 +10,9 @@ import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
-  // console.log(VITE_SERVER_PORT, VITE_SERVER_URL);
+
   const PORT = VITE_SERVER_PORT || 5050;
   const baseUrl = `${VITE_SERVER_URL + PORT}`;
-  console.log(baseUrl);
   return (
     <>
       <BrowserRouter>
