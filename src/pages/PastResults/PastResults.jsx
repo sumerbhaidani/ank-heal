@@ -2,44 +2,81 @@ import "./PastResults.scss";
 import ExerciseList from "../../components/ExerciseList/ExerciseList.jsx";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 function PastResults({ baseUrl }) {
   const param = useParams();
   const id = param.id;
 
   const [singleSurvey, setSingleSurvey] = useState([]);
 
-  // console.log(`${baseUrl}/survey/${id}`);
-  // async function getSingleSurvey() {
-  //   try {
-  //     const response = await axios.get(`${baseUrl}/survey/${param.id}`);
-  //     console.log(response);
-  //     // setSingleSurvey(response.data);
-  //   } catch (error) {
-  //     console.error("Error retrieving exercise list");
-  //   }
-  // }
   async function getSingleSurvey() {
     try {
-      const response = await fetch(`${baseUrl}/survey/${param.id}`);
-      const data = await response.json(response);
-      setSingleSurvey(data);
+      const response = await axios.get(`${baseUrl}/survey/${id}`);
+      setSingleSurvey(response.data);
     } catch (error) {
       console.error("Error retrieving exercise list");
     }
   }
+
+  const [allExercise, setAllExercise] = useState([]);
+
+  async function getExercises() {
+    try {
+      const response = await axios.get(`${baseUrl}/exercise`);
+      setAllExercise(response.data);
+    } catch (error) {
+      console.error("Unable to retrieve exercise details", error);
+    }
+  }
+
+  // Exercise 1 Iso
+  const exercise1 = allExercise.filter((each) => {
+    return each.exercise_id === singleSurvey.exercise_1;
+  });
+  console.log(exercise1);
+
   useEffect(() => {
     getSingleSurvey();
-  });
+    getExercises();
+  }, []);
   return (
     <div className="past-results">
       <div className="past-results__header">
-        <h4 className="past-results__header-title">Past Results</h4>
-        <p className="past-results__hedaer-info">
-          Listed below are past results from evaluations you have taken. <br />{" "}
-          You will be able to access your most recent exercise plan
-        </p>
+        <h4 className="past-results__header-title">
+          Exercise list for evaluation on:{" "}
+          {new Date(singleSurvey.created_at).toDateString()}{" "}
+        </h4>
       </div>
-      <ExerciseList baseUrl={baseUrl} singleSurvey={singleSurvey} />
+      <div className="exercise-list">
+        {/* {singleSurvey.map((each) => {
+        return <p className="test">{each.survey_tags}</p>;
+      })} */}
+
+        <div className="exercise-list__each">
+          <h5 className="exercise-list__name">{exercise1[0].name}asda</h5>
+          <p className="exercise-list__reason">
+            {exercise1[0].exercise_function}
+          </p>
+          <ol className="exercise-list__steps">
+            <li className="exercise-list__each-step">First step</li>
+            <li className="exercise-list__each-step">Second step</li>
+            <li className="exercise-list__each-step">Third step</li>
+          </ol>
+          <p className="exercise-list__sets">Sets: db-sets</p>
+          <p className="exercise-list__reps">Reps: db-reps</p>
+        </div>
+        <div className="exercise-list__each">
+          <h5 className="exercise-list__name">Workout name</h5>
+          <p className="exercise-list__reason">What it does</p>
+          <ol className="exercise-list__steps">
+            <li className="exercise-list__each-step">First step</li>
+            <li className="exercise-list__each-step">Second step</li>
+            <li className="exercise-list__each-step">Third step</li>
+          </ol>
+          <p className="exercise-list__sets">Sets: db-sets</p>
+          <p className="exercise-list__reps">Reps: db-reps</p>
+        </div>
+      </div>
     </div>
   );
 }
