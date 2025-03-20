@@ -53,10 +53,8 @@ function PastResults({ baseUrl }) {
       })} */}
 
         <div className="exercise-list__each">
-          <h5 className="exercise-list__name">{exercise1[0].name}asda</h5>
-          <p className="exercise-list__reason">
-            {exercise1[0].exercise_function}
-          </p>
+          <h5 className="exercise-list__name">name</h5>
+          <p className="exercise-list__reason">function</p>
           <ol className="exercise-list__steps">
             <li className="exercise-list__each-step">First step</li>
             <li className="exercise-list__each-step">Second step</li>
