@@ -9,7 +9,7 @@ function FormModal({ id }) {
       </p>
       <p className="form-modal__redirect">
         Click{" "}
-        <Link to={`/${id}/evaluation`} className="form-modal__link">
+        <Link to={`/evaluation/${id}`} className="form-modal__link">
           here
         </Link>{" "}
         to access your personalized workout list!

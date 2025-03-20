@@ -7,6 +7,7 @@ import Login from "./pages/Login/Login.jsx";
 import PastResults from "./pages/PastResults/PastResults.jsx";
 import Questionnaire from "./pages/Questionnaire/Questionnaire.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import AllResults from "./pages/AllResults/AllResults.jsx";
 
 function App() {
   const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
@@ -23,7 +24,14 @@ function App() {
             path="/questionnaire"
             element={<Questionnaire baseUrl={baseUrl} />}
           />
-          <Route path="/:id/evaluation" element={<PastResults />} />
+          <Route
+            path="/evaluation"
+            element={<AllResults baseUrl={baseUrl} />}
+          />
+          <Route
+            path="/evaluation/:id"
+            element={<PastResults baseUrl={baseUrl} />}
+          />
           <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
