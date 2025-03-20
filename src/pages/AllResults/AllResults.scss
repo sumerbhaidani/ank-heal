@@ -1,0 +1,42 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.all-results {
+  margin: 1rem;
+  @include tablet {
+    margin: 1rem 2rem;
+  }
+  &__categories {
+    padding: 0.5rem 1rem;
+    background-color: $light-gray;
+  }
+  &__date {
+    margin: 0rem;
+  }
+  &__full {
+    padding: 0rem;
+  }
+  &__each {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px $light-gray solid;
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+  &__link {
+    color: $white;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__redirect {
+    background-color: $background-blue;
+    padding: 1rem;
+    border-radius: 2.5rem;
+    margin: 0.5rem 0rem;
+  }
+}
