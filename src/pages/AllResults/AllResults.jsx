@@ -9,7 +9,6 @@ function AllResults({ baseUrl }) {
     try {
       const response = await axios.get(`${baseUrl}/survey`);
       setAllSurveys(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error("Unable to retrieve all results", error);
     }
@@ -23,7 +22,8 @@ function AllResults({ baseUrl }) {
       <h2 className="all-results__header">Past evaluations</h2>
       <p className="all-results__page-info">
         Attached below are results from all your past evaluations. Please click
-        a page below to view the exercises
+        a page below to view the exercises. <br /> It is recommended to an
+        evalution every week if injured.
       </p>
       <div className="all-results__categories">
         <h4 className="all-results__date">Date Evaluated</h4>
