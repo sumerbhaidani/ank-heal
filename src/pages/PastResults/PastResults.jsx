@@ -1,5 +1,4 @@
 import "./PastResults.scss";
-import ExerciseList from "../../components/ExerciseList/ExerciseList.jsx";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -29,11 +28,23 @@ function PastResults({ baseUrl }) {
     }
   }
 
-  // Exercise 1 Iso
+  // Locate Exercise 1
   const exercise1 = allExercise.filter((each) => {
     return each.exercise_id === singleSurvey.exercise_1;
   });
-  console.log(exercise1);
+
+  // Locate Exercise 2
+  const exercise2 = allExercise.filter((each) => {
+    return each.exercise_id === singleSurvey.exercise_2;
+  });
+
+  // Locate Exercise 3
+  const exercise3 = allExercise.filter((each) => {
+    return each.exercise_id === singleSurvey.exercise_3;
+  });
+  console.log(exercise1[0]?.exercise_id);
+  console.log(exercise2[0]?.exercise_id);
+  console.log(exercise3[0]?.exercise_id);
 
   useEffect(() => {
     getSingleSurvey();
@@ -46,35 +57,73 @@ function PastResults({ baseUrl }) {
           Exercise list for evaluation on:{" "}
           {new Date(singleSurvey.created_at).toDateString()}{" "}
         </h4>
+        <h6 className="past-results__id">List ID: {singleSurvey.survey_id}</h6>
       </div>
       <div className="exercise-list">
-        {/* {singleSurvey.map((each) => {
-        return <p className="test">{each.survey_tags}</p>;
-      })} */}
-
         <div className="exercise-list__each">
-          <h5 className="exercise-list__name">{exercise1[0].name}asda</h5>
+          <h5 className="exercise-list__name">{exercise1[0]?.name}</h5>
           <p className="exercise-list__reason">
-            {exercise1[0].exercise_function}
+            {exercise1[0]?.exercise_function}
           </p>
           <ol className="exercise-list__steps">
-            <li className="exercise-list__each-step">First step</li>
-            <li className="exercise-list__each-step">Second step</li>
-            <li className="exercise-list__each-step">Third step</li>
+            <p className="exercise-list__steps-title">Steps:</p>
+
+            {exercise1[0]?.exercise_steps.map((each) => {
+              return (
+                <li
+                  key={`1${exercise1[0]?.exercise_id}`}
+                  className="exercise-list__each-step"
+                >
+                  {each}
+                </li>
+              );
+            })}
           </ol>
-          <p className="exercise-list__sets">Sets: db-sets</p>
-          <p className="exercise-list__reps">Reps: db-reps</p>
+          <p className="exercise-list__sets">Sets: {exercise2[0]?.sets}</p>
+          <p className="exercise-list__reps">Reps: {exercise2[0]?.reps}</p>
         </div>
         <div className="exercise-list__each">
-          <h5 className="exercise-list__name">Workout name</h5>
-          <p className="exercise-list__reason">What it does</p>
+          <h5 className="exercise-list__name">{exercise2[0]?.name}</h5>
+          <p className="exercise-list__reason">
+            {exercise2[0]?.exercise_function}
+          </p>
           <ol className="exercise-list__steps">
-            <li className="exercise-list__each-step">First step</li>
-            <li className="exercise-list__each-step">Second step</li>
-            <li className="exercise-list__each-step">Third step</li>
+            <p className="exercise-list__steps-title">Steps:</p>
+            {exercise2[0]?.exercise_steps.map((each) => {
+              return (
+                <li
+                  key={`2${exercise2[0]?.exercise_id}`}
+                  className="exercise-list__each-step"
+                >
+                  {each}
+                </li>
+              );
+            })}
           </ol>
-          <p className="exercise-list__sets">Sets: db-sets</p>
-          <p className="exercise-list__reps">Reps: db-reps</p>
+          <p className="exercise-list__sets">Sets: {exercise2[0]?.sets}</p>
+          <p className="exercise-list__reps">Reps: {exercise2[0]?.reps}</p>
+        </div>
+        <div className="exercise-list__each">
+          <h5 className="exercise-list__name">{exercise3[0]?.name}</h5>
+          <p className="exercise-list__reason">
+            {exercise3[0]?.exercise_function}
+          </p>
+          <ol className="exercise-list__steps">
+            <p className="exercise-list__steps-title">Steps:</p>
+
+            {exercise3[0]?.exercise_steps.map((each) => {
+              return (
+                <li
+                  key={`3${exercise3[0]?.exercise_id}`}
+                  className="exercise-list__each-step"
+                >
+                  {each}
+                </li>
+              );
+            })}
+          </ol>
+          <p className="exercise-list__sets">Sets: {exercise3[0]?.sets}</p>
+          <p className="exercise-list__reps">Reps: {exercise3[0]?.reps}</p>
         </div>
       </div>
     </div>
