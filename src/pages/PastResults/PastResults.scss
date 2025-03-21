@@ -2,7 +2,8 @@
 @use "../../styles/partials/variables" as *;
 
 .past-results {
-  padding: 2rem;
+  margin: 0rem 3rem;
+  padding: 2rem 0rem 6rem;
   &__header {
     display: flex;
     flex-direction: column;
@@ -23,6 +24,7 @@
 .exercise-list {
   display: flex;
   flex-direction: column;
+
   &__each {
     display: flex;
     flex-flow: row wrap;

@@ -42,9 +42,6 @@ function PastResults({ baseUrl }) {
   const exercise3 = allExercise.filter((each) => {
     return each.exercise_id === singleSurvey.exercise_3;
   });
-  // console.log(exercise1[0]?.exercise_id);
-  // console.log(exercise2[0]?.exercise_id);
-  // console.log(exercise3[0]?.exercise_id);
 
   useEffect(() => {
     getSingleSurvey();
@@ -55,7 +52,11 @@ function PastResults({ baseUrl }) {
       <div className="past-results__header">
         <h4 className="past-results__header-title">
           Exercise list for evaluation on:{" "}
-          {new Date(singleSurvey.created_at).toDateString()}{" "}
+          {new Date(singleSurvey.created_at).toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })}{" "}
         </h4>
         <h6 className="past-results__id">List ID: {singleSurvey.survey_id}</h6>
       </div>
@@ -68,12 +69,9 @@ function PastResults({ baseUrl }) {
           <ol className="exercise-list__steps">
             <p className="exercise-list__steps-title">Steps:</p>
 
-            {exercise1[0]?.exercise_steps.map((each) => {
+            {exercise1[0]?.exercise_steps.map((each, index) => {
               return (
-                <li
-                  key={`1${exercise1[0]?.exercise_id}`}
-                  className="exercise-list__each-step"
-                >
+                <li key={index} className="exercise-list__each-step">
                   {each}
                 </li>
               );
@@ -93,12 +91,9 @@ function PastResults({ baseUrl }) {
           </p>
           <ol className="exercise-list__steps">
             <p className="exercise-list__steps-title">Steps:</p>
-            {exercise2[0]?.exercise_steps.map((each) => {
+            {exercise2[0]?.exercise_steps.map((each, index) => {
               return (
-                <li
-                  key={`2${exercise2[0]?.exercise_id}`}
-                  className="exercise-list__each-step"
-                >
+                <li key={index} className="exercise-list__each-step">
                   {each}
                 </li>
               );
@@ -119,12 +114,9 @@ function PastResults({ baseUrl }) {
           <ol className="exercise-list__steps">
             <p className="exercise-list__steps-title">Steps:</p>
 
-            {exercise3[0]?.exercise_steps.map((each) => {
+            {exercise3[0]?.exercise_steps.map((each, index) => {
               return (
-                <li
-                  key={`3${exercise3[0]?.exercise_id}`}
-                  className="exercise-list__each-step"
-                >
+                <li key={index} className="exercise-list__each-step">
                   {each}
                 </li>
               );

@@ -37,9 +37,9 @@ function HomePage() {
           Your ankles may be healthy, but there's always more you can do
           strengthen them! Click the link below to take a free evaluation
         </h4>
-        <Link to="/login">
+        <Link to="/questionnaire">
           <button className="home-page__login-redirect">
-            Create an Account & Take an Evaluation Now!
+            Take a Free 2 Minute Evaluation Now!
           </button>
         </Link>
       </div>

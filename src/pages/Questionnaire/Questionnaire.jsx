@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import FormModal from "../../components/FormModal/FormModal.jsx";
 import "./Questionnaire.scss";
@@ -315,11 +315,10 @@ function Questionnaire({ baseUrl }) {
           </label>
         </div>
       </div>
-
+      {isFormSubmit === true ? <FormModal id={surveyId} /> : null}
       <button type="submit" className="question-form__button">
         Submit Evaluation
       </button>
-      {isFormSubmit === true ? <FormModal id={surveyId} /> : null}
     </form>
   );
 }

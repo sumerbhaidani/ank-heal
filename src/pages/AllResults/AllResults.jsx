@@ -8,7 +8,10 @@ function AllResults({ baseUrl }) {
   async function getAllResults() {
     try {
       const response = await axios.get(`${baseUrl}/survey`);
-      setAllSurveys(response.data);
+      const sortedData = response.data.sort((a, b) => {
+        return b.created_at - a.created_at;
+      });
+      setAllSurveys(sortedData);
     } catch (error) {
       console.error("Unable to retrieve all results", error);
     }
@@ -33,7 +36,11 @@ function AllResults({ baseUrl }) {
           return (
             <div className="all-results__each" key={each.survey_id}>
               <h4 className="all-results__date">
-                {new Date(each.created_at).toDateString()}
+                {new Date(each.created_at).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}{" "}
               </h4>
               <p className="all-results__redirect">
                 <Link

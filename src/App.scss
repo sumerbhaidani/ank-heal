@@ -19,6 +19,9 @@ button {
   padding: 1rem;
   border-radius: 2rem;
   color: $white;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 datalist {

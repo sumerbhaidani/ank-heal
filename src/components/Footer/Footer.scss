@@ -3,7 +3,7 @@
 .footer {
   background-color: $background-blue;
   color: $white;
-  position: bottom;
+  position: fixed;
   bottom: 0rem;
   width: 100%;
   &__disclaimer {
