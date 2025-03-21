@@ -284,7 +284,8 @@ function Questionnaire({ baseUrl }) {
       </div>
       <div className="question-form__single-question">
         <label htmlFor="" className="question-form__question">
-          Are you able to take small hops
+          Are you able to take 5 small hops, with each hop landing about 1.5
+          feet away from your starting position?
         </label>
         <div className="question-form__response">
           <input

@@ -1,9 +1,32 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .home-page {
   margin: 0rem 3rem;
   padding: 2rem 0rem 6rem;
+  font-family: "Outfit";
   &__cta {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+  }
+  &__stat {
+    @include text-style(1.5rem, 600, 1.75rem);
+    margin-bottom: 0rem;
+    &-source {
+      margin-top: 0rem;
+      width: max-content;
+      margin-left: auto;
+      color: $background-blue;
+    }
+    &-link {
+      color: $background-blue;
+    }
+    &-info {
+      font-weight: 400;
+    }
+  }
+  &__link {
+    margin: 0rem auto;
   }
 }

@@ -25,7 +25,7 @@ function AllResults({ baseUrl }) {
       <h2 className="all-results__header">Past evaluations</h2>
       <p className="all-results__page-info">
         Attached below are results from all your past evaluations. Please click
-        a page below to view the exercises. <br /> It is recommended to an
+        a page below to view the exercises. <br /> It is recommended to do an
         evalution every week if injured.
       </p>
       <div className="all-results__categories">
@@ -42,14 +42,12 @@ function AllResults({ baseUrl }) {
                   year: "numeric",
                 })}{" "}
               </h4>
-              <p className="all-results__redirect">
-                <Link
-                  to={`/evaluation/${each.survey_id}`}
-                  className="all-results__link"
-                >
-                  Open Exercise List
-                </Link>
-              </p>
+              <Link
+                to={`/evaluation/${each.survey_id}`}
+                className="all-results__link"
+              >
+                <p className="all-results__redirect">Open Exercise List</p>
+              </Link>
             </div>
           );
         })}

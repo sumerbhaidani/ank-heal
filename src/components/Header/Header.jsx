@@ -17,7 +17,7 @@ function Header() {
       </Link>
       <ul className="header__nav-bar">
         <NavLink to="/questionnaire" className="header__nav-redirect">
-          <li className="header__nav-link">Survey</li>
+          <li className="header__nav-link">Evaluation Form</li>
         </NavLink>
         <NavLink to="/evaluation" className="header__nav-redirect">
           <li className="header__nav-link">Past Evaluations</li>

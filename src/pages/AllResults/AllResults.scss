@@ -27,13 +27,15 @@
       background-color: $light-gray;
     }
   }
+  &__redirect {
+    margin: 0rem;
+  }
   &__link {
     color: $white;
     text-decoration: none;
     padding: 1rem;
     background-color: $background-blue;
-    border-radius: 2.5rem;
-    margin: 0.5rem 0rem;
+    border-radius: 2rem;
     &:hover {
       text-decoration: underline;
     }

@@ -15,9 +15,21 @@
     @include desktop {
       @include text-style(1.25rem, 600, 1.5rem);
     }
+    &-title {
+      margin: 1rem 0rem;
+      @include tablet {
+        margin: 1.5rem 0rem;
+      }
+    }
   }
   &__id {
     color: $dark-gray;
+    margin: 0rem 0rem 1rem;
+
+    @include tablet {
+      margin: 1.5rem 0rem;
+      align-self: center;
+    }
   }
 }
 
@@ -28,7 +40,10 @@
   &__each {
     display: flex;
     flex-flow: row wrap;
-    border-bottom: 2px $light-gray dotted;
+    border-bottom: 2px $dark-gray dotted;
+    @include tablet {
+      padding: 0rem 1rem;
+    }
     &-step {
       margin-left: 1.5rem;
       padding-bottom: 0.125rem;
@@ -46,7 +61,11 @@
     }
   }
   &__reason {
+    display: none;
     margin: 1rem 0rem 1rem auto;
+    @include tablet {
+      display: flex;
+    }
   }
   &__sets {
     margin-right: 2rem;

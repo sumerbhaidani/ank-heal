@@ -78,10 +78,10 @@ function PastResults({ baseUrl }) {
             })}
           </ol>
           <p className="exercise-list__sets">
-            <span>Sets: </span> {exercise2[0]?.sets}
+            <span>Sets: </span> {exercise1[0]?.sets}
           </p>
           <p className="exercise-list__reps">
-            <span>Reps: </span> {exercise2[0]?.reps}
+            <span>Reps: </span> {exercise1[0]?.reps}
           </p>
         </div>
         <div className="exercise-list__each">
