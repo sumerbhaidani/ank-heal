@@ -1,3 +1,56 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .past-results {
   padding: 2rem;
+  &__header {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px $black solid;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    @include desktop {
+      @include text-style(1.25rem, 600, 1.5rem);
+    }
+  }
+  &__id {
+    color: $dark-gray;
+  }
+}
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  &__each {
+    display: flex;
+    flex-flow: row wrap;
+    border-bottom: 2px $light-gray dotted;
+    &-step {
+      margin-left: 1.5rem;
+      padding-bottom: 0.125rem;
+    }
+  }
+  &__name {
+    font-weight: 600;
+  }
+  &__steps {
+    width: 100%;
+    margin: 0rem;
+    padding: 0rem;
+    &-title {
+      margin-top: 0rem;
+    }
+  }
+  &__reason {
+    margin: 1rem 0rem 1rem auto;
+  }
+  &__sets {
+    margin-right: 2rem;
+  }
+}
+
+span {
+  font-weight: 600;
 }

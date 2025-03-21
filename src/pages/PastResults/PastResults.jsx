@@ -42,9 +42,9 @@ function PastResults({ baseUrl }) {
   const exercise3 = allExercise.filter((each) => {
     return each.exercise_id === singleSurvey.exercise_3;
   });
-  console.log(exercise1[0]?.exercise_id);
-  console.log(exercise2[0]?.exercise_id);
-  console.log(exercise3[0]?.exercise_id);
+  // console.log(exercise1[0]?.exercise_id);
+  // console.log(exercise2[0]?.exercise_id);
+  // console.log(exercise3[0]?.exercise_id);
 
   useEffect(() => {
     getSingleSurvey();
@@ -61,7 +61,7 @@ function PastResults({ baseUrl }) {
       </div>
       <div className="exercise-list">
         <div className="exercise-list__each">
-          <h5 className="exercise-list__name">{exercise1[0]?.name}</h5>
+          <p className="exercise-list__name">{exercise1[0]?.name}</p>
           <p className="exercise-list__reason">
             {exercise1[0]?.exercise_function}
           </p>
@@ -79,11 +79,15 @@ function PastResults({ baseUrl }) {
               );
             })}
           </ol>
-          <p className="exercise-list__sets">Sets: {exercise2[0]?.sets}</p>
-          <p className="exercise-list__reps">Reps: {exercise2[0]?.reps}</p>
+          <p className="exercise-list__sets">
+            <span>Sets: </span> {exercise2[0]?.sets}
+          </p>
+          <p className="exercise-list__reps">
+            <span>Reps: </span> {exercise2[0]?.reps}
+          </p>
         </div>
         <div className="exercise-list__each">
-          <h5 className="exercise-list__name">{exercise2[0]?.name}</h5>
+          <p className="exercise-list__name">{exercise2[0]?.name}</p>
           <p className="exercise-list__reason">
             {exercise2[0]?.exercise_function}
           </p>
@@ -100,11 +104,15 @@ function PastResults({ baseUrl }) {
               );
             })}
           </ol>
-          <p className="exercise-list__sets">Sets: {exercise2[0]?.sets}</p>
-          <p className="exercise-list__reps">Reps: {exercise2[0]?.reps}</p>
+          <p className="exercise-list__sets">
+            <span>Sets: </span> {exercise2[0]?.sets}
+          </p>
+          <p className="exercise-list__reps">
+            <span>Reps: </span> {exercise2[0]?.reps}
+          </p>
         </div>
         <div className="exercise-list__each">
-          <h5 className="exercise-list__name">{exercise3[0]?.name}</h5>
+          <p className="exercise-list__name">{exercise3[0]?.name}</p>
           <p className="exercise-list__reason">
             {exercise3[0]?.exercise_function}
           </p>
@@ -122,8 +130,12 @@ function PastResults({ baseUrl }) {
               );
             })}
           </ol>
-          <p className="exercise-list__sets">Sets: {exercise3[0]?.sets}</p>
-          <p className="exercise-list__reps">Reps: {exercise3[0]?.reps}</p>
+          <p className="exercise-list__sets">
+            <span>Sets: </span> {exercise3[0]?.sets}
+          </p>
+          <p className="exercise-list__reps">
+            <span>Reps: </span> {exercise3[0]?.reps}
+          </p>
         </div>
       </div>
     </div>
