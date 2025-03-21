@@ -5,6 +5,11 @@
   flex-direction: column;
   margin: 0rem 3rem;
   padding: 2rem 0rem 6rem;
+  font-family: "Outfit";
+  font-weight: 400;
+  &__instruction {
+    font-weight: 400;
+  }
   &__single-question {
     padding-bottom: 1rem;
     &--slider {
@@ -14,6 +19,7 @@
   }
   &__range-response {
     width: 100%;
+    margin: 0rem;
     @include desktop {
       width: 75%;
       display: flex;

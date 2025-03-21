@@ -4,8 +4,14 @@
 .all-results {
   margin: 0rem 3rem;
   padding: 2rem 0rem 6rem;
+  font-family: "Outfit";
+  font-weight: 400;
   @include tablet {
     margin: 1rem 2rem;
+  }
+  &__header {
+    text-decoration: underline;
+    font-weight: 400;
   }
   &__categories {
     padding: 0.5rem 1rem;
@@ -13,6 +19,7 @@
   }
   &__date {
     margin: 0rem;
+    font-weight: 400;
   }
   &__full {
     padding: 0rem;
@@ -29,6 +36,7 @@
   }
   &__redirect {
     margin: 0rem;
+    font-weight: 400;
   }
   &__link {
     color: $white;

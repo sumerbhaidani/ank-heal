@@ -22,7 +22,7 @@ function AllResults({ baseUrl }) {
   }, []);
   return (
     <div className="all-results">
-      <h2 className="all-results__header">Past evaluations</h2>
+      <h2 className="all-results__header">Past Evaluations</h2>
       <p className="all-results__page-info">
         Attached below are results from all your past evaluations. Please click
         a page below to view the exercises. <br /> It is recommended to do an

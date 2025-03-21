@@ -16,17 +16,35 @@
     &-source {
       margin-top: 0rem;
       width: max-content;
-      margin-left: auto;
       color: $background-blue;
     }
     &-link {
+      width: max-content;
+      margin-left: auto;
       color: $background-blue;
     }
     &-info {
       font-weight: 400;
     }
   }
+  &__explanation {
+    text-align: center;
+    font-weight: 400;
+  }
   &__link {
     margin: 0rem auto;
+    color: $white;
+    text-decoration: none;
+    padding: 1rem;
+    background-color: $background-blue;
+    border-radius: 2rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__redirect {
+    margin: 0rem;
+    @include text-style(1rem, 400, 1.25rem);
   }
 }

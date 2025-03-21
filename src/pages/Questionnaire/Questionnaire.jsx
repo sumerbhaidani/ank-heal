@@ -126,7 +126,7 @@ function Questionnaire({ baseUrl }) {
     <form className="question-form" onSubmit={formSubmit}>
       <h2 className="question-form__instruction">
         Answer the questions below based on how your ankle feels. Ensure you
-        have enough space to move if needed
+        have enough space to move if needed.
       </h2>
       <div className="question-form__single-question">
         <label htmlFor="" className="question-form__question">
