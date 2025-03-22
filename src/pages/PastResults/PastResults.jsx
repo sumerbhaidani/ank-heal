@@ -43,6 +43,11 @@ function PastResults({ baseUrl }) {
     return each.exercise_id === singleSurvey.exercise_3;
   });
 
+  // Locate Exercise 4
+  const exercise4 = allExercise.filter((each) => {
+    return each.exercise_id === singleSurvey.exercise_4;
+  });
+
   useEffect(() => {
     getSingleSurvey();
     getExercises();
@@ -127,6 +132,29 @@ function PastResults({ baseUrl }) {
           </p>
           <p className="exercise-list__reps">
             <span>Reps: </span> {exercise3[0]?.reps}
+          </p>
+        </div>
+        <div className="exercise-list__each">
+          <p className="exercise-list__name">{exercise4[0]?.name}</p>
+          <p className="exercise-list__reason">
+            {exercise4[0]?.exercise_function}
+          </p>
+          <ol className="exercise-list__steps">
+            <p className="exercise-list__steps-title">Steps:</p>
+
+            {exercise4[0]?.exercise_steps.map((each, index) => {
+              return (
+                <li key={index} className="exercise-list__each-step">
+                  {each}
+                </li>
+              );
+            })}
+          </ol>
+          <p className="exercise-list__sets">
+            <span>Sets: </span> {exercise4[0]?.sets}
+          </p>
+          <p className="exercise-list__reps">
+            <span>Reps: </span> {exercise4[0]?.reps}
           </p>
         </div>
       </div>

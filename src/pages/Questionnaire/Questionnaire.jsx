@@ -71,8 +71,8 @@ function Questionnaire({ baseUrl }) {
       // Question 2
       if (balanceQuestion === "Yes") {
         tagArray.push("One leg balance");
-      } else if (!tagArray.includes("Sitting") && balanceQuestion === "No") {
-        tagArray.push("Sitting");
+      } else if (balanceQuestion === "No") {
+        tagArray.push("No Balance");
       }
       // Question 3
       if (walkPain == 1 || walkPain == 2) {
