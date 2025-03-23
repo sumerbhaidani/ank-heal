@@ -11,6 +11,7 @@ import AllResults from "./pages/AllResults/AllResults.jsx";
 import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { AuthContextProvider } from "./utils/AuthContext.jsx";
 
 function App() {
   const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
@@ -43,26 +44,28 @@ function App() {
   // }
   return (
     <>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/questionnaire"
-            element={<Questionnaire baseUrl={baseUrl} />}
-          />
-          <Route
-            path="/evaluation"
-            element={<AllResults baseUrl={baseUrl} />}
-          />
-          <Route
-            path="/evaluation/:id"
-            element={<PastResults baseUrl={baseUrl} />}
-          />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <AuthContextProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/questionnaire"
+              element={<Questionnaire baseUrl={baseUrl} />}
+            />
+            <Route
+              path="/evaluation"
+              element={<AllResults baseUrl={baseUrl} />}
+            />
+            <Route
+              path="/evaluation/:id"
+              element={<PastResults baseUrl={baseUrl} />}
+            />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </AuthContextProvider>
     </>
   );
 }
