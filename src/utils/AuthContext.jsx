@@ -21,7 +21,23 @@ export function AuthContextProvider({ children }) {
   };
 
   //   Sign In
-
+  const signInUser = async ({ email, password }) => {
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
+      if (error) {
+        console.error("Not able to sign in user:", error);
+        return { success: false, error: error.message };
+      }
+      //   Remove console.log before submit
+      console.log("Sign in success: ", data);
+      return { success: true, data };
+    } catch (error) {
+      console.error("Unable to sign in user: ", error);
+    }
+  };
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
@@ -41,7 +57,9 @@ export function AuthContextProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ session, signUpNewUser, signOut }}>
+    <AuthContext.Provider
+      value={{ session, signUpNewUser, signOut, signInUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

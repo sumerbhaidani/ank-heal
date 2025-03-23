@@ -8,10 +8,12 @@ import PastResults from "./pages/PastResults/PastResults.jsx";
 import Questionnaire from "./pages/Questionnaire/Questionnaire.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import AllResults from "./pages/AllResults/AllResults.jsx";
+import SignUp from "./pages/SignUp/SignUp.jsx";
 import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { AuthContextProvider } from "./utils/AuthContext.jsx";
+import LoginDashboard from "./pages/LoginDashboard/LoginDashboard.jsx";
 
 function App() {
   const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
@@ -61,7 +63,9 @@ function App() {
               path="/evaluation/:id"
               element={<PastResults baseUrl={baseUrl} />}
             />
-            <Route path="/login" element={<Login />} />
+            <Route path="/user" element={<Login />} />
+            <Route path="/user/signup" element={<SignUp />} />
+            <Route path="/user/:userId" element={<LoginDashboard />} />
           </Routes>
           <Footer />
         </BrowserRouter>

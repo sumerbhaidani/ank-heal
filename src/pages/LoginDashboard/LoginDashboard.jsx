@@ -5,3 +5,5 @@ function LoginDashboard() {
     </div>
   );
 }
+
+export default LoginDashboard;
