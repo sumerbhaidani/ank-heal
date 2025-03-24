@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import FormModal from "../../components/FormModal/FormModal.jsx";
 import "./Questionnaire.scss";
+import { UserAuth } from "../../utils/AuthContext.jsx";
 
 function Questionnaire({ baseUrl }) {
   const [standQuestion, setStandQuestion] = useState("");
@@ -13,6 +14,10 @@ function Questionnaire({ baseUrl }) {
   const [surveyId, setSurveyId] = useState("");
 
   const [isFormSubmit, setisFormSubmit] = useState(false);
+
+  const rawUserInfo = localStorage.getItem("userInfo");
+  const strUserInfo = JSON.parse(rawUserInfo);
+  const userId = strUserInfo.user.id;
 
   function handleStandQuestionChange(event) {
     setStandQuestion(event.target.value);
@@ -37,11 +42,11 @@ function Questionnaire({ baseUrl }) {
   function handleSmallHops(e) {
     setSmallHops(e.target.value);
   }
-
-  async function sendResponse(arr) {
+  async function sendResponse(arr, id) {
     try {
       const response = await axios.post(`${baseUrl}/survey`, {
         survey_tags: arr,
+        user_id: id,
       });
       setSurveyId(response.data.survey_id);
       setisFormSubmit(true);
@@ -110,7 +115,7 @@ function Questionnaire({ baseUrl }) {
         tagArray.push("Sitting");
       }
 
-      await sendResponse(tagArray);
+      await sendResponse(tagArray, userId);
 
       setStandQuestion("");
       setBalanceQuestion("");
