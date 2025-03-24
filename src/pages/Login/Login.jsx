@@ -1,11 +1,7 @@
 import "./Login.scss";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { createClient } from "@supabase/supabase-js";
-import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { UserAuth } from "../../utils/AuthContext.jsx";
-import { supabase } from "../../utils/SupabaseClient.jsx";
 import { Link } from "react-router-dom";
 
 function Login() {
@@ -17,7 +13,6 @@ function Login() {
   const { session, signInUser } = UserAuth();
   const navigate = useNavigate();
 
-  console.log(session);
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -42,16 +37,23 @@ function Login() {
       localStorage.setItem("userInfo", JSON.stringify(response.data));
 
       if (response.success) {
-        await navigate(`/user/dashboard`);
+        navigate(`/user/dashboard`);
+      } else if (!response.success) {
+        alert(response.error);
       }
     } catch (error) {
-      SetError(false);
+      SetError(true);
       console.error("Unable to login user: ", error);
-    } finally {
-      setLoading(false);
     }
   }
 
+  useEffect(() => {
+    if (!session) {
+      return;
+    } else {
+      navigate("/user/dashboard");
+    }
+  }, []);
   return (
     <form onSubmit={handleSignIn} className="login-form">
       <label htmlFor="" className="login-form__label">
@@ -75,13 +77,13 @@ function Login() {
         onChange={handlePasswordChange}
       />
       <button className="login-form__submit-button">Login</button>
-
-      <Link to="/user/signup">
-        <p className="login-form__sign-up">Create an Account!</p>
+      {error === true ? <p>Login failed, please try again</p> : null}
+      <Link to="/user/signup" className="login-form__redirect">
+        <p className="login-form__sign-up">Create an Account</p>
       </Link>
-      <Link to="/user/signup">
+      {/* <Link to="/user/signup">
         <p className="login-form__forgot-pass">Forgot your password?</p>
-      </Link>
+      </Link> */}
     </form>
   );
 }

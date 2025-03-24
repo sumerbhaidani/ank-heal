@@ -8,9 +8,6 @@ function LoginDashboard() {
   const { session, signOut } = UserAuth();
   const navigate = useNavigate();
 
-  console.log(session);
-  console.log(param);
-
   async function handleSignOut(e) {
     e.preventDefault();
     try {

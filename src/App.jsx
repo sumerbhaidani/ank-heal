@@ -19,28 +19,6 @@ function App() {
   const PORT = VITE_SERVER_PORT || 5050;
   const baseUrl = `${VITE_SERVER_URL + PORT}`;
 
-  // Supabase Login
-  // const supabase = createClient(VITE_SUPABASE_URL, VITE_SUPABASE_KEY);
-
-  // const [session, setSession] = useState(null);
-  // useEffect(() => {
-  //   supabase.auth.getSession().then(({ data: { session } }) => {
-  //     setSession(session);
-  //   });
-  //   const {
-  //     data: { subscription },
-  //   } = supabase.auth.onAuthStateChange((_event, session) => {
-  //     setSession(session);
-  //   });
-  //   return () => subscription.unsubscribe();
-  // }, []);
-
-  // // if/else had return in them
-  // if (!session) {
-  //   <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
-  // } else {
-  //   <div>Logged in!</div>;
-  // }
   return (
     <AuthContextProvider>
       <BrowserRouter>
