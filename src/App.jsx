@@ -10,6 +10,7 @@ import AllResults from "./pages/AllResults/AllResults.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
 import { AuthContextProvider } from "./utils/AuthContext.jsx";
 import LoginDashboard from "./pages/LoginDashboard/LoginDashboard.jsx";
+import PrivateRoute from "./utils/PrivateRoute.jsx";
 
 function App() {
   const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
@@ -60,7 +61,14 @@ function App() {
           />
           <Route path="/user" element={<Login />} />
           <Route path="/user/signup" element={<SignUp />} />
-          <Route path="/user/dashboard" element={<LoginDashboard />} />
+          <Route
+            path="/user/dashboard"
+            element={
+              <PrivateRoute>
+                <LoginDashboard />{" "}
+              </PrivateRoute>
+            }
+          />
         </Routes>
         <Footer />
       </BrowserRouter>

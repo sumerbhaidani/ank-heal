@@ -3,7 +3,11 @@ import { UserAuth } from "./AuthContext.jsx";
 
 function PrivateRoute({ children }) {
   const { session } = UserAuth();
-  return <>{session ? <>{children}</> : <Navigate to={"/user/signup"} />}</>;
+  console.log(session);
+  if (session === undefined) {
+    return <h2>Loading...</h2>;
+  }
+  return <>{session ? <>{children}</> : <Navigate to={"/user/"} />}</>;
 }
 
 export default PrivateRoute;
