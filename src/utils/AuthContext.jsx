@@ -9,9 +9,11 @@ export function AuthContextProvider({ children }) {
   //   Sign Up
   const signUpNewUser = async (name, email, password) => {
     const { data, error } = await supabase.auth.signUp({
-      name: name,
       email: email,
       password: password,
+      options: {
+        data: { name: name },
+      },
     });
 
     if (error) {
@@ -20,12 +22,17 @@ export function AuthContextProvider({ children }) {
     }
     // console.log(data);
     // console.log(data.user.id);
+
+    await supabase.auth.updateUser({
+      data: { name: name },
+    });
+
     setSession(data);
     return { success: true, data };
   };
 
   //   Sign In
-  const signInUser = async ({ email, password }) => {
+  const signInUser = async (email, password) => {
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
@@ -58,6 +65,8 @@ export function AuthContextProvider({ children }) {
     if (error) {
       console.error("Unable to sign out: ", error);
     }
+    localStorage.removeItem("userInfo");
+    // May need to include something here to clear localStorage
   };
 
   return (

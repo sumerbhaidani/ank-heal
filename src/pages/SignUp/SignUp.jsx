@@ -7,7 +7,7 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [error, SetError] = useState("");
+  const [error, SetError] = useState(false);
   const [loading, setLoading] = useState("");
 
   const { session, signUpNewUser } = UserAuth();
@@ -29,7 +29,13 @@ function SignUp() {
     e.preventDefault();
 
     if (!email || !password) {
+      //   SetError(true);
       return alert("Please enter all the required information");
+    }
+
+    if (password.length < 8) {
+      //   SetError(true);
+      return alert("Password length must be 8 characters");
     }
 
     setLoading(true);
@@ -40,10 +46,15 @@ function SignUp() {
 
       localStorage.setItem("userInfo", JSON.stringify(response.data));
       if (response.success) {
-        navigate(`/user/${response.data.user.id}`);
+        alert(
+          "Signup is successful, please allow up to 10 minutes to recieve an email to confirm your registration. If you don't see the email in your inbox, please check your Spam folder"
+        );
+        setName("");
+        setEmail("");
+        setPassword("");
       }
     } catch (error) {
-      SetError(false);
+      SetError(true);
       console.error("Unable to login user: ", error);
     } finally {
       setLoading(false);
@@ -83,8 +94,9 @@ function SignUp() {
       <p className="signup-form__rule">
         Password must be at least 8 characters
       </p>
+      {error === true ? <p className="signup-form__error">{error}</p> : null}
+
       <button className="signup-form__submit-button">Sign Up</button>
-      {error && <p className="signup-form__error">{error}</p>}
     </form>
   );
 }

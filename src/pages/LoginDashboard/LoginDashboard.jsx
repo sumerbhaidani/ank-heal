@@ -15,7 +15,7 @@ function LoginDashboard() {
     e.preventDefault();
     try {
       await signOut();
-      navigate("/evaluation");
+      navigate("/");
     } catch (error) {
       console.error("Unable to sign out: ", error);
     }
@@ -24,7 +24,7 @@ function LoginDashboard() {
   // console.log(userInfo.user);
   return (
     <div className="login-dashboard">
-      <p>Login Successful, Welcome {userInfo.user.email}!</p>
+      <p>Login Successful, Welcome {userInfo?.user.user_metadata.name}!</p>
       <p onClick={handleSignOut} className="login-dashboard__log-out">
         Log Out
       </p>

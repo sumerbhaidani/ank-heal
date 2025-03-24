@@ -39,7 +39,7 @@ function Login() {
   const [error, SetError] = useState("");
   const [loading, setLoading] = useState("");
 
-  const { session, signUpNewUser, signInUser } = UserAuth();
+  const { session, signInUser } = UserAuth();
   const navigate = useNavigate();
 
   console.log(session);
@@ -63,8 +63,11 @@ function Login() {
     try {
       const response = await signInUser(email, password);
 
+      console.log(response);
+      localStorage.setItem("userInfo", JSON.stringify(response.data));
+
       if (response.success) {
-        navigate("/user/:user.id");
+        navigate(`/user/${response?.user?.id}`);
       }
     } catch (error) {
       SetError(false);
