@@ -7,7 +7,7 @@ function PrivateRoute({ children }) {
   if (session === undefined) {
     return <h2>Loading...</h2>;
   }
-  return <>{session ? <>{children}</> : <Navigate to={"/user/"} />}</>;
+  return <>{session ? <>{children}</> : <Navigate to={"/user"} />}</>;
 }
 
 export default PrivateRoute;

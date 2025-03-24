@@ -35,7 +35,8 @@ function HomePage() {
         <h4 className="home-page__explanation">
           Don't let stiffness sneak up on you. Your mobility depends on strong,
           flexible ankles. <br />
-          Click below to take a quick, free 2-minute evaluation today!
+          Click below to create an account and take a quick, free 2-minute
+          evaluation today!
         </h4>
         <Link to="/questionnaire" className="home-page__link">
           <p className="home-page__redirect">

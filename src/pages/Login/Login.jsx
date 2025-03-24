@@ -9,31 +9,6 @@ import { supabase } from "../../utils/SupabaseClient.jsx";
 import { Link } from "react-router-dom";
 
 function Login() {
-  // const { VITE_SUPABASE_URL, VITE_SUPABASE_KEY } = import.meta.env;
-
-  // const supabase = createClient(VITE_SUPABASE_URL, VITE_SUPABASE_KEY);
-
-  // const [session, setSession] = useState(null);
-
-  // useEffect(() => {
-  //   supabase.auth.getSession().then(({ data: { session } }) => {
-  //     setSession(session);
-  //   });
-  //   const {
-  //     data: { subscription },
-  //   } = supabase.auth.onAuthStateChange((_event, session) => {
-  //     setSession(session);
-  //   });
-  //   return () => subscription.unsubscribe();
-  // }, []);
-
-  // console.log(session);
-  // if (!session) {
-  //   return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
-  // } else {
-  //   return <div>Logged in!</div>;
-  // }
-  // }
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, SetError] = useState("");

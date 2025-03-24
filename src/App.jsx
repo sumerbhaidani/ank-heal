@@ -49,11 +49,19 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route
             path="/questionnaire"
-            element={<Questionnaire baseUrl={baseUrl} />}
+            element={
+              <PrivateRoute>
+                <Questionnaire baseUrl={baseUrl} />
+              </PrivateRoute>
+            }
           />
           <Route
             path="/evaluation"
-            element={<AllResults baseUrl={baseUrl} />}
+            element={
+              <PrivateRoute>
+                <AllResults baseUrl={baseUrl} />
+              </PrivateRoute>
+            }
           />
           <Route
             path="/evaluation/:id"
