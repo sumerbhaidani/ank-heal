@@ -64,7 +64,7 @@ function Login() {
       const response = await signInUser(email, password);
 
       if (response.success) {
-        navigate("/evaluation");
+        navigate("/user/:user.id");
       }
     } catch (error) {
       SetError(false);
@@ -97,12 +97,13 @@ function Login() {
         onChange={handlePasswordChange}
       />
       <button className="login-form__submit-button">Login</button>
-      <p className="login-form__sign-up">
-        Need an account? <Link to="/user/signup">Sign Up</Link>
-      </p>
-      <p className="login-form__forgot-pass">
-        Forgot your password <Link to="/user/signup">Click Here!</Link>
-      </p>
+
+      <Link to="/user/signup">
+        <p className="login-form__sign-up">Create an Account!</p>
+      </Link>
+      <Link to="/user/signup">
+        <p className="login-form__forgot-pass">Forgot your password?</p>
+      </Link>
     </form>
   );
 }

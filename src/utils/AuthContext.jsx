@@ -4,11 +4,12 @@ import { supabase } from "./SupabaseClient";
 const AuthContext = createContext();
 
 export function AuthContextProvider({ children }) {
-  const [session, setSession] = useState(null);
+  const [session, setSession] = useState(undefined);
 
   //   Sign Up
-  const signUpNewUser = async () => {
+  const signUpNewUser = async (name, email, password) => {
     const { data, error } = await supabase.auth.signUp({
+      name: name,
       email: email,
       password: password,
     });
@@ -17,6 +18,9 @@ export function AuthContextProvider({ children }) {
       console.error("Unable to sign up: ", error);
       return { success: false, error };
     }
+    // console.log(data);
+    // console.log(data.user.id);
+    setSession(data);
     return { success: true, data };
   };
 
@@ -46,7 +50,7 @@ export function AuthContextProvider({ children }) {
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });
-  });
+  }, []);
 
   //   Sign Out
   const signOut = () => {
@@ -65,5 +69,10 @@ export function AuthContextProvider({ children }) {
   );
 }
 export function UserAuth() {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+
+  if (!context) {
+    console.error("UserAuth needs to be used with AuthContext");
+  }
+  return context;
 }

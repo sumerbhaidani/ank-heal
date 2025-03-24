@@ -17,5 +17,8 @@
     border: none;
     padding: 1rem;
     border-radius: 2rem;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

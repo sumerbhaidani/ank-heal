@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
-import { useState, useEffect } from "react";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import Header from "./components/Header/Header.jsx";
 import Login from "./pages/Login/Login.jsx";
@@ -9,9 +8,6 @@ import Questionnaire from "./pages/Questionnaire/Questionnaire.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import AllResults from "./pages/AllResults/AllResults.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
-import { createClient } from "@supabase/supabase-js";
-import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { AuthContextProvider } from "./utils/AuthContext.jsx";
 import LoginDashboard from "./pages/LoginDashboard/LoginDashboard.jsx";
 
@@ -45,32 +41,30 @@ function App() {
   //   <div>Logged in!</div>;
   // }
   return (
-    <>
-      <AuthContextProvider>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route
-              path="/questionnaire"
-              element={<Questionnaire baseUrl={baseUrl} />}
-            />
-            <Route
-              path="/evaluation"
-              element={<AllResults baseUrl={baseUrl} />}
-            />
-            <Route
-              path="/evaluation/:id"
-              element={<PastResults baseUrl={baseUrl} />}
-            />
-            <Route path="/user" element={<Login />} />
-            <Route path="/user/signup" element={<SignUp />} />
-            <Route path="/user/:userId" element={<LoginDashboard />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </AuthContextProvider>
-    </>
+    <AuthContextProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/questionnaire"
+            element={<Questionnaire baseUrl={baseUrl} />}
+          />
+          <Route
+            path="/evaluation"
+            element={<AllResults baseUrl={baseUrl} />}
+          />
+          <Route
+            path="/evaluation/:id"
+            element={<PastResults baseUrl={baseUrl} />}
+          />
+          <Route path="/user" element={<Login />} />
+          <Route path="/user/signup" element={<SignUp />} />
+          <Route path="/user/:userId" element={<LoginDashboard />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </AuthContextProvider>
   );
 }
 
