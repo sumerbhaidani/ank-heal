@@ -23,7 +23,7 @@ function Header() {
           <li className="header__nav-link">Past Evaluations</li>
         </NavLink>
         <NavLink to="/user" className="header__nav-redirect">
-          <li className="header__nav-link">Login</li>
+          <li className="header__nav-link">My Account</li>
         </NavLink>
       </ul>
     </div>

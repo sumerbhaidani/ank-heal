@@ -24,7 +24,9 @@ function LoginDashboard() {
   // console.log(userInfo.user);
   return (
     <div className="login-dashboard">
-      <p>Login Successful, Welcome {userInfo?.user.user_metadata.name}!</p>
+      <h2 className="login-dashboard__welcome">
+        Login Successful, Welcome {userInfo?.user.user_metadata.name}!
+      </h2>
       <p onClick={handleSignOut} className="login-dashboard__log-out">
         Log Out
       </p>

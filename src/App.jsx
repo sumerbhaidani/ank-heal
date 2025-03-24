@@ -60,7 +60,7 @@ function App() {
           />
           <Route path="/user" element={<Login />} />
           <Route path="/user/signup" element={<SignUp />} />
-          <Route path="/user/:userId" element={<LoginDashboard />} />
+          <Route path="/user/dashboard" element={<LoginDashboard />} />
         </Routes>
         <Footer />
       </BrowserRouter>

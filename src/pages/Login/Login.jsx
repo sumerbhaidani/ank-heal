@@ -67,7 +67,7 @@ function Login() {
       localStorage.setItem("userInfo", JSON.stringify(response.data));
 
       if (response.success) {
-        navigate(`/user/${response?.user?.id}`);
+        await navigate(`/user/dashboard`);
       }
     } catch (error) {
       SetError(false);
