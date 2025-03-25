@@ -28,10 +28,12 @@ function AllResults({ baseUrl }) {
       <h2 className="all-results__header">Past Evaluations</h2>
       <p className="all-results__page-info">
         Attached below are results from all your past evaluations. Please click
-        a page below to view the exercises. <br /> It is recommended to do an
-        evalution every week if injured. <br /> The exercises are meant to
-        challenge you, if you feel pain at any point during the exercise, stop
-        immediately.
+        a page below to view the exercises. <br /> The exercises are meant to
+        challenge you, not hurt you, if you feel pain at any point during the
+        exercise, stop immediately.
+        <br /> It is recommended to do an evalution every week if injured.{" "}
+        <br />
+        For best results, do the full list of results every other day.
       </p>
       <div className="all-results__categories">
         <h4 className="all-results__date">Date Evaluated</h4>
