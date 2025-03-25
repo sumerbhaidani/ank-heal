@@ -5,9 +5,12 @@ import "./AllResults.scss";
 
 function AllResults({ baseUrl }) {
   const [allSurveys, setAllSurveys] = useState([]);
+  const rawUserInfo = localStorage.getItem("userInfo");
+  const parseUserInfo = JSON.parse(rawUserInfo);
+  const userId = parseUserInfo.user.id;
   async function getAllResults() {
     try {
-      const response = await axios.get(`${baseUrl}/survey`);
+      const response = await axios.get(`${baseUrl}/survey/user/${userId}`);
       const sortedData = response.data.sort((a, b) => {
         return b.created_at - a.created_at;
       });
@@ -26,7 +29,9 @@ function AllResults({ baseUrl }) {
       <p className="all-results__page-info">
         Attached below are results from all your past evaluations. Please click
         a page below to view the exercises. <br /> It is recommended to do an
-        evalution every week if injured.
+        evalution every week if injured. <br /> The exercises are meant to
+        challenge you, if you feel pain at any point during the exercise, stop
+        immediately.
       </p>
       <div className="all-results__categories">
         <h4 className="all-results__date">Date Evaluated</h4>

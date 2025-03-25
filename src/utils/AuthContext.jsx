@@ -20,8 +20,6 @@ export function AuthContextProvider({ children }) {
       console.error("Unable to sign up: ", error);
       return { success: false, error };
     }
-    // console.log(data);
-    // console.log(data.user.id);
 
     await supabase.auth.updateUser({
       data: { name: name },
@@ -42,8 +40,6 @@ export function AuthContextProvider({ children }) {
         console.error("Not able to sign in user:", error);
         return { success: false, error: error.message };
       }
-      //   Remove console.log before submit
-      console.log("Sign in success: ", data);
       return { success: true, data };
     } catch (error) {
       console.error("Unable to sign in user: ", error);
@@ -66,7 +62,6 @@ export function AuthContextProvider({ children }) {
       console.error("Unable to sign out: ", error);
     }
     localStorage.removeItem("userInfo");
-    // May need to include something here to clear localStorage
   };
 
   return (
