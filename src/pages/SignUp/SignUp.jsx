@@ -29,12 +29,10 @@ function SignUp() {
     e.preventDefault();
 
     if (!email || !password) {
-      //   SetError(true);
       return alert("Please enter all the required information");
     }
 
     if (password.length < 8) {
-      //   SetError(true);
       return alert("Password length must be 8 characters");
     }
 
@@ -47,8 +45,9 @@ function SignUp() {
       localStorage.setItem("userInfo", JSON.stringify(response.data));
       if (response.success) {
         alert(
-          "Signup is successful, please allow up to 10 minutes to recieve an email to confirm your registration. If you don't see the email in your inbox, please check your Spam folder"
+          "Signup is successful, you can now use the site. Before your next login, please confirm your registration via the link recieved at your email. If you don't see the email in your inbox, please check your Spam folder"
         );
+        navigate(`/user/dashboard`);
         setName("");
         setEmail("");
         setPassword("");
