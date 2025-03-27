@@ -205,7 +205,7 @@ function Questionnaire({ baseUrl }) {
           On a scale of 1-5, how much does it hurt when you walk? Drag the
           slider to your response.
           <br />
-          (1 = no pain, walking fine | 3 = slight pain but able to walk | 5 =
+          (1 = no pain, walking fine | 3 = moderate pain but able to walk | 5 =
           very painful and unable to walk){" "}
         </label>
         <div className="question-form__response">

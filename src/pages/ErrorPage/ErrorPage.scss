@@ -1,0 +1,11 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  &__instruction {
+    text-align: center;
+  }
+}
