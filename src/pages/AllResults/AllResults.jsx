@@ -43,7 +43,7 @@ function AllResults({ baseUrl }) {
           return (
             <div className="all-results__each" key={each.survey_id}>
               <h4 className="all-results__date">
-                {new Date(each.created_at).toLocaleDateString("en-US", {
+                {new Date(Number(each.created_at)).toLocaleDateString("en-US", {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
