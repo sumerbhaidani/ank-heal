@@ -57,11 +57,14 @@ function PastResults({ baseUrl }) {
       <div className="past-results__header">
         <h4 className="past-results__header-title">
           Exercise list for evaluation on:{" "}
-          {new Date(singleSurvey.created_at).toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          })}{" "}
+          {new Date(Number(singleSurvey.created_at)).toLocaleDateString(
+            "en-US",
+            {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            }
+          )}{" "}
         </h4>
         <h6 className="past-results__id">List ID: {singleSurvey.survey_id}</h6>
       </div>
