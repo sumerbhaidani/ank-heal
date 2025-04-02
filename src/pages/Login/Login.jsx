@@ -32,8 +32,6 @@ function Login() {
 
     try {
       const response = await signInUser(email, password);
-
-      console.log(response);
       localStorage.setItem("userInfo", JSON.stringify(response.data));
 
       if (response.success) {
