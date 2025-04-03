@@ -14,11 +14,12 @@ import PrivateRoute from "./utils/PrivateRoute.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 
 function App() {
-  const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
+  const { VITE_SERVER_URL, VITE_SERVER_PORT, VITE_SIDEPRO_URL } = import.meta
+    .env;
 
   // Server Info
   const PORT = VITE_SERVER_PORT || 5050;
-  const baseUrl = `${VITE_SERVER_URL + PORT}`;
+  const baseUrl = `${VITE_SIDEPRO_URL}`;
 
   return (
     <AuthContextProvider>
