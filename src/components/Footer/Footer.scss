@@ -22,6 +22,20 @@
       @include text-style(0.875rem, 400, 1rem);
     }
   }
+  &__social {
+    &s {
+      display: flex;
+      align-content: center;
+      gap: 0.5rem;
+    }
+    &-svg {
+      @include dimensions(25px, 25px);
+    }
+    &-path {
+      fill: $white;
+      @include dimensions(1.25rem, 20px);
+    }
+  }
   &__copyright {
     @extend .footer__disclaimer;
   }
