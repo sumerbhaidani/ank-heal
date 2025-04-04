@@ -20,7 +20,7 @@ function Footer() {
             className="footer__instagram"
           />
         </a>
-        <a href="mailto:ankhealinc@gmail.com" className="footer__redirect">
+        {/* <a href="mailto:ankhealinc@gmail.com" className="footer__redirect">
           <svg
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ function Footer() {
               className="footer__social-path"
             />
           </svg>
-        </a>
+        </a> */}
       </div>
       <h6 className="footer__copyright">&copy; 2025 AnkHeal</h6>
     </div>
