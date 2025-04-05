@@ -1,5 +1,7 @@
 import "./Footer.scss";
 import InstagramLogo from "../../assets/icons/icon-instagram.svg";
+import FacebookLogo from "../../assets/icons/icon-facebook.svg";
+import TwitterLogo from "../../assets/icons/icon-twitter.svg";
 
 function Footer() {
   return (
@@ -33,6 +35,28 @@ function Footer() {
               className="footer__social-path"
             />
           </svg>
+        </a>
+        <a
+          href="https://www.facebook.com/profile.php?id=61575089157050"
+          className="footer_redirect"
+          target="_blank"
+        >
+          <img
+            src={FacebookLogo}
+            alt="Facebook Logo"
+            className="footer_facebook"
+          />
+        </a>
+        <a
+          href="https://x.com/ankheal"
+          className="footer_redirect"
+          target="_blank"
+        >
+          <img
+            src={TwitterLogo}
+            alt="Twitter Logo"
+            className="footer__twitter"
+          />
         </a>
       </div>
       <h6 className="footer__copyright">&copy; 2025 AnkHeal</h6>
