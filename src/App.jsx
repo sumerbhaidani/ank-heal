@@ -13,6 +13,7 @@ import LoginDashboard from "./pages/LoginDashboard/LoginDashboard.jsx";
 import PrivateRoute from "./utils/PrivateRoute.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import { useState, useEffect } from "react";
+import Loading from "./components/Loading/Loading.jsx";
 
 function App() {
   const { VITE_SERVER_URL, VITE_SERVER_PORT, VITE_SIDEPRO_URL } = import.meta
@@ -28,7 +29,12 @@ function App() {
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
 
   return (
     <AuthContextProvider>
