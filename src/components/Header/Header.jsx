@@ -4,7 +4,7 @@ import "./Header.scss";
 
 function Header() {
   return (
-    <div className="header">
+    <header className="header">
       <Link to="/" className="header__nav-redirect">
         <div className="header__logo">
           <img
@@ -26,7 +26,7 @@ function Header() {
           <li className="header__nav-link">My Account</li>
         </NavLink>
       </ul>
-    </div>
+    </header>
   );
 }
 

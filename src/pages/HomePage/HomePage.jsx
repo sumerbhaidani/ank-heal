@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
-    <div className="home-page">
+    <main className="home-page">
       <div className="home-page__cta">
         <h2 className="home-page__stat">
           Every year, approximately 2 million ankle injuries are reported in the
@@ -44,7 +44,7 @@ function HomePage() {
           </p>
         </Link>
       </div>
-    </div>
+    </main>
   );
 }
 

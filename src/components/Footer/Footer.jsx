@@ -5,7 +5,7 @@ import TwitterLogo from "../../assets/icons/icon-twitter.svg";
 
 function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       <h6 className="footer__disclaimer">
         This app is not designed to mimic a health professional. It is always
         recommended to see a health professional for any injury.
@@ -15,6 +15,7 @@ function Footer() {
           href="https://www.instagram.com/ankheal"
           className="footer__redirect"
           target="_blank"
+          aria-label="Click here to navigate to AnkHeal's Instagram page"
         >
           <img
             src={InstagramLogo}
@@ -22,7 +23,11 @@ function Footer() {
             className="footer__instagram"
           />
         </a>
-        <a href="mailto:ankhealinc@gmail.com" className="footer__redirect">
+        <a
+          href="mailto:ankhealinc@gmail.com"
+          className="footer__redirect"
+          aria-label="Click here to email the AnkHeal team"
+        >
           <svg
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +45,7 @@ function Footer() {
           href="https://www.facebook.com/profile.php?id=61575089157050"
           className="footer_redirect"
           target="_blank"
+          aria-label="Click here to navigate to AnkHeal's Facebook page"
         >
           <img
             src={FacebookLogo}
@@ -51,6 +57,7 @@ function Footer() {
           href="https://x.com/ankheal"
           className="footer_redirect"
           target="_blank"
+          aria-label="Click here to navigate to AnkHeal's X page"
         >
           <img
             src={TwitterLogo}
@@ -60,7 +67,7 @@ function Footer() {
         </a>
       </div>
       <h6 className="footer__copyright">&copy; 2025 AnkHeal</h6>
-    </div>
+    </footer>
   );
 }
 
