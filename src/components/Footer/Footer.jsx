@@ -6,10 +6,10 @@ import TwitterLogo from "../../assets/icons/icon-twitter.svg";
 function Footer() {
   return (
     <footer className="footer">
-      <h6 className="footer__disclaimer">
+      <h5 className="footer__disclaimer">
         This app is not designed to mimic a health professional. It is always
         recommended to see a health professional for any injury.
-      </h6>
+      </h5>
       <div className="footer__socials">
         <a
           href="https://www.instagram.com/ankheal"
