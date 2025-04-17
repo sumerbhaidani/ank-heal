@@ -6,9 +6,26 @@ function HomePage() {
     <main className="home-page">
       <section className="home-page__intro">
         <h2 className="home-page__intro-header">
-          Recover Smarter, Move Better - Step Into Strength Here
+          Recover Smarter, Move Better
         </h2>
-        {/* <h2 className="home-page__stat">
+        <h3 className="home-page__intro-sub">
+          AnkHeal is your personalized rehab companion, built to help you heal,
+          and strengthen your ankle with exercises that work for you
+        </h3>
+      </section>
+      <section className="home-page__app-guide">
+        <h2 className="home-page__guide-header">How AnkHeal works:</h2>
+        <ol className="home-page__guide-steps">
+          <li className="home-page__guide-steps">Login to your account</li>
+          <li className="home-page__guide-steps">
+            Submit a quick evalutation form about your ankle health
+          </li>
+          <li className="home-page__guide-steps">
+            Recieve a list of exercises tailored as per your evalution{" "}
+          </li>
+        </ol>
+      </section>
+      {/* <h2 className="home-page__stat">
           Every year, approximately 2 million ankle injuries are reported in the
           U.S. alone.
         </h2>
@@ -35,7 +52,7 @@ function HomePage() {
         >
           - Mugno and Constant (2023)
         </a> */}
-      </section>
+
       <h4 className="home-page__explanation">
         Don't let stiffness sneak up on you. Your mobility depends on strong,
         flexible ankles. <br />

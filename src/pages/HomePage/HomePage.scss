@@ -11,6 +11,13 @@
   &__intro {
     background-color: $light-blue-gray;
     padding: 2rem 3rem;
+    &-header {
+      @include text-style(1.5rem, 500, 2rem);
+    }
+    &-sub {
+      font-family: "Newsreader";
+      @include text-style(1rem, 400, 1.125rem);
+    }
   }
   // &__cta {
   //   display: flex;
