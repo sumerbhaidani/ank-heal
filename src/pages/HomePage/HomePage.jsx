@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 function HomePage() {
   return (
     <main className="home-page">
-      <div className="home-page__cta">
-        <h2 className="home-page__stat">
+      <section className="home-page__intro">
+        <h2 className="home-page__intro-header">
+          Recover Smarter, Move Better - Step Into Strength Here
+        </h2>
+        {/* <h2 className="home-page__stat">
           Every year, approximately 2 million ankle injuries are reported in the
           U.S. alone.
         </h2>
@@ -31,17 +34,17 @@ function HomePage() {
           className="home-page__stat-source"
         >
           - Mugno and Constant (2023)
-        </a>
-        <h4 className="home-page__explanation">
-          Don't let stiffness sneak up on you. Your mobility depends on strong,
-          flexible ankles. <br />
-          Click below to create an account and take a quick, free 2-minute
-          evaluation today!
-        </h4>
-        <Link to="/questionnaire" className="home-page__redirect">
-          Click here to step into strength!
-        </Link>
-      </div>
+        </a> */}
+      </section>
+      <h4 className="home-page__explanation">
+        Don't let stiffness sneak up on you. Your mobility depends on strong,
+        flexible ankles. <br />
+        Click below to create an account and take a quick, free 2-minute
+        evaluation today!
+      </h4>
+      <Link to="/questionnaire" className="home-page__redirect">
+        Click here to get started!
+      </Link>
     </main>
   );
 }

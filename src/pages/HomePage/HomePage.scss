@@ -2,14 +2,21 @@
 @use "../../styles/partials/variables" as *;
 
 .home-page {
-  margin: 0rem 3rem auto;
-  padding: 2rem 0rem;
+  margin: 0rem 0rem auto;
+  // padding: 2rem 0rem;
   font-family: "Outfit";
-  &__cta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  &__intro {
+    background-color: $light-blue-gray;
+    padding: 2rem 3rem;
   }
+  // &__cta {
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: 0.25rem;
+  // }
   &__stat {
     @include text-style(1.5rem, 600, 1.75rem);
     margin-bottom: 0rem;
@@ -19,11 +26,6 @@
       margin-left: auto;
       color: $background-blue;
     }
-    // &-link {
-    //   width: max-content;
-
-    //   color: $background-blue;
-    // }
     &-info {
       font-weight: 400;
     }
