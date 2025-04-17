@@ -19,6 +19,29 @@
       @include text-style(1rem, 400, 1.125rem);
     }
   }
+  &__guide {
+    padding: 2rem 3rem;
+    &-header {
+      @extend .home-page__intro-header;
+    }
+    &-list {
+      padding-left: 1.375rem;
+    }
+    &-steps {
+      font-family: "Newsreader";
+      @include text-style(1rem, 400, 1.125rem);
+    }
+    &-detail {
+      font-family: "Newsreader";
+      @include text-style(0.75rem, 300, 1rem);
+      font-style: italic;
+      padding-left: 0.75rem;
+      margin-top: 0.25rem;
+    }
+    // &-list {
+    //   list-style-type: armenian;
+    // }
+  }
   // &__cta {
   //   display: flex;
   //   flex-direction: column;

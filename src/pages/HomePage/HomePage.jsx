@@ -13,16 +13,29 @@ function HomePage() {
           and strengthen your ankle with exercises that work for you
         </h3>
       </section>
-      <section className="home-page__app-guide">
+      <section className="home-page__guide">
         <h2 className="home-page__guide-header">How AnkHeal works:</h2>
-        <ol className="home-page__guide-steps">
-          <li className="home-page__guide-steps">Login to your account</li>
+        <ol className="home-page__guide-list">
+          <li className="home-page__guide-steps">
+            Login to your account{" "}
+            <p className="home-page__guide-detail">
+              Create a free account if you don't have one{" "}
+              <Link to="/user">here</Link>
+            </p>
+          </li>
           <li className="home-page__guide-steps">
             Submit a quick evalutation form about your ankle health
           </li>
+          <p className="home-page__guide-detail">
+            You must have an account to take an evaluation
+          </p>
           <li className="home-page__guide-steps">
             Recieve a list of exercises tailored as per your evalution{" "}
           </li>
+          <p className="home-page__guide-detail">
+            Click on Past Evaluations to view your exercise lists at your
+            convenience
+          </p>
         </ol>
       </section>
       {/* <h2 className="home-page__stat">
