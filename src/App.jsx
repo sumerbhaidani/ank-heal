@@ -16,13 +16,13 @@ import { useState, useEffect } from "react";
 import Loading from "./components/Loading/Loading.jsx";
 
 function App() {
-  const { VITE_SERVER_URL, VITE_SERVER_PORT, VITE_SIDEPRO_URL } = import.meta
-    .env;
+  const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
 
   // Server Info
   const PORT = VITE_SERVER_PORT || 5050;
-  const baseUrl = `${VITE_SIDEPRO_URL}`;
+  const baseUrl = `${VITE_SERVER_URL + PORT}`;
 
+  // Prevent Page from Crashing
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
