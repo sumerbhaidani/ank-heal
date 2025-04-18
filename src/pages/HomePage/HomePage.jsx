@@ -8,10 +8,10 @@ function HomePage() {
         <h2 className="home-page__intro-header">
           Recover Smarter, Move Better
         </h2>
-        <h3 className="home-page__intro-sub">
+        <p className="home-page__intro-sub">
           AnkHeal is your personalized rehab companion, built to help you heal,
           and strengthen your ankle with exercises that work for you
-        </h3>
+        </p>
       </section>
       <section className="home-page__guide">
         <h2 className="home-page__guide-header">How AnkHeal works:</h2>
@@ -19,13 +19,13 @@ function HomePage() {
           <li className="home-page__guide-steps">
             Create or login to your account{" "}
             <p className="home-page__guide-detail">
-              Sign up for a free account or login{" "}
+              Sign up for a free account or login under{" "}
               <Link
                 to="/user"
                 className="home-page__internal-link"
                 aria-label="Click here to login to your account"
               >
-                here
+                My Account
               </Link>{" "}
               to get started with your recovery
             </p>
