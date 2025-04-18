@@ -3,7 +3,6 @@
 
 .home-page {
   margin: 0rem 0rem auto;
-  // padding: 2rem 0rem;
   font-family: "Outfit";
   display: flex;
   flex-direction: column;
@@ -32,6 +31,7 @@
     &-steps {
       font-family: "Newsreader";
       @include text-style(1rem, 400, 1.125rem);
+      color: #000;
     }
     &-detail {
       font-family: "Newsreader";
@@ -40,6 +40,9 @@
       padding-left: 0.75rem;
       margin-top: 0.25rem;
     }
+  }
+  &__internal-link {
+    color: $background-blue;
   }
   &--last-detail {
     margin-bottom: 0rem;
@@ -89,22 +92,4 @@
       text-decoration: underline;
     }
   }
-  // &__stat {
-  //   @include text-style(1.5rem, 600, 1.75rem);
-  //   margin-bottom: 0rem;
-  //   &-source {
-  //     margin-top: 0rem;
-  //     width: max-content;
-  //     margin-left: auto;
-  //     color: $background-blue;
-  //   }
-  //   &-info {
-  //     font-weight: 400;
-  //   }
-  // }
-  // &__explanation {
-  //   text-align: center;
-  //   font-weight: 400;
-  //   padding: 2rem 3rem;
-  // }
 }
