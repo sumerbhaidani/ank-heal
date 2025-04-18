@@ -42,6 +42,9 @@
     &-redirect {
       text-decoration: none;
       color: $white;
+      &:hover {
+        text-decoration: underline;
+      }
       &.active {
         text-decoration: underline;
       }
