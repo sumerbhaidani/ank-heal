@@ -10,7 +10,7 @@ function HomePage() {
         </h2>
         <p className="home-page__intro-sub">
           AnkHeal is your personalized rehab companion, built to help you heal,
-          and strengthen your ankle with exercises that work for you
+          and strengthen your ankle with exercises that work for you.
         </p>
       </section>
       <section className="home-page__guide">
@@ -27,7 +27,7 @@ function HomePage() {
               >
                 My Account
               </Link>{" "}
-              to get started with your recovery
+              to get started with your recovery.
             </p>
           </li>
           <li className="home-page__guide-steps">
@@ -35,14 +35,14 @@ function HomePage() {
           </li>
           <p className="home-page__guide-detail">
             Answer a few simple questions about your ankle health, so we can
-            understand your recovery needs{" "}
+            understand your recovery needs.{" "}
           </p>
           <li className="home-page__guide-steps">
             Get your personalized exercise plan{" "}
           </li>
           <p className="home-page__guide-detail">
             Based on your repsonses, AnkHeal will generate a tailored list of
-            exercises to help you heal
+            exercises to help you heal.
           </p>
           <li className="home-page__guide-steps">
             View your exercises at your convenience{" "}
