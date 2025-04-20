@@ -1,7 +1,24 @@
 import "./HomePage.scss";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
 
-function HomePage() {
+function HomePage({ baseUrl }) {
+  async function serverActivate() {
+    try {
+      const response = await axios.get(`${baseUrl}/`);
+      console.log(response);
+    } catch (error) {
+      console.error(
+        "Initial connection with server unsuccessful, please try again: ",
+        error
+      );
+    }
+  }
+
+  useEffect(() => {
+    serverActivate();
+  }, []);
   return (
     <main className="home-page">
       <section className="home-page__intro">

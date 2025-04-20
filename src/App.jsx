@@ -41,7 +41,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage baseUrl={baseUrl} />} />
           <Route
             path="/questionnaire"
             element={
