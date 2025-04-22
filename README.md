@@ -5,6 +5,8 @@
 An ankle recovery app that provides exercise to recover and strengthen ankles based on the responses a user provides to a survey of questions about ankle health.
 The app is not meant to replace or be a physiotherapist or health professional, rather it is designed to provide immediate guidance of how to begin with recovery. It is always recommended to see a health professional for any injury.
 
+Create an account and take a free evaluation at <a href="http://myankheal.com" target="_blank">myankheal.com</a>
+
 ### Problem Space
 
 Ankle injuries are one of the most common injuries. In the US, there are approxiately 2 million ankle injuries every year. Ankle injuries also have a high recurrence rate with up to 40% of individuals experiencing additional sprains, injuries, and chronic pain after their first injury.
