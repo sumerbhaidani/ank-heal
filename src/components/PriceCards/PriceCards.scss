@@ -5,13 +5,36 @@
 .price-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin: 0rem auto;
   gap: 1rem;
   padding: 1rem;
+  width: max-content;
+  @include tablet {
+    flex-direction: row;
+  }
+
   &__single {
     border: 1px solid $dark-gray;
     border-radius: 1rem;
     padding: 1rem;
+    width: 300px;
+    // height: 450px;
+  }
+  &__deal {
+    font-family: "Outfit";
+    color: $white;
+    @include text-style(2rem, 500, 2.25rem);
+    margin: 0rem auto;
+    padding-bottom: 1rem;
+    width: max-content;
+  }
+  &--yearly {
+    background-color: $red-orange;
+    border-color: $red-orange;
+  }
+  &__yearly-info {
+    background-color: $white;
+    padding: 0.5rem 1rem;
   }
   &__product-perk {
     &-single {
