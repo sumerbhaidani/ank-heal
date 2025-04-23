@@ -14,6 +14,7 @@ import PrivateRoute from "./utils/PrivateRoute.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import { useState, useEffect } from "react";
 import Loading from "./components/Loading/Loading.jsx";
+import Pricing from "./pages/Pricing/Pricing.jsx";
 
 function App() {
   const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
@@ -72,7 +73,9 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/checkout" element={<Pricing />} />
         </Routes>
         <Footer />
       </BrowserRouter>

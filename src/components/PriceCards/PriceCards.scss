@@ -1,0 +1,13 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.price-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  &__single {
+    border: 1px solid $dark-gray;
+  }
+}
