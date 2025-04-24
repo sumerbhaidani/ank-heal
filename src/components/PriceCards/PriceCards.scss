@@ -31,9 +31,14 @@
     background-color: $red-orange;
     border-color: $red-orange;
   }
-  &__yearly-info {
-    background-color: $white;
-    padding: 0.5rem 1rem;
+  &__yearly {
+    &-info {
+      background-color: $white;
+      padding: 0.5rem 1rem;
+    }
+    &-detail {
+      margin-bottom: 0rem;
+    }
   }
   &__plan-length {
     color: $dark-gray;
@@ -51,7 +56,6 @@
       width: max-content;
       margin: 1rem auto;
       color: $dark-gray;
-      text-decoration: underline;
     }
     &-perk {
       &-single {
@@ -61,9 +65,27 @@
           //   padding-left: 2.5rem;
         }
       }
-      //   &s {
-      //     padding-left: 0rem;
-      //   }
+      &s {
+        margin-top: 0.25rem;
+      }
+    }
+  }
+  &__stripe-redirect {
+    background-color: $background-blue;
+    color: $white;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    border-radius: 0.375rem;
+    display: flex;
+    margin: 0rem auto 0.5rem;
+    width: max-content;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &--monthly {
+    @include tablet {
+      padding-top: 76px;
     }
   }
 }

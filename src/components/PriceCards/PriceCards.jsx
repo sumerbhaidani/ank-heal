@@ -21,23 +21,25 @@ function PriceCards() {
           <li className="price-card__product-perk-single">Recovery Tips</li>
           <li className="price-card__product-perk-single">Email Support</li>
         </ul>
-        <form
-          action="/create-checkout-session"
-          method="POST"
-          className="price-card__form"
+        <a
+          href="https://buy.stripe.com/cN2eUU25caDD4gg8ww"
+          className="price-card__stripe-redirect"
+          target="_blank"
         >
-          <button className="price-card__button">Continue</button>
-        </form>
+          Continue
+        </a>
       </div>
       <div className="price-card__single price-card--yearly">
         {" "}
         <p className="price-card__deal">SAVE 28%</p>
         <div className="price-card__yearly-info">
           <h4 className="price-card__product-name">ANNUAL</h4>
-          <p className="price-card__price">$130.00</p>
+          <p className="price-card__price">$129.99</p>
           <p className="price-card__plan-length">PER YEAR</p>
-          <ul className="price-card__product-perks">
+          <p className="price-card__yearly-detail">
             Everything in Monthly, plus:
+          </p>
+          <ul className="price-card__product-perks">
             <li className="price-card__product-perk-single">
               Early Access to New Features
             </li>
@@ -45,13 +47,13 @@ function PriceCards() {
               Priority Support (faster response time)
             </li>
           </ul>
-          <form
-            action="/create-checkout-session"
-            method="POST"
-            className="price-card__form"
+          <a
+            href="https://buy.stripe.com/fZe288bFM5jjaEEaEF"
+            className="price-card__stripe-redirect"
+            target="_blank"
           >
-            <button className="price-card__button">Continue</button>
-          </form>
+            Continue
+          </a>
         </div>
       </div>
     </section>

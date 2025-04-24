@@ -75,7 +75,7 @@ function App() {
           />
 
           <Route path="*" element={<ErrorPage />} />
-          <Route path="/checkout" element={<Pricing />} />
+          <Route path="/pricing" element={<Pricing />} />
         </Routes>
         <Footer />
       </BrowserRouter>
