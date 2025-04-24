@@ -14,14 +14,13 @@
   }
 
   &__single {
-    border: 1px solid $dark-gray;
-    border-radius: 1rem;
+    border: 0.125rem solid $dark-gray;
+    border-radius: 0.375rem;
     padding: 1rem;
     width: 300px;
     // height: 450px;
   }
   &__deal {
-    font-family: "Outfit";
     color: $white;
     @include text-style(2rem, 500, 2.25rem);
     margin: 0rem auto;
@@ -36,12 +35,35 @@
     background-color: $white;
     padding: 0.5rem 1rem;
   }
-  &__product-perk {
-    &-single {
-      &::marker {
-        content: "✔  ";
-        color: $background-green;
+  &__plan-length {
+    color: $dark-gray;
+    width: max-content;
+    margin: 0.5rem auto;
+  }
+  &__price {
+    @include text-style(2.5rem, 500, 2.75rem);
+    width: max-content;
+    margin: 1rem auto;
+  }
+  &__product {
+    &-name {
+      @include text-style(1.25rem, 500, 1.5rem);
+      width: max-content;
+      margin: 1rem auto;
+      color: $dark-gray;
+      text-decoration: underline;
+    }
+    &-perk {
+      &-single {
+        &::marker {
+          content: "✔  ";
+          color: $background-green;
+          //   padding-left: 2.5rem;
+        }
       }
+      //   &s {
+      //     padding-left: 0rem;
+      //   }
     }
   }
 }
