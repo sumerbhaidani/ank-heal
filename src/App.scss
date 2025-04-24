@@ -8,6 +8,10 @@ body {
   height: 100vh;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 #root {
   height: 100vh;
   display: flex;

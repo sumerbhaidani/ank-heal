@@ -39,7 +39,7 @@ function PriceCards() {
           <p className="price-card__yearly-detail">
             Everything in Monthly, plus:
           </p>
-          <ul className="price-card__product-perks">
+          <ul className="price-card__product-perks price-card--yearly-list">
             <li className="price-card__product-perk-single">
               Early Access to New Features
             </li>

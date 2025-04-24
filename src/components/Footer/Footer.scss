@@ -18,7 +18,7 @@
     overflow-x: hidden;
     text-wrap: wrap;
     @include tablet {
-      width: max-content;
+      width: 80%;
       margin: 1.5rem auto;
       @include text-style(0.875rem, 400, 1rem);
     }
