@@ -11,7 +11,7 @@ function Pricing() {
       <PriceCards />
       <p className="pricing__payment-redirect">
         You will be redirected to another page where you can securely enter your
-        payment details
+        payment details.
       </p>
     </section>
   );
