@@ -15,6 +15,8 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import { useState, useEffect } from "react";
 import Loading from "./components/Loading/Loading.jsx";
 import Pricing from "./pages/Pricing/Pricing.jsx";
+import CheckoutSuccess from "./pages/CheckoutSuccess/CheckoutSuccess.jsx";
+import CheckoutError from "./pages/CheckoutError/CheckoutError.jsx";
 
 function App() {
   const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
@@ -30,12 +32,7 @@ function App() {
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
-  if (loading)
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
+  if (loading) return <Loading />;
 
   return (
     <AuthContextProvider>
@@ -76,6 +73,8 @@ function App() {
 
           <Route path="*" element={<ErrorPage />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/checkout/success=true" element={<CheckoutSuccess />} />
+          <Route path="/checkout/cancelled" element={<CheckoutError />} />
         </Routes>
         <Footer />
       </BrowserRouter>
