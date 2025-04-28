@@ -1,6 +1,6 @@
 import "./PriceCards.scss";
 
-function PriceCards() {
+function PriceCards({ monthlyStripeUrl, yearlyStripeUrl }) {
   return (
     <section className="price-card">
       <div className="price-card__single price-card--monthly">
@@ -22,7 +22,7 @@ function PriceCards() {
           <li className="price-card__product-perk-single">Email Support</li>
         </ul>
         <a
-          href="https://buy.stripe.com/cN2eUU25caDD4gg8ww"
+          href={monthlyStripeUrl}
           className="price-card__stripe-redirect"
           target="_blank"
         >
@@ -48,7 +48,7 @@ function PriceCards() {
             </li>
           </ul>
           <a
-            href="https://buy.stripe.com/fZe288bFM5jjaEEaEF"
+            href={yearlyStripeUrl}
             className="price-card__stripe-redirect"
             target="_blank"
           >

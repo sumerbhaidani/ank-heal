@@ -19,11 +19,19 @@ import CheckoutSuccess from "./pages/CheckoutSuccess/CheckoutSuccess.jsx";
 import CheckoutError from "./pages/CheckoutError/CheckoutError.jsx";
 
 function App() {
-  const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
+  const {
+    VITE_SERVER_URL,
+    VITE_SERVER_PORT,
+    VITE_STRIPE_MONTHLY,
+    VITE_STRIPE_YEARLY,
+  } = import.meta.env;
+  // console.log(import.meta.env);
 
   // Server Info
   const PORT = VITE_SERVER_PORT || 5050;
   const baseUrl = `${VITE_SERVER_URL + PORT}`;
+  const monthlyStripeUrl = VITE_STRIPE_MONTHLY;
+  const yearlyStripeUrl = VITE_STRIPE_YEARLY;
 
   // Prevent Page from Crashing
   const [loading, setLoading] = useState(true);
@@ -72,7 +80,15 @@ function App() {
           />
 
           <Route path="*" element={<ErrorPage />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route
+            path="/pricing"
+            element={
+              <Pricing
+                monthlyStripeUrl={monthlyStripeUrl}
+                yearlyStripeUrl={yearlyStripeUrl}
+              />
+            }
+          />
           <Route path="/checkout/success=true" element={<CheckoutSuccess />} />
           <Route path="/checkout/cancelled" element={<CheckoutError />} />
         </Routes>
