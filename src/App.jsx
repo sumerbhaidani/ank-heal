@@ -86,6 +86,7 @@ function App() {
               <Pricing
                 monthlyStripeUrl={monthlyStripeUrl}
                 yearlyStripeUrl={yearlyStripeUrl}
+                baseUrl={baseUrl}
               />
             }
           />
@@ -96,6 +97,7 @@ function App() {
       </BrowserRouter>
     </AuthContextProvider>
   );
+  //send header instead of just having the path like this
 }
 
 export default App;

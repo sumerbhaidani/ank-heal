@@ -1,6 +1,6 @@
 import PriceCards from "../../components/PriceCards/PriceCards.jsx";
 import "./Pricing.scss";
-function Pricing({ monthlyStripeUrl, yearlyStripeUrl }) {
+function Pricing({ monthlyStripeUrl, yearlyStripeUrl, baseUrl }) {
   return (
     <section className="pricing">
       <h2 className="pricing__header">AnkHeal Subscription Packages</h2>
@@ -11,6 +11,7 @@ function Pricing({ monthlyStripeUrl, yearlyStripeUrl }) {
       <PriceCards
         monthlyStripeUrl={monthlyStripeUrl}
         yearlyStripeUrl={yearlyStripeUrl}
+        baseUrl={baseUrl}
       />
       <p className="pricing__payment-redirect">
         You will be redirected to another page where you can securely enter your

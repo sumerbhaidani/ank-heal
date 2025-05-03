@@ -1,6 +1,14 @@
 import "./PriceCards.scss";
+import axios from "axios";
 
-function PriceCards({ monthlyStripeUrl, yearlyStripeUrl }) {
+function PriceCards({ monthlyStripeUrl, yearlyStripeUrl, baseUrl }) {
+  async function postStripe(priceId) {
+    try {
+      const response = await axios.post(`${baseUrl}/create-checkout-session`);
+    } catch (error) {
+      console.error({ message: `Unable to proceed with payment: ${error}` });
+    }
+  }
   return (
     <section className="price-card">
       <div className="price-card__single price-card--monthly">
