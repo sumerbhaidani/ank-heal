@@ -7,12 +7,17 @@ export function AuthContextProvider({ children }) {
   const [session, setSession] = useState(undefined);
 
   //   Sign Up
-  const signUpNewUser = async (name, email, password) => {
+  const signUpNewUser = async (name, email, password, stripeId) => {
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,
       options: {
-        data: { name: name },
+        data: {
+          name: name,
+          customer_id: stripeId,
+          subscription_status: "inactive",
+          subscription_interval: "none",
+        },
       },
     });
 

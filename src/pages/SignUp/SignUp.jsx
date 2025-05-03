@@ -40,7 +40,6 @@ function SignUp() {
 
     try {
       const response = await signUpNewUser(name, email, password);
-      console.log(response);
 
       localStorage.setItem("userInfo", JSON.stringify(response.data));
       if (response.success) {
@@ -54,6 +53,7 @@ function SignUp() {
       }
     } catch (error) {
       SetError(true);
+      alert(error);
       console.error("Unable to login user: ", error);
     } finally {
       setLoading(false);
