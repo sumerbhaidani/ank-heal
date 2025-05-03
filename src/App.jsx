@@ -17,6 +17,8 @@ import Loading from "./components/Loading/Loading.jsx";
 import Pricing from "./pages/Pricing/Pricing.jsx";
 import CheckoutSuccess from "./pages/CheckoutSuccess/CheckoutSuccess.jsx";
 import CheckoutError from "./pages/CheckoutError/CheckoutError.jsx";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 function App() {
   const {
@@ -24,14 +26,15 @@ function App() {
     VITE_SERVER_PORT,
     VITE_STRIPE_MONTHLY,
     VITE_STRIPE_YEARLY,
+    VITE_STRIPE_KEY,
   } = import.meta.env;
-  // console.log(import.meta.env);
 
   // Server Info
   const PORT = VITE_SERVER_PORT || 5050;
   const baseUrl = `${VITE_SERVER_URL + PORT}`;
   const monthlyStripeUrl = VITE_STRIPE_MONTHLY;
   const yearlyStripeUrl = VITE_STRIPE_YEARLY;
+  const stripePromise = loadStripe(VITE_STRIPE_KEY);
 
   // Prevent Page from Crashing
   const [loading, setLoading] = useState(true);
