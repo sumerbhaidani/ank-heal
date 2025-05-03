@@ -72,7 +72,14 @@ function App() {
             element={<PastResults baseUrl={baseUrl} />}
           />
           <Route path="/user" element={<Login />} />
-          <Route path="/user/signup" element={<SignUp />} />
+          <Route
+            path="/user/signup"
+            element={
+              <Elements stripe={stripePromise}>
+                <SignUp baseUrl={baseUrl} />{" "}
+              </Elements>
+            }
+          />
           <Route
             path="/user/dashboard"
             element={

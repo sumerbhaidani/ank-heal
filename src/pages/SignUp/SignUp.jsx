@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserAuth } from "../../utils/AuthContext.jsx";
 import "./SignUp.scss";
+import axios from "axios";
 
-function SignUp() {
+function SignUp({ baseUrl }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -39,13 +40,18 @@ function SignUp() {
     setLoading(true);
 
     try {
-      const response = await signUpNewUser(name, email, password);
+      const stripeResponse = await axios.post(
+        `${baseUrl}/subscription/create-customer`,
+        { name, email }
+      );
+
+      const customerId = stripeResponse?.data?.id;
+
+      const response = await signUpNewUser(name, email, password, customerId);
 
       localStorage.setItem("userInfo", JSON.stringify(response.data));
       if (response.success) {
-        alert(
-          "Signup is successful, you can now use the site. Before your next login, please confirm your registration via the link recieved at your email. If you don't see the email in your inbox, please check your Spam folder"
-        );
+        alert("Signup is successful, you can now use AnkHeal");
         navigate(`/user/dashboard`);
         setName("");
         setEmail("");
@@ -53,7 +59,6 @@ function SignUp() {
       }
     } catch (error) {
       SetError(true);
-      alert(error);
       console.error("Unable to login user: ", error);
     } finally {
       setLoading(false);
