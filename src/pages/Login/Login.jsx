@@ -23,7 +23,7 @@ function Login() {
 
   async function handleSignIn(e) {
     e.preventDefault();
-
+    SetError(false);
     if (!email || !password) {
       return alert("Please enter your email and password");
     }
@@ -32,8 +32,12 @@ function Login() {
 
     try {
       const response = await signInUser(email, password);
-      localStorage.setItem("userInfo", JSON.stringify(response.data));
-
+      localStorage.setItem(
+        "userName",
+        JSON.stringify(response.data.user.user_metadata.name)
+      );
+      localStorage.setItem("email", JSON.stringify(response.data.user.email));
+      localStorage.setItem("userId", JSON.stringify(response.data.user.id));
       if (response.success) {
         navigate(`/user/dashboard`);
       } else if (!response.success) {

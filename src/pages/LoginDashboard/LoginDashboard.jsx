@@ -18,7 +18,7 @@ function LoginDashboard() {
     }
   }
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  // console.log(userInfo.user);
+
   return (
     <div className="login-dashboard">
       <h2 className="login-dashboard__welcome">

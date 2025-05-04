@@ -66,7 +66,9 @@ export function AuthContextProvider({ children }) {
     if (error) {
       console.error("Unable to sign out: ", error);
     }
-    localStorage.removeItem("userInfo");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("email");
+    localStorage.removeItem("userId");
   };
 
   return (

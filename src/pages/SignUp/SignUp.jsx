@@ -49,7 +49,10 @@ function SignUp({ baseUrl }) {
 
       const response = await signUpNewUser(name, email, password, customerId);
 
-      localStorage.setItem("userInfo", JSON.stringify(response.data));
+      localStorage.setItem("userName", JSON.stringify(response.data.user.name));
+      localStorage.setItem("email", JSON.stringify(response.data.user.email));
+      localStorage.setItem("userId", JSON.stringify(response.data.user.id));
+
       if (response.success) {
         alert("Signup is successful, you can now use AnkHeal");
         navigate(`/user/dashboard`);
