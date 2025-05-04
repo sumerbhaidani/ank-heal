@@ -15,9 +15,8 @@ function Questionnaire({ baseUrl }) {
 
   const [isFormSubmit, setisFormSubmit] = useState(false);
 
-  const rawUserInfo = localStorage.getItem("userInfo");
-  const strUserInfo = JSON.parse(rawUserInfo);
-  const userId = strUserInfo.user.id;
+  const rawUserInfo = localStorage.getItem("userId");
+  const userId = JSON.parse(rawUserInfo);
 
   function handleStandQuestionChange(event) {
     setStandQuestion(event.target.value);

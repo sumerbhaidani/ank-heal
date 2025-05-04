@@ -17,13 +17,11 @@ function LoginDashboard() {
       console.error("Unable to sign out: ", error);
     }
   }
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const name = JSON.parse(localStorage.getItem("userName"));
 
   return (
     <div className="login-dashboard">
-      <h2 className="login-dashboard__welcome">
-        Welcome {userInfo?.user.user_metadata.name}!
-      </h2>
+      <h2 className="login-dashboard__welcome">Welcome {name}!</h2>
       <p onClick={handleSignOut} className="login-dashboard__log-out">
         Log Out
       </p>

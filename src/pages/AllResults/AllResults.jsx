@@ -5,9 +5,9 @@ import "./AllResults.scss";
 
 function AllResults({ baseUrl }) {
   const [allSurveys, setAllSurveys] = useState([]);
-  const rawUserInfo = localStorage.getItem("userInfo");
-  const parseUserInfo = JSON.parse(rawUserInfo);
-  const userId = parseUserInfo.user.id;
+  const rawUserInfo = localStorage.getItem("userId");
+  const userId = JSON.parse(rawUserInfo);
+
   async function getAllResults() {
     try {
       const response = await axios.get(`${baseUrl}/survey/user/${userId}`);
