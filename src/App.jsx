@@ -100,8 +100,8 @@ function App() {
               />
             }
           />
-          <Route path="/checkout/success=true" element={<CheckoutSuccess />} />
-          <Route path="/checkout/cancelled" element={<CheckoutError />} />
+          <Route path="/checkout/success" element={<CheckoutSuccess />} />
+          <Route path="/checkout/cancel" element={<CheckoutError />} />
         </Routes>
         <Footer />
       </BrowserRouter>
