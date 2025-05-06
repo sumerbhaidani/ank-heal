@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 import Loading from "./components/Loading/Loading.jsx";
 import Pricing from "./pages/Pricing/Pricing.jsx";
 import CheckoutSuccess from "./pages/CheckoutSuccess/CheckoutSuccess.jsx";
-import CheckoutError from "./pages/CheckoutError/CheckoutError.jsx";
+import CheckoutCancel from "./pages/CheckoutCancel/CheckoutCancel.jsx";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
@@ -101,7 +101,7 @@ function App() {
             }
           />
           <Route path="/checkout/success" element={<CheckoutSuccess />} />
-          <Route path="/checkout/cancel" element={<CheckoutError />} />
+          <Route path="/checkout/cancel" element={<CheckoutCancel />} />
         </Routes>
         <Footer />
       </BrowserRouter>
