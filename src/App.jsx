@@ -24,16 +24,16 @@ function App() {
   const {
     VITE_SERVER_URL,
     VITE_SERVER_PORT,
-    VITE_STRIPE_MONTHLY,
-    VITE_STRIPE_YEARLY,
+    VITE_STRIPE_MONTHLY_KEY,
+    VITE_STRIPE_YEARLY_KEY,
     VITE_STRIPE_KEY,
   } = import.meta.env;
 
   // Server Info
   const PORT = VITE_SERVER_PORT || 5050;
   const baseUrl = `${VITE_SERVER_URL + PORT}`;
-  const monthlyStripeUrl = VITE_STRIPE_MONTHLY;
-  const yearlyStripeUrl = VITE_STRIPE_YEARLY;
+  const monthlyStripeKey = VITE_STRIPE_MONTHLY_KEY;
+  const yearlyStripeKey = VITE_STRIPE_YEARLY_KEY;
   const stripePromise = loadStripe(VITE_STRIPE_KEY);
 
   // Prevent Page from Crashing
@@ -94,8 +94,8 @@ function App() {
             path="/pricing"
             element={
               <Pricing
-                monthlyStripeUrl={monthlyStripeUrl}
-                yearlyStripeUrl={yearlyStripeUrl}
+                monthlyStripeKey={monthlyStripeKey}
+                yearlyStripeKey={yearlyStripeKey}
                 baseUrl={baseUrl}
               />
             }

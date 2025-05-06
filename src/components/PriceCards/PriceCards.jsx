@@ -1,14 +1,20 @@
 import "./PriceCards.scss";
 import axios from "axios";
 
-function PriceCards({ monthlyStripeUrl, yearlyStripeUrl, baseUrl }) {
-  async function postStripe(priceId) {
+function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
+  async function postStripe(customerId, priceId) {
     try {
-      const response = await axios.post(`${baseUrl}/create-checkout-session`);
+      const response = await axios.post(`${baseUrl}/create-checkout-session`, {
+        customerId: customerId,
+        priceId: priceId,
+      });
+      console.log(response);
+      window.location.href = response.data.url;
     } catch (error) {
       console.error({ message: `Unable to proceed with payment: ${error}` });
     }
   }
+
   return (
     <section className="price-card">
       <div className="price-card__single price-card--monthly">
@@ -30,7 +36,7 @@ function PriceCards({ monthlyStripeUrl, yearlyStripeUrl, baseUrl }) {
           <li className="price-card__product-perk-single">Email Support</li>
         </ul>
         <a
-          href={monthlyStripeUrl}
+          href={monthlyStripeKey}
           className="price-card__stripe-redirect"
           target="_blank"
         >
@@ -56,7 +62,7 @@ function PriceCards({ monthlyStripeUrl, yearlyStripeUrl, baseUrl }) {
             </li>
           </ul>
           <a
-            href={yearlyStripeUrl}
+            href={yearlyStripeKey}
             className="price-card__stripe-redirect"
             target="_blank"
           >
