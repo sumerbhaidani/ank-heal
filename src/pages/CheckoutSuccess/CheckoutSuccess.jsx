@@ -3,7 +3,7 @@ import "./CheckoutSuccess.scss";
 function CheckoutSuccess() {
   return (
     <div className="checkout-success">
-      <h2 className="checkout-success__header">Payment Succesful!</h2>
+      <h2 className="checkout-success__header">Payment Successful!</h2>
       <h3 className="checkout-success__message">
         You now have access to all of AnkHeal's features! <br />
         Please contact us at{" "}
