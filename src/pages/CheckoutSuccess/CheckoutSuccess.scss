@@ -1,0 +1,16 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.checkout-success {
+  font-family: "Newsreader";
+  font-weight: 200;
+  margin: auto 3rem;
+  //   padding: 2rem 0rem;
+  text-align: center;
+  &__header {
+    color: $background-green;
+  }
+  &__email {
+    color: $background-blue;
+  }
+}
