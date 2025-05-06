@@ -8,11 +8,14 @@ function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
 
   async function postStripe(priceId) {
     try {
-      const response = await axios.post(`${baseUrl}/create-checkout-session`, {
-        customerId: customerId,
-        priceId: priceId,
-      });
-      console.log(response);
+      const response = await axios.post(
+        `${baseUrl}/subscription/checkout-session`,
+        {
+          customerId: customerId,
+          priceId: priceId,
+        }
+      );
+
       window.location.href = response.data.url;
     } catch (error) {
       console.error({ message: `Unable to proceed with payment: ${error}` });
@@ -39,13 +42,13 @@ function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
           <li className="price-card__product-perk-single">Recovery Tips</li>
           <li className="price-card__product-perk-single">Email Support</li>
         </ul>
-        <a
-          href={monthlyStripeKey}
+        <button
+          onClick={() => postStripe(monthlyStripeKey)}
           className="price-card__stripe-redirect"
           target="_blank"
         >
           Continue
-        </a>
+        </button>
       </div>
       <div className="price-card__single price-card--yearly">
         {" "}
@@ -65,13 +68,13 @@ function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
               Priority Support (faster response time)
             </li>
           </ul>
-          <a
-            href={yearlyStripeKey}
+          <button
+            onClick={() => postStripe(yearlyStripeKey)}
             className="price-card__stripe-redirect"
             target="_blank"
           >
             Continue
-          </a>
+          </button>
         </div>
       </div>
     </section>
