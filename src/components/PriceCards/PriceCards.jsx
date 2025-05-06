@@ -1,8 +1,12 @@
 import "./PriceCards.scss";
 import axios from "axios";
+import { UserAuth } from "../../utils/AuthContext.jsx";
 
 function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
-  async function postStripe(customerId, priceId) {
+  const { session } = UserAuth();
+  const customerId = session?.user?.user_metadata?.customer_id;
+
+  async function postStripe(priceId) {
     try {
       const response = await axios.post(`${baseUrl}/create-checkout-session`, {
         customerId: customerId,
