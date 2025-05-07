@@ -2,22 +2,6 @@ import PriceCards from "../../components/PriceCards/PriceCards.jsx";
 import "./Pricing.scss";
 import axios from "axios";
 function Pricing({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
-  async function checkoutPage(customerId, price) {
-    try {
-      const response = await axios.post(
-        `${baseUrl}/subscription/checkout-session`,
-        {
-          customerId: customerId,
-          priceId: price,
-        }
-      );
-      const session = await response.data;
-      window.location.href = session.url;
-    } catch (error) {
-      console.error(`Unable to proceed with checkout: ${error} `);
-    }
-  }
-
   return (
     <section className="pricing">
       <h2 className="pricing__header">AnkHeal Subscription Packages</h2>

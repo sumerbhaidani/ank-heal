@@ -94,6 +94,7 @@
     width: max-content;
     &:hover {
       text-decoration: underline;
+      cursor: pointer;
     }
   }
   &--monthly {
