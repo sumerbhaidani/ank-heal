@@ -19,6 +19,7 @@ import CheckoutSuccess from "./pages/CheckoutSuccess/CheckoutSuccess.jsx";
 import CheckoutCancel from "./pages/CheckoutCancel/CheckoutCancel.jsx";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import FAQ from "./pages/FAQ/FAQ.jsx";
 
 function App() {
   const {
@@ -102,6 +103,7 @@ function App() {
           />
           <Route path="/checkout/success" element={<CheckoutSuccess />} />
           <Route path="/checkout/cancel" element={<CheckoutCancel />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
         <Footer />
       </BrowserRouter>
