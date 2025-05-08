@@ -1,2 +1,32 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+
+.faq {
+  margin: 0rem 3rem auto;
+  padding: 2rem 0rem;
+  font-family: "Outfit";
+
+  @include tablet {
+    margin: 0rem 2rem auto;
+  }
+  &__question {
+    display: flex;
+    justify-content: space-between;
+    &-text {
+      @include text-style(1rem, 500, 1.125rem);
+    }
+  }
+  &__answer {
+    @include text-style(1rem, 300, 1.125rem);
+    &-warning {
+      @extend .faq__answer;
+    }
+    &-list {
+      @extend .faq__answer;
+    }
+  }
+  &__plan-link {
+    color: $background-blue;
+    @include text-style(1rem, 300, 1.125rem);
+  }
+}
