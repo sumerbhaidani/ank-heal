@@ -31,7 +31,7 @@
     @include text-style(1rem, 300, 1.125rem);
     margin: 0rem;
     padding: 1rem;
-    background-color: white;
+    background-color: $white;
     &-warning {
       @extend .faq__answer;
     }
@@ -42,5 +42,7 @@
   &__plan-link {
     color: $background-blue;
     @include text-style(1rem, 300, 1.125rem);
+    background-color: $white;
+    width: 100%;
   }
 }
