@@ -1,6 +1,6 @@
 import PriceCards from "../../components/PriceCards/PriceCards.jsx";
 import "./Pricing.scss";
-import axios from "axios";
+
 function Pricing({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
   return (
     <section className="pricing">
