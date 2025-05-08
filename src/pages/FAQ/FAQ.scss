@@ -12,12 +12,26 @@
   &__question {
     display: flex;
     justify-content: space-between;
+    flex-flow: row wrap;
+    padding: 0rem;
+    border: 1px $black solid;
+    background-color: $light-gray;
+    &:hover {
+      cursor: pointer;
+    }
     &-text {
       @include text-style(1rem, 500, 1.125rem);
+      padding-left: 1rem;
+    }
+    &-expand {
+      padding-right: 1rem;
     }
   }
   &__answer {
     @include text-style(1rem, 300, 1.125rem);
+    margin: 0rem;
+    padding: 1rem;
+    background-color: white;
     &-warning {
       @extend .faq__answer;
     }

@@ -3,16 +3,16 @@ import "./FAQ.scss";
 import { useState } from "react";
 
 function FAQ() {
-  const [displayAnswer1, setDisplayAnswer1] = useState(false);
-  const [displayAnswer2, setDisplayAnswer2] = useState(false);
-  const [displayAnswer3, setDisplayAnswer3] = useState(false);
-  const [displayAnswer4, setDisplayAnswer4] = useState(false);
-  const [displayAnswer5, setDisplayAnswer5] = useState(false);
-  const [displayAnswer6, setDisplayAnswer6] = useState(false);
-  const [displayAnswer7, setDisplayAnswer7] = useState(false);
-  const [displayAnswer8, setDisplayAnswer8] = useState(false);
-  const [displayAnswer9, setDisplayAnswer9] = useState(false);
-  const [displayAnswer10, setDisplayAnswer10] = useState(false);
+  const [displayAnswer1, setDisplayAnswer1] = useState(true);
+  const [displayAnswer2, setDisplayAnswer2] = useState(true);
+  const [displayAnswer3, setDisplayAnswer3] = useState(true);
+  const [displayAnswer4, setDisplayAnswer4] = useState(true);
+  const [displayAnswer5, setDisplayAnswer5] = useState(true);
+  const [displayAnswer6, setDisplayAnswer6] = useState(true);
+  const [displayAnswer7, setDisplayAnswer7] = useState(true);
+  const [displayAnswer8, setDisplayAnswer8] = useState(true);
+  const [displayAnswer9, setDisplayAnswer9] = useState(true);
+  const [displayAnswer10, setDisplayAnswer10] = useState(true);
 
   const handleDisplayAnswer1 = () => {
     setDisplayAnswer1(!displayAnswer1);
@@ -49,17 +49,20 @@ function FAQ() {
       <h2 className="faq__header">Frequently Asked Questions</h2>
       <div className="faq__question" onClick={handleDisplayAnswer1}>
         <h3 className="faq__question-text">What is AnkHeal?</h3>
-        <p className="faq__question-expand">+</p>
+        <p className="faq__question-expand">
+          {displayAnswer1 === false ? "+" : "-"}
+        </p>
+        {displayAnswer1 === true ? (
+          <h4 className="faq__answer">
+            AnkHeal is an ankle recovery app that guides you through a short
+            evaluation and assigns a personalized list of exercises to improve
+            your ankle's mobility, stability, and strength. Exercises are
+            recommended based on research-backed techniques and recovery
+            principles.
+          </h4>
+        ) : null}
       </div>
-      {displayAnswer1 === true ? (
-        <h4 className="faq__answer">
-          AnkHeal is an ankle recovery app that guides you through a short
-          evaluation and assigns a personalized list of exercises to improve
-          your ankle's mobility, stability, and strength. Exercises are
-          recommended based on research-backed techniques and recovery
-          principles.
-        </h4>
-      ) : null}
+
       <div className="faq__question" onClick={handleDisplayAnswer2}>
         {" "}
         <h3 className="faq__question-text">
