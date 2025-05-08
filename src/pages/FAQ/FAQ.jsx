@@ -3,19 +3,55 @@ import "./FAQ.scss";
 import { useState } from "react";
 
 function FAQ() {
-  const [displayAnswer, setDisplayAnswer] = useState(false);
+  const [displayAnswer1, setDisplayAnswer1] = useState(false);
+  const [displayAnswer2, setDisplayAnswer2] = useState(false);
+  const [displayAnswer3, setDisplayAnswer3] = useState(false);
+  const [displayAnswer4, setDisplayAnswer4] = useState(false);
+  const [displayAnswer5, setDisplayAnswer5] = useState(false);
+  const [displayAnswer6, setDisplayAnswer6] = useState(false);
+  const [displayAnswer7, setDisplayAnswer7] = useState(false);
+  const [displayAnswer8, setDisplayAnswer8] = useState(false);
+  const [displayAnswer9, setDisplayAnswer9] = useState(false);
+  const [displayAnswer10, setDisplayAnswer10] = useState(false);
 
-  const handleDisplayAnswer = () => {
-    setDisplayAnswer(!displayAnswer);
+  const handleDisplayAnswer1 = () => {
+    setDisplayAnswer1(!displayAnswer1);
+  };
+  const handleDisplayAnswer2 = () => {
+    setDisplayAnswer2(!displayAnswer2);
+  };
+  const handleDisplayAnswer3 = () => {
+    setDisplayAnswer3(!displayAnswer3);
+  };
+  const handleDisplayAnswer4 = () => {
+    setDisplayAnswer4(!displayAnswer4);
+  };
+  const handleDisplayAnswer5 = () => {
+    setDisplayAnswer5(!displayAnswer5);
+  };
+  const handleDisplayAnswer6 = () => {
+    setDisplayAnswer6(!displayAnswer6);
+  };
+  const handleDisplayAnswer7 = () => {
+    setDisplayAnswer7(!displayAnswer7);
+  };
+  const handleDisplayAnswer8 = () => {
+    setDisplayAnswer8(!displayAnswer8);
+  };
+  const handleDisplayAnswer9 = () => {
+    setDisplayAnswer9(!displayAnswer9);
+  };
+  const handleDisplayAnswer10 = () => {
+    setDisplayAnswer10(!displayAnswer10);
   };
   return (
     <div className="faq">
       <h2 className="faq__header">Frequently Asked Questions</h2>
-      <div className="faq__question" onClick={handleDisplayAnswer}>
+      <div className="faq__question" onClick={handleDisplayAnswer1}>
         <h3 className="faq__question-text">What is AnkHeal?</h3>
         <p className="faq__question-expand">+</p>
       </div>
-      {displayAnswer === true ? (
+      {displayAnswer1 === true ? (
         <h4 className="faq__answer">
           AnkHeal is an ankle recovery app that guides you through a short
           evaluation and assigns a personalized list of exercises to improve
@@ -24,7 +60,7 @@ function FAQ() {
           principles.
         </h4>
       ) : null}
-      <div className="faq__question" onClick={handleDisplayAnswer}>
+      <div className="faq__question" onClick={handleDisplayAnswer2}>
         {" "}
         <h3 className="faq__question-text">
           Is AnkHeal only for ankle recovery?
@@ -32,7 +68,7 @@ function FAQ() {
         <p className="faq__question-expand">+</p>
       </div>
 
-      {displayAnswer === true ? (
+      {displayAnswer2 === true ? (
         <h4 className="faq__answer">
           While AnkHeal focuses on ankle rehabilitation, many of the exercises
           also support surrounding muscles and joints (calves, knees, etc.)
@@ -41,11 +77,11 @@ function FAQ() {
           exercises are recommended.
         </h4>
       ) : null}
-      <div className="faq__question" onClick={handleDisplayAnswer}>
+      <div className="faq__question" onClick={handleDisplayAnswer3}>
         <h3 className="faq__question-text">How are the exercises selected?</h3>
         <p className="faq__question-expand">+</p>
       </div>
-      {displayAnswer === true ? (
+      {displayAnswer3 === true ? (
         <div className="faq__answer-full">
           <h4 className="faq__answer">
             Your responses in the evaluation form are used to match you with a
@@ -61,13 +97,13 @@ function FAQ() {
         </div>
       ) : null}
 
-      <div className="faq__question" onClick={handleDisplayAnswer}>
+      <div className="faq__question" onClick={handleDisplayAnswer4}>
         <h3 className="faq__question-text">
           What does the subscription provide?
         </h3>{" "}
         <p className="faq__question-expand">+</p>
       </div>
-      {displayAnswer === true ? (
+      {displayAnswer4 === true ? (
         <div className="faq__answer-full">
           <ul className="faq__answer-list">
             <li className="faq__answer-single-point">
@@ -85,37 +121,37 @@ function FAQ() {
           </Link>
         </div>
       ) : null}
-      <div className="faq__question" onClick={handleDisplayAnswer}>
+      <div className="faq__question" onClick={handleDisplayAnswer5}>
         <h3 className="faq__question-text">
           If I cancel my subscription, will I lose everything?
         </h3>{" "}
         <p className="faq__question-expand">+</p>
       </div>
 
-      {displayAnswer === true ? (
+      {displayAnswer5 === true ? (
         <h4 className="faq__answer">
           You won't be able to take new evaluations, but you will have access to
           your past exercise plans.
         </h4>
       ) : null}
-      <div className="faq__question" onClick={handleDisplayAnswer}>
+      <div className="faq__question" onClick={handleDisplayAnswer6}>
         <h3 className="faq__question-text">
           Can I cancel my subscription anytime?
         </h3>{" "}
         <p className="faq__question-expand">+</p>
       </div>
 
-      {displayAnswer === true ? (
+      {displayAnswer6 === true ? (
         <h4 className="faq__answer">
           Yes, you can cancel from your account settings at any time. Email us
           if you run into any issues.
         </h4>
       ) : null}
-      <div className="faq__question" onClick={handleDisplayAnswer}>
+      <div className="faq__question" onClick={handleDisplayAnswer7}>
         <h3 className="faq__question-text">How do I get started?</h3>
         <p className="faq__question-expand">+</p>
       </div>
-      {displayAnswer === true ? (
+      {displayAnswer7 === true ? (
         <h4 className="faq__answer">
           Fill out a 2 minute evaluation form get your personalized plan
           instantly. Most exercises require no equipment, though some may
@@ -123,38 +159,38 @@ function FAQ() {
           substituted for other items if unavailable.
         </h4>
       ) : null}
-      <div className="faq__question" onClick={handleDisplayAnswer}>
+      <div className="faq__question" onClick={handleDisplayAnswer8}>
         <h3 className="faq__question-text">
           Will I get new exercises as I improve?
         </h3>{" "}
         <p className="faq__question-expand">+</p>
       </div>
 
-      {displayAnswer === true ? (
+      {displayAnswer8 === true ? (
         <h4 className="faq__answer">
           Yes! You can retake the evaluation whenever you feel ready to move
           onto more advanced exercises. We recommend taking an evaluation every
           2 weeks!
         </h4>
       ) : null}
-      <div className="faq__question" onClick={handleDisplayAnswer}>
+      <div className="faq__question" onClick={handleDisplayAnswer9}>
         <h3 className="faq__question-text">Is my data safe?</h3>
         <p className="faq__question-expand">+</p>
       </div>
-      {displayAnswer === true ? (
+      {displayAnswer9 === true ? (
         <h4 className="faq__answer">
           Yes, AnkHeal does not collect sensitive medical data. Your exercise
           lists and feedback is stored securly and used only to improve your
           experience.
         </h4>
       ) : null}
-      <div className="faq__question" onClick={handleDisplayAnswer}>
+      <div className="faq__question" onClick={handleDisplayAnswer10}>
         <h3 className="faq__question-text">
           Do I still need a physiotherapist?
         </h3>
         <p className="faq__question-expand">+</p>
       </div>
-      {displayAnswer === true ? (
+      {displayAnswer10 === true ? (
         <h4 className="faq__answer">
           AnkHeal is designed to complement—not replace—a health professional.
           For any injury it is always recommended to see a licensed healthcare
