@@ -2,6 +2,7 @@ import "./Footer.scss";
 import InstagramLogo from "../../assets/icons/icon-instagram.svg";
 import FacebookLogo from "../../assets/icons/icon-facebook.svg";
 import TwitterLogo from "../../assets/icons/icon-twitter.svg";
+import { Link } from "react-router";
 
 function Footer() {
   return (
@@ -10,6 +11,16 @@ function Footer() {
         This app is not designed to mimic a health professional. It is always
         recommended to see a health professional for any injury.
       </h5>
+      {/* <section className="footer__useful-links">
+        <h5 className="footer__section-title">Useful Links</h5>
+        <Link className="footer__useful-link-single" to="/faq">
+          FAQ
+        </Link>
+        <Link className="footer__useful-links-single" to="/pricing">
+          Pricing
+        </Link>
+      </section> */}
+      <h5 className="footer__section-title">Connect with us!</h5>
       <div className="footer__socials">
         <a
           href="https://www.instagram.com/ankheal"
