@@ -20,7 +20,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0rem;
-    border-top: 1px $black solid;
+    border-top: 1px $dark-gray solid;
     background-color: $light-blue-gray;
 
     &:hover {
@@ -78,5 +78,8 @@
     &-email {
       color: $background-blue;
     }
+  }
+  &--last-answer {
+    border-bottom: 1px $dark-gray solid;
   }
 }

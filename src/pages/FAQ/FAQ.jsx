@@ -206,7 +206,7 @@ function FAQ() {
         </p>
       </div>{" "}
       {displayAnswer10 === true ? (
-        <h4 className="faq__answer">
+        <h4 className="faq__answer faq--last-answer">
           AnkHeal is designed to complement—not replace—a health professional.
           For any injury it is always recommended to see a licensed healthcare
           provider for a complete and thorough evaluation.{" "}
