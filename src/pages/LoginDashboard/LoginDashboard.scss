@@ -2,24 +2,30 @@
 @use "../../styles/partials/mixins" as *;
 
 .login-dashboard {
-  margin: 2rem 1rem auto;
+  margin: 2rem 1rem;
   display: flex;
   justify-content: space-between;
   @include tablet {
     margin: 2rem 2rem auto;
   }
-  // &__welcome {
-  //   margin: 0rem;
-  // }
+  &__welcome {
+    margin: 0rem;
+    text-align: center;
+    @include text-style(1.5rem, 700, 2rem);
+    @include tablet {
+      @include text-style(1.75rem, 700, 2.25rem);
+    }
+  }
   &__log-out {
     margin: 0rem;
-    padding: 0.5rem;
-    background-color: red;
+    padding: 0.5rem 1rem;
+    background-color: $red;
     color: $white;
     @include dimensions(max-content, max-content);
     border-radius: 1rem;
     &:hover {
       cursor: pointer;
+      text-decoration: underline;
     }
   }
 }
