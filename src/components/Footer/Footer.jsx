@@ -8,13 +8,17 @@ import AnkHealLogo from "../../assets/logo/ankheal-logo.png";
 function Footer() {
   return (
     <footer className="footer">
-      <h5 className="footer__disclaimer">
-        This app is not designed to mimic a health professional. It is always
-        recommended to see a health professional for any injury.
-      </h5>
       <div className="footer__all-links">
+        <Link className="footer__logo" to="/">
+          <img
+            src={AnkHealLogo}
+            alt="AnkHeal Logo"
+            className="footer__logo-image"
+          />
+          <p className="footer__logo-name">AnkHeal</p>
+        </Link>
         <section className="footer__useful-links">
-          <h5 className="footer__section-title">Quick Links</h5>
+          <h5 className="footer__section-title">Site Links</h5>
           <Link className="footer__useful-links-single" to="/faq">
             FAQ
           </Link>
@@ -88,16 +92,14 @@ function Footer() {
             </a>
           </div>
         </div>
-        <Link className="footer__logo" to="/">
-          <img
-            src={AnkHealLogo}
-            alt="AnkHeal Logo"
-            className="footer__logo-image"
-          />
-          <p className="footer__logo-name">AnkHeal</p>
-        </Link>
       </div>
-      <h6 className="footer__copyright">&copy; 2025 AnkHeal</h6>
+      <h5 className="footer__disclaimer">
+        AnkHeal is not designed to mimic or replace a health professional. It is
+        always recommended to see a health professional for any injury.
+      </h5>
+      <h6 className="footer__copyright">
+        Copyright AnkHeal Inc. &copy; 2025 All RIghts Reserved
+      </h6>
     </footer>
   );
 }
