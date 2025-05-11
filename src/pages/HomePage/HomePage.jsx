@@ -36,7 +36,7 @@ function HomePage({ baseUrl }) {
           <li className="home-page__guide-steps">
             Create or login to your account{" "}
             <p className="home-page__guide-detail">
-              Sign up for a free account or login under{" "}
+              Sign up for an account or login under{" "}
               <Link
                 to="/user"
                 className="home-page__internal-link"
@@ -51,8 +51,9 @@ function HomePage({ baseUrl }) {
             Complete a quick evaluation
           </li>
           <p className="home-page__guide-detail">
-            Answer a few simple questions about your ankle health, so we can
-            understand your recovery needs.{" "}
+            Select a subscription package to take an evaluation. Then answer a
+            few simple questions about your ankle health, so we can understand
+            your recovery needs.{" "}
           </p>
           <li className="home-page__guide-steps">
             Get your personalized exercise plan{" "}

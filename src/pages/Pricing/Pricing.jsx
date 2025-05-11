@@ -6,8 +6,8 @@ function Pricing({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
     <section className="pricing">
       <h2 className="pricing__header">AnkHeal Subscription Packages</h2>
       <h3 className="pricing__detail">
-        The choice is yours, each plan comes with a 7-day free trial so you can
-        see the value before you pay. No risk, just results.
+        No delay, just recovery. Select a plan and get your access to a custom
+        exercise list instantly. All prices are in CAD.
       </h3>
       <PriceCards
         monthlyStripeKey={monthlyStripeKey}

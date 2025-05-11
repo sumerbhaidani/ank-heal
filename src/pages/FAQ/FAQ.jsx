@@ -111,17 +111,15 @@ function FAQ() {
       </div>
       {displayAnswer4 === true ? (
         <div className="faq__answer-full">
-          <ul className="faq__answer-list">
+          {/* <ul className="faq__answer-list">
             <li className="faq__answer-single-point">
               Unlimited access to personalized ankle recovery plans
             </li>
-            <li className="faq__answer-single-point">
-              A 7-day free trial for all subscription options
-            </li>
+
             <li className="faq__answer-single-point">
               Discounted yearly plan with early access to new features
             </li>
-          </ul>
+          </ul> */}
           <Link to="/pricing" className="faq__plan-link">
             See subscription plans
           </Link>
