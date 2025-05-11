@@ -28,6 +28,7 @@ function App() {
     VITE_STRIPE_MONTHLY_KEY,
     VITE_STRIPE_YEARLY_KEY,
     VITE_STRIPE_KEY,
+    VITE_STRIPE_CUSTOMER_PORTAL,
   } = import.meta.env;
 
   // Server Info
@@ -85,7 +86,7 @@ function App() {
             path="/user/dashboard"
             element={
               <PrivateRoute>
-                <LoginDashboard />{" "}
+                <LoginDashboard portalLink={VITE_STRIPE_CUSTOMER_PORTAL} />{" "}
               </PrivateRoute>
             }
           />

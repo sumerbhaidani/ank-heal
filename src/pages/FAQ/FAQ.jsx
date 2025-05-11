@@ -149,8 +149,9 @@ function FAQ() {
       </div>
       {displayAnswer6 === true ? (
         <h4 className="faq__answer">
-          Yes, you can cancel from your account settings at any time. Email us
-          if you run into any issues.
+          Yes, you can cancel from the customer portal under My Account at any
+          time. Your subscription will be valid until the remainder of your
+          billing period. Email us if you run into any issues.
         </h4>
       ) : null}
       <div className="faq__question" onClick={handleDisplayAnswer7}>
