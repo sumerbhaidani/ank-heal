@@ -20,9 +20,6 @@ function LoginDashboard({ portalLink }) {
   }
   const name = JSON.parse(localStorage.getItem("userName"));
 
-  console.log(session);
-  console.log(session.user.user_metadata.name);
-  console.log(session.user.email);
   return (
     <div className="login-dashboard">
       <section className="login-dashboard__heading">
