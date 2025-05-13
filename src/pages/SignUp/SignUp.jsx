@@ -101,7 +101,11 @@ function SignUp({ baseUrl }) {
       <p className="signup-form__rule">
         Password must be at least 8 characters
       </p>
-      {error === true ? <p className="signup-form__error">{error}</p> : null}
+      {error === true ? (
+        <p className="signup-form__error">
+          Unable to sign up right, please try again later.
+        </p>
+      ) : null}
 
       <button className="signup-form__submit-button">Sign Up</button>
     </form>
