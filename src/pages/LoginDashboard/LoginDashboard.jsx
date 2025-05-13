@@ -8,6 +8,7 @@ function LoginDashboard({ portalLink }) {
   const { session, signOut } = UserAuth();
   const navigate = useNavigate();
 
+  console.log(session);
   // Change from localStorage to grab information from session
   async function handleSignOut(e) {
     e.preventDefault();
@@ -18,7 +19,6 @@ function LoginDashboard({ portalLink }) {
       console.error("Unable to sign out: ", error);
     }
   }
-  const name = JSON.parse(localStorage.getItem("userName"));
 
   return (
     <div className="login-dashboard">

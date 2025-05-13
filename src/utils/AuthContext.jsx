@@ -1,6 +1,9 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { supabase } from "./SupabaseClient";
 
+const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
+const baseUrl = `${VITE_SERVER_URL + VITE_SERVER_PORT}`;
+
 const AuthContext = createContext();
 
 export function AuthContextProvider({ children }) {
@@ -24,6 +27,18 @@ export function AuthContextProvider({ children }) {
     if (error) {
       console.error("Unable to sign up: ", error);
       return { success: false, error };
+    }
+
+    const userId = data?.user?.id;
+
+    try {
+      const response = await axios.post(`${baseUrl}/user/newUser`, {
+        user_id: userId,
+        email: email,
+        name: name,
+      });
+    } catch (err) {
+      console.error(`Unable to add user to table: `, err);
     }
 
     await supabase.auth.updateUser({
