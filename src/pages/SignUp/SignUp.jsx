@@ -40,14 +40,7 @@ function SignUp({ baseUrl }) {
     setLoading(true);
 
     try {
-      const stripeResponse = await axios.post(
-        `${baseUrl}/subscription/create-customer`,
-        { name, email }
-      );
-
-      const customerId = stripeResponse?.data?.id;
-
-      const response = await signUpNewUser(name, email, password, customerId);
+      const response = await signUpNewUser(name, email, password);
 
       localStorage.setItem("userName", JSON.stringify(response.data.user.name));
       localStorage.setItem("email", JSON.stringify(response.data.user.email));

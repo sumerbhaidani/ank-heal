@@ -11,16 +11,13 @@ export function AuthContextProvider({ children }) {
   const [session, setSession] = useState(undefined);
 
   //   Sign Up
-  const signUpNewUser = async (name, email, password, stripeId) => {
+  const signUpNewUser = async (name, email, password) => {
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,
       options: {
         data: {
           name: name,
-          customer_id: stripeId,
-          subscription_status: "inactive",
-          subscription_interval: "none",
         },
       },
     });
@@ -32,8 +29,24 @@ export function AuthContextProvider({ children }) {
 
     const userId = data?.user?.id;
 
+    let stripeResponse;
+    try {
+      stripeResponse = await axios.post(
+        `${baseUrl}/subscription/create-customer`,
+        { name, email }
+      );
+    } catch (err) {
+      console.error("Unable to create stripe customer", err);
+    }
+
+    const customerId = stripeResponse?.data?.id;
     if (!userId) {
-      console.error("Unable to retrieve user id", error);
+      console.error("Unable to retrieve user id from database", error);
+      return { success: false, error };
+    }
+
+    if (!customerId) {
+      console.error("Unable to retrieve customer id", error);
       return { success: false, error };
     }
     try {
@@ -41,6 +54,7 @@ export function AuthContextProvider({ children }) {
         user_id: userId,
         email: email,
         name: name,
+        stripe_customer_id: customerId,
       });
     } catch (err) {
       console.error(`Unable to add user to table: `, err);
