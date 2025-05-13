@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { supabase } from "./SupabaseClient";
+import axios from "axios";
 
 const { VITE_SERVER_URL, VITE_SERVER_PORT } = import.meta.env;
 const baseUrl = `${VITE_SERVER_URL + VITE_SERVER_PORT}`;
@@ -31,6 +32,10 @@ export function AuthContextProvider({ children }) {
 
     const userId = data?.user?.id;
 
+    if (!userId) {
+      console.error("Unable to retrieve user id", error);
+      return { success: false, error };
+    }
     try {
       const response = await axios.post(`${baseUrl}/user/newUser`, {
         user_id: userId,

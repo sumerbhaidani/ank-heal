@@ -8,7 +8,6 @@ function LoginDashboard({ portalLink }) {
   const { session, signOut } = UserAuth();
   const navigate = useNavigate();
 
-  console.log(session);
   // Change from localStorage to grab information from session
   async function handleSignOut(e) {
     e.preventDefault();
