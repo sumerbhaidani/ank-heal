@@ -5,7 +5,6 @@ import { UserAuth } from "../../utils/AuthContext.jsx";
 function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
   const { session } = UserAuth();
   const customerId = session?.user?.user_metadata?.customer_id;
-
   async function postStripe(priceId) {
     try {
       const response = await axios.post(
@@ -13,6 +12,7 @@ function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
         {
           customerId: customerId,
           priceId: priceId,
+          userId: session.user.id,
         }
       );
 
