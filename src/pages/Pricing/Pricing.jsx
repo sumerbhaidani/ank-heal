@@ -15,8 +15,9 @@ function Pricing({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
         baseUrl={baseUrl}
       />
       <p className="pricing__payment-redirect">
-        You will be redirected to another page where you can securely enter your
-        payment details.
+        If you are logged in, you will be redirected to another page where you
+        can securely enter your payment details, otherwise you will be
+        redirected to the login page.
       </p>
     </section>
   );

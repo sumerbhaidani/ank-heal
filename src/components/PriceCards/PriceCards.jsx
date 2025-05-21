@@ -1,10 +1,13 @@
 import "./PriceCards.scss";
 import axios from "axios";
 import { UserAuth } from "../../utils/AuthContext.jsx";
+import { useNavigate } from "react-router";
 
 function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
   const { session } = UserAuth();
   const customerId = session?.user?.user_metadata?.customer_id;
+  const navigate = useNavigate();
+  // Pricing should only be accessible after log in (put on dashboard and make protected route)
   async function postStripe(priceId) {
     try {
       const response = await axios.post(
@@ -13,9 +16,9 @@ function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
           customerId: customerId,
           priceId: priceId,
           userId: session.user.id,
+          email: session.user.email,
         }
       );
-
       window.location.href = response.data.url;
     } catch (error) {
       console.error({ message: `Unable to proceed with payment: ${error}` });
@@ -43,7 +46,9 @@ function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
           <li className="price-card__product-perk-single">Email Support</li>
         </ul>
         <button
-          onClick={() => postStripe(monthlyStripeKey)}
+          onClick={() =>
+            session === null ? navigate("/user") : postStripe(monthlyStripeKey)
+          }
           className="price-card__stripe-redirect"
           target="_blank"
         >
@@ -69,7 +74,9 @@ function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
             </li>
           </ul>
           <button
-            onClick={() => postStripe(yearlyStripeKey)}
+            onClick={() =>
+              session === null ? navigate("/user") : postStripe(yearlyStripeKey)
+            }
             className="price-card__stripe-redirect"
             target="_blank"
           >
