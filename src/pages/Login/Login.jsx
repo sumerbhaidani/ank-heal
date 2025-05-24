@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../../utils/AuthContext.jsx";
 import { Link } from "react-router-dom";
+import HeaderOnlyLogo from "../../components/HeaderOnlyLogo/HeaderOnlyLogo.jsx";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -57,36 +58,51 @@ function Login() {
     }
   }, []);
   return (
-    <form onSubmit={handleSignIn} className="login-form">
-      <label htmlFor="" className="login-form__label">
-        Email
-      </label>
-      <input
-        type="email"
-        className="login-form__input"
-        placeholder="Email"
-        value={email}
-        onChange={handleEmailChange}
-      />
-      <label htmlFor="" className="login-form__label">
-        Password
-      </label>
-      <input
-        type="password"
-        className="login-form__input"
-        placeholder="Password"
-        value={password}
-        onChange={handlePasswordChange}
-      />
-      <button className="login-form__submit-button">Login</button>
-      {error === true ? <p>Login failed, please try again</p> : null}
-      <Link to="/user/signup" className="login-form__redirect">
-        <p className="login-form__sign-up">Create an Account</p>
-      </Link>
-      {/* <Link to="/user/signup">
+    <>
+      <HeaderOnlyLogo />
+      <section className="account-benefits">
+        <ul className="account-benefits__title">
+          With an Account, you can:
+          <li className="account-benefits__list">
+            Access Your Personalized List
+          </li>
+          <li className="account-benefits__list"></li>
+          <li className="account-benefits__list"></li>
+          <li className="account-benefits__list"></li>
+          <li className="account-benefits__list"></li>
+        </ul>
+      </section>
+      <form onSubmit={handleSignIn} className="login-form">
+        <label htmlFor="" className="login-form__label">
+          Email
+        </label>
+        <input
+          type="email"
+          className="login-form__input"
+          placeholder="Email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <label htmlFor="" className="login-form__label">
+          Password
+        </label>
+        <input
+          type="password"
+          className="login-form__input"
+          placeholder="Password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        <button className="login-form__submit-button">Login</button>
+        {error === true ? <p>Login failed, please try again</p> : null}
+        <Link to="/user/signup" className="login-form__redirect">
+          <p className="login-form__sign-up">Create an Account</p>
+        </Link>
+        {/* <Link to="/user/signup">
         <p className="login-form__forgot-pass">Forgot your password?</p>
       </Link> */}
-    </form>
+      </form>
+    </>
   );
 }
 

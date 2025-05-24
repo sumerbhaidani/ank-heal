@@ -185,6 +185,9 @@ function PastResults({ baseUrl }) {
             </div>
           ) : null}
         </div>
+        <p className="exercise-list__copyright">
+          Copyright AnkHeal Inc. &copy; 2025 All RIghts Reserved
+        </p>
       </div>
     </>
   );

@@ -328,6 +328,9 @@ function Questionnaire({ baseUrl }) {
           Submit Evaluation
         </button>
       </form>
+      <p className="question-form__copyright">
+        Copyright AnkHeal Inc. &copy; 2025 All RIghts Reserved
+      </p>
     </>
   );
 }

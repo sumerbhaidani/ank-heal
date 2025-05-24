@@ -2,11 +2,10 @@
 @use "../../styles/partials/variables" as *;
 
 .header-only {
-  //   background-image: linear-gradient(to right, $background-blue, $light-blue);
-  //   background-color: $light-blue;
-  padding: 0.5rem 0rem;
-  margin: 0rem 1rem;
-  border-bottom: 2px solid $background-blue;
+  background-image: linear-gradient(to right, $background-blue, $light-blue);
+  // background-color: $light-blue;
+  padding: 0.5rem 1rem;
+
   &__logo {
     display: flex;
     flex-direction: row;
