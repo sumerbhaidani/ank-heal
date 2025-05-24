@@ -43,28 +43,32 @@ function AllResults({ baseUrl }) {
           <h4 className="all-results__date">Date Evaluated</h4>
         </div>
         <div className="all-results__full">
-          {allSurveys.map((each) => {
-            return (
-              <div className="all-results__each" key={each.survey_id}>
-                <h4 className="all-results__date">
-                  {new Date(Number(each.created_at)).toLocaleDateString(
-                    "en-US",
-                    {
-                      month: "long",
-                      day: "numeric",
-                      year: "numeric",
-                    }
-                  )}{" "}
-                </h4>
-                <Link
-                  to={`/evaluation/${each.survey_id}`}
-                  className="all-results__link"
-                >
-                  <p className="all-results__redirect">Open Exercise List</p>
-                </Link>
-              </div>
-            );
-          })}
+          {allSurveys.length === 0 ? (
+            <h4 className="all-results__none-message">No Evaluations Taken</h4>
+          ) : (
+            allSurveys.map((each) => {
+              return (
+                <div className="all-results__each" key={each.survey_id}>
+                  <h4 className="all-results__date">
+                    {new Date(Number(each.created_at)).toLocaleDateString(
+                      "en-US",
+                      {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      }
+                    )}{" "}
+                  </h4>
+                  <Link
+                    to={`/evaluation/${each.survey_id}`}
+                    className="all-results__link"
+                  >
+                    <p className="all-results__redirect">Open Exercise List</p>
+                  </Link>
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
       <Footer />
