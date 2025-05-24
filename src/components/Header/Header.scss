@@ -1,6 +1,22 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+@media print {
+  .header__nav-bar,
+  .header__nav-link {
+    display: none;
+  }
+  .header {
+    padding: 0rem !important;
+  }
+  .header__logo-image {
+    height: 50px !important;
+  }
+  .header__logo-name {
+    color: $black !important;
+  }
+}
+
 .header {
   padding: 2rem 1rem;
   display: flex;

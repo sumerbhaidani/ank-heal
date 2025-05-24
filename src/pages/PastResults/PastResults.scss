@@ -1,6 +1,20 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+@media print {
+  .past-results {
+    margin: 0rem !important;
+    padding: 0rem !important;
+  }
+  .past-results__header,
+  .past-results__id,
+  .exercise-list,
+  .exercise-list__each {
+    margin: 0 !important;
+    padding: 0.25rem 0rem !important;
+  }
+}
+
 .past-results {
   margin: 0rem 3rem auto;
   padding: 2rem 0rem;
