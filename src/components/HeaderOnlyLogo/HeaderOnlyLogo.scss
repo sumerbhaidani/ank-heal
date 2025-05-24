@@ -1,8 +1,23 @@
-.header {
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header-only {
+  //   background-image: linear-gradient(to right, $background-blue, $light-blue);
+  //   background-color: $light-blue;
+  padding: 0.5rem 0rem;
+  margin: 0rem 1rem;
+  border-bottom: 2px solid $background-blue;
   &__logo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: max-content;
+    text-decoration: none;
+    padding: 0rem;
+    &-image {
+      @include dimensions(4.25rem, 4.25rem);
+    }
+  }
+  &__nav-redirect {
     text-decoration: none;
   }
 }

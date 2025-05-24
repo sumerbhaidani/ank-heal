@@ -2,7 +2,7 @@ import "./PastResults.scss";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import HeaderOnlyLogo from "../../components/HeaderOnlyLogo/HeaderOnlyLogo";
+import Header from "../../components/Header/Header.jsx";
 function PastResults({ baseUrl }) {
   const param = useParams();
   const id = param.id;
@@ -55,7 +55,7 @@ function PastResults({ baseUrl }) {
   }, []);
   return (
     <>
-      <HeaderOnlyLogo />
+      <Header />
       <div className="past-results">
         {singleSurvey ? (
           <div className="past-results__header">
