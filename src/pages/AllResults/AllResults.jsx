@@ -51,7 +51,14 @@ function AllResults({ baseUrl }) {
               </h4>
               <p className="all-results__none-message-detail">
                 If you believe this is an error, please refresh the page or
-                complete an Evaluation here
+                complete an Evaluation{" "}
+                <Link
+                  to="/questionnaire"
+                  className="all-results__form-redirect"
+                >
+                  here
+                </Link>
+                .
               </p>
             </>
           ) : (
