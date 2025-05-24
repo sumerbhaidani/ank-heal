@@ -50,7 +50,6 @@ function App() {
   return (
     <AuthContextProvider>
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route path="/" element={<HomePage baseUrl={baseUrl} />} />
           <Route
@@ -106,7 +105,6 @@ function App() {
           <Route path="/checkout/cancel" element={<CheckoutCancel />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </AuthContextProvider>
   );
