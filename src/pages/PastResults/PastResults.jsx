@@ -2,6 +2,7 @@ import "./PastResults.scss";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import HeaderOnlyLogo from "../../components/HeaderOnlyLogo/HeaderOnlyLogo";
 function PastResults({ baseUrl }) {
   const param = useParams();
   const id = param.id;
@@ -53,136 +54,139 @@ function PastResults({ baseUrl }) {
     getExercises();
   }, []);
   return (
-    <div className="past-results">
-      {singleSurvey ? (
-        <div className="past-results__header">
-          <h4 className="past-results__header-title">
-            Exercise list for evaluation on:{" "}
-            {new Date(Number(singleSurvey.created_at)).toLocaleDateString(
-              "en-US",
-              {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              }
-            )}{" "}
-          </h4>
-          <h6 className="past-results__id">
-            List ID: {singleSurvey.survey_id}
-          </h6>
+    <>
+      <HeaderOnlyLogo />
+      <div className="past-results">
+        {singleSurvey ? (
+          <div className="past-results__header">
+            <h4 className="past-results__header-title">
+              Exercise list for evaluation on:{" "}
+              {new Date(Number(singleSurvey.created_at)).toLocaleDateString(
+                "en-US",
+                {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                }
+              )}{" "}
+            </h4>
+            <h6 className="past-results__id">
+              List ID: {singleSurvey.survey_id}
+            </h6>
+          </div>
+        ) : (
+          <div className="past-results__header">
+            <h4 className="past-results__header-title">
+              Error 404: Exercise List Not Found{" "}
+            </h4>
+          </div>
+        )}
+
+        <div className="exercise-list">
+          {exercise1.length !== 0 ? (
+            <div className="exercise-list__each">
+              <p className="exercise-list__name">{exercise1[0]?.name}</p>
+              <p className="exercise-list__reason">
+                {exercise1[0]?.exercise_function}
+              </p>
+              <ol className="exercise-list__steps">
+                <p className="exercise-list__steps-title">Steps:</p>
+
+                {exercise1[0]?.exercise_steps.map((each, index) => {
+                  return (
+                    <li key={index} className="exercise-list__each-step">
+                      {each}
+                    </li>
+                  );
+                })}
+              </ol>
+              <p className="exercise-list__sets">
+                <span>Sets: </span> {exercise1[0]?.sets}
+              </p>
+              <p className="exercise-list__reps">
+                <span>Reps: </span> {exercise1[0]?.reps}
+              </p>
+            </div>
+          ) : null}
+
+          {exercise2.length !== 0 ? (
+            <div className="exercise-list__each">
+              <p className="exercise-list__name">{exercise2[0]?.name}</p>
+              <p className="exercise-list__reason">
+                {exercise2[0]?.exercise_function}
+              </p>
+              <ol className="exercise-list__steps">
+                <p className="exercise-list__steps-title">Steps:</p>
+                {exercise2[0]?.exercise_steps.map((each, index) => {
+                  return (
+                    <li key={index} className="exercise-list__each-step">
+                      {each}
+                    </li>
+                  );
+                })}
+              </ol>
+              <p className="exercise-list__sets">
+                <span>Sets: </span> {exercise2[0]?.sets}
+              </p>
+              <p className="exercise-list__reps">
+                <span>Reps: </span> {exercise2[0]?.reps}
+              </p>
+            </div>
+          ) : null}
+          {exercise3.length !== 0 ? (
+            <div className="exercise-list__each">
+              <p className="exercise-list__name">{exercise3[0]?.name}</p>
+              <p className="exercise-list__reason">
+                {exercise3[0]?.exercise_function}
+              </p>
+              <ol className="exercise-list__steps">
+                <p className="exercise-list__steps-title">Steps:</p>
+
+                {exercise3[0]?.exercise_steps.map((each, index) => {
+                  return (
+                    <li key={index} className="exercise-list__each-step">
+                      {each}
+                    </li>
+                  );
+                })}
+              </ol>
+              <p className="exercise-list__sets">
+                <span>Sets: </span> {exercise3[0]?.sets}
+              </p>
+              <p className="exercise-list__reps">
+                <span>Reps: </span> {exercise3[0]?.reps}
+              </p>
+            </div>
+          ) : null}
+
+          {exercise4.length !== 0 ? (
+            <div className="exercise-list__each">
+              <p className="exercise-list__name">{exercise4[0]?.name}</p>
+              <p className="exercise-list__reason">
+                {exercise4[0]?.exercise_function}
+              </p>
+              <ol className="exercise-list__steps">
+                <p className="exercise-list__steps-title">Steps:</p>
+
+                {exercise4[0]?.exercise_steps.map((each, index) => {
+                  return (
+                    <li key={index} className="exercise-list__each-step">
+                      {each}
+                    </li>
+                  );
+                })}
+              </ol>
+              <p className="exercise-list__sets">
+                <span>Sets: </span> {exercise4[0]?.sets}
+              </p>
+              <p className="exercise-list__reps">
+                <span>Reps: </span> {exercise4[0]?.reps}
+              </p>
+            </div>
+          ) : null}
         </div>
-      ) : (
-        <div className="past-results__header">
-          <h4 className="past-results__header-title">
-            Error 404: Exercise List Not Found{" "}
-          </h4>
-        </div>
-      )}
-
-      <div className="exercise-list">
-        {exercise1.length !== 0 ? (
-          <div className="exercise-list__each">
-            <p className="exercise-list__name">{exercise1[0]?.name}</p>
-            <p className="exercise-list__reason">
-              {exercise1[0]?.exercise_function}
-            </p>
-            <ol className="exercise-list__steps">
-              <p className="exercise-list__steps-title">Steps:</p>
-
-              {exercise1[0]?.exercise_steps.map((each, index) => {
-                return (
-                  <li key={index} className="exercise-list__each-step">
-                    {each}
-                  </li>
-                );
-              })}
-            </ol>
-            <p className="exercise-list__sets">
-              <span>Sets: </span> {exercise1[0]?.sets}
-            </p>
-            <p className="exercise-list__reps">
-              <span>Reps: </span> {exercise1[0]?.reps}
-            </p>
-          </div>
-        ) : null}
-
-        {exercise2.length !== 0 ? (
-          <div className="exercise-list__each">
-            <p className="exercise-list__name">{exercise2[0]?.name}</p>
-            <p className="exercise-list__reason">
-              {exercise2[0]?.exercise_function}
-            </p>
-            <ol className="exercise-list__steps">
-              <p className="exercise-list__steps-title">Steps:</p>
-              {exercise2[0]?.exercise_steps.map((each, index) => {
-                return (
-                  <li key={index} className="exercise-list__each-step">
-                    {each}
-                  </li>
-                );
-              })}
-            </ol>
-            <p className="exercise-list__sets">
-              <span>Sets: </span> {exercise2[0]?.sets}
-            </p>
-            <p className="exercise-list__reps">
-              <span>Reps: </span> {exercise2[0]?.reps}
-            </p>
-          </div>
-        ) : null}
-        {exercise3.length !== 0 ? (
-          <div className="exercise-list__each">
-            <p className="exercise-list__name">{exercise3[0]?.name}</p>
-            <p className="exercise-list__reason">
-              {exercise3[0]?.exercise_function}
-            </p>
-            <ol className="exercise-list__steps">
-              <p className="exercise-list__steps-title">Steps:</p>
-
-              {exercise3[0]?.exercise_steps.map((each, index) => {
-                return (
-                  <li key={index} className="exercise-list__each-step">
-                    {each}
-                  </li>
-                );
-              })}
-            </ol>
-            <p className="exercise-list__sets">
-              <span>Sets: </span> {exercise3[0]?.sets}
-            </p>
-            <p className="exercise-list__reps">
-              <span>Reps: </span> {exercise3[0]?.reps}
-            </p>
-          </div>
-        ) : null}
-
-        {exercise4.length !== 0 ? (
-          <div className="exercise-list__each">
-            <p className="exercise-list__name">{exercise4[0]?.name}</p>
-            <p className="exercise-list__reason">
-              {exercise4[0]?.exercise_function}
-            </p>
-            <ol className="exercise-list__steps">
-              <p className="exercise-list__steps-title">Steps:</p>
-
-              {exercise4[0]?.exercise_steps.map((each, index) => {
-                return (
-                  <li key={index} className="exercise-list__each-step">
-                    {each}
-                  </li>
-                );
-              })}
-            </ol>
-            <p className="exercise-list__sets">
-              <span>Sets: </span> {exercise4[0]?.sets}
-            </p>
-            <p className="exercise-list__reps">
-              <span>Reps: </span> {exercise4[0]?.reps}
-            </p>
-          </div>
-        ) : null}
       </div>
-    </div>
+    </>
   );
 }
 
