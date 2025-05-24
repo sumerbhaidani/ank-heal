@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./AllResults.scss";
+import Header from "../../components/Header/Header.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
 
 function AllResults({ baseUrl }) {
   const [allSurveys, setAllSurveys] = useState([]);
@@ -24,42 +26,49 @@ function AllResults({ baseUrl }) {
     getAllResults();
   }, []);
   return (
-    <div className="all-results">
-      <h2 className="all-results__header">Past Evaluations</h2>
-      <p className="all-results__page-info">
-        Attached below are results from all your past evaluations. Please click
-        a page below to view the exercises. <br /> The exercises are meant to
-        challenge you, not hurt you, if you feel pain at any point during the
-        exercise, stop immediately.
-        <br /> It is recommended to do an evalution every week if injured.{" "}
-        <br />
-        For best results, do the full list of results every other day.
-      </p>
-      <div className="all-results__categories">
-        <h4 className="all-results__date">Date Evaluated</h4>
+    <>
+      <Header />
+      <div className="all-results">
+        <h2 className="all-results__header">Past Evaluations</h2>
+        <p className="all-results__page-info">
+          Attached below are results from all your past evaluations. Please
+          click a page below to view the exercises. <br /> The exercises are
+          meant to challenge you, not hurt you, if you feel pain at any point
+          during the exercise, stop immediately.
+          <br /> It is recommended to do an evalution every week if injured.{" "}
+          <br />
+          For best results, do the full list of results every other day.
+        </p>
+        <div className="all-results__categories">
+          <h4 className="all-results__date">Date Evaluated</h4>
+        </div>
+        <div className="all-results__full">
+          {allSurveys.map((each) => {
+            return (
+              <div className="all-results__each" key={each.survey_id}>
+                <h4 className="all-results__date">
+                  {new Date(Number(each.created_at)).toLocaleDateString(
+                    "en-US",
+                    {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    }
+                  )}{" "}
+                </h4>
+                <Link
+                  to={`/evaluation/${each.survey_id}`}
+                  className="all-results__link"
+                >
+                  <p className="all-results__redirect">Open Exercise List</p>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div className="all-results__full">
-        {allSurveys.map((each) => {
-          return (
-            <div className="all-results__each" key={each.survey_id}>
-              <h4 className="all-results__date">
-                {new Date(Number(each.created_at)).toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}{" "}
-              </h4>
-              <Link
-                to={`/evaluation/${each.survey_id}`}
-                className="all-results__link"
-              >
-                <p className="all-results__redirect">Open Exercise List</p>
-              </Link>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 
