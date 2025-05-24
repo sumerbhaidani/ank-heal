@@ -51,4 +51,20 @@
   &__redirect {
     background-color: $background-blue;
   }
+  &__none-message {
+    @include text-style(1.5rem, 500, 2rem);
+    text-align: center;
+    margin: 2rem 0rem 0rem;
+    @include tablet {
+      @include text-style(1.75rem, 500, 2.25rem);
+    }
+    &-detail {
+      text-align: center;
+      margin: 0rem 0rem 2rem;
+      @include text-style(1rem, 400, 1.25rem);
+      @include tablet {
+        @include text-style(1.125rem, 400, 1.375rem);
+      }
+    }
+  }
 }

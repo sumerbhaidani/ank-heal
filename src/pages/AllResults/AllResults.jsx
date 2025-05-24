@@ -44,7 +44,16 @@ function AllResults({ baseUrl }) {
         </div>
         <div className="all-results__full">
           {allSurveys.length === 0 ? (
-            <h4 className="all-results__none-message">No Evaluations Taken</h4>
+            <>
+              {" "}
+              <h4 className="all-results__none-message">
+                No Evaluations Found
+              </h4>
+              <p className="all-results__none-message-detail">
+                If you believe this is an error, please refresh the page or
+                complete an Evaluation here
+              </p>
+            </>
           ) : (
             allSurveys.map((each) => {
               return (
