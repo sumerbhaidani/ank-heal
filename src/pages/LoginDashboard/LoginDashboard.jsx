@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { UserAuth } from "../../utils/AuthContext";
 import "./LoginDashboard.scss";
 import { useNavigate } from "react-router-dom";
+import HeaderOnlyLogo from "../../components/HeaderOnlyLogo/HeaderOnlyLogo";
 
 function LoginDashboard({ portalLink }) {
   const param = useParams();
@@ -20,24 +21,28 @@ function LoginDashboard({ portalLink }) {
   }
 
   return (
-    <div className="login-dashboard">
-      <section className="login-dashboard__heading">
-        <h2 className="login-dashboard__welcome">
-          Welcome {session?.user?.user_metadata?.name}!
-        </h2>
-        <p onClick={handleSignOut} className="login-dashboard__log-out">
-          Log Out
-        </p>
-      </section>
-      {/* one card customer portal - one card progress tracker - one card when last evaluation taken and take next evaluation */}
-      <div className="login-dashboard__card"></div>
-      <div className="login-dashboard__card"></div>
-      <a
-        href={`${portalLink}?prefilled_email=${session.user.email}`}
-        className="login-dashboard__customer-portal"
-      >
-        Customer Portal
-      </a>
+    <div className="dashboard">
+      {" "}
+      <HeaderOnlyLogo />
+      <div className="dashboard__main">
+        <section className="dashboard__heading">
+          <h2 className="dashboard__welcome">
+            Welcome {session?.user?.user_metadata?.name}!
+          </h2>
+          <p onClick={handleSignOut} className="dashboard__log-out">
+            Log Out
+          </p>
+        </section>
+        {/* one card customer portal - one card progress tracker - one card when last evaluation taken and take next evaluation */}
+        <div className="dashboard__card">Take an Evaluation Here!</div>
+        <div className="dashboard__card">Access your Past Evaluations</div>
+        <a
+          href={`${portalLink}?prefilled_email=${session.user.email}`}
+          className="dashboard__customer-portal"
+        >
+          Customer Portal
+        </a>
+      </div>
     </div>
   );
 }
