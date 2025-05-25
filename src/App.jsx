@@ -1,11 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage.jsx";
-import Header from "./components/Header/Header.jsx";
 import Login from "./pages/Login/Login.jsx";
 import PastResults from "./pages/PastResults/PastResults.jsx";
 import Questionnaire from "./pages/Questionnaire/Questionnaire.jsx";
-import Footer from "./components/Footer/Footer.jsx";
 import AllResults from "./pages/AllResults/AllResults.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
 import { AuthContextProvider } from "./utils/AuthContext.jsx";

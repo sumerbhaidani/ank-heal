@@ -68,7 +68,7 @@ function LoginDashboard({ baseUrl, portalLink }) {
         {/* one card customer portal - one card progress tracker - one card when last evaluation taken and take next evaluation */}
         <div className="dashboard__card">
           <img
-            src={EvalIcon}
+            src={ResultsIcon}
             alt="Past Evaluations Icon"
             className="dashboard__icon"
           />
@@ -115,7 +115,29 @@ function LoginDashboard({ baseUrl, portalLink }) {
             )}
           </section>
         </div>
-        <div className="dashboard__card">Take an Evaluation Here!</div>
+        <div className="dashboard__card">
+          <img src={EvalIcon} alt="" className="dashboard__icon" />
+          <section className="dashboard__card-text">
+            <h3 className="dashboard__card-title">Take an Evaluation Here</h3>
+            {recentEval.length !== 0 ? (
+              <h4 className="dashboard__card-empty">
+                Recommended Date for Next Evaluation:{" "}
+                {new Date(
+                  Number(recentEval?.created_at) + 604800000
+                ).toLocaleString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </h4>
+            ) : (
+              <h4 className="dashboard__card-empty">
+                Unavailable: Insufficient information about ankle health to
+                provide a recommendation.
+              </h4>
+            )}
+          </section>
+        </div>
         <a
           href={`${portalLink}?prefilled_email=${session.user.email}`}
           className="dashboard__customer-portal"
