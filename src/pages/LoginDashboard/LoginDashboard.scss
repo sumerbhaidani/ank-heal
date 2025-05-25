@@ -4,10 +4,11 @@
 .dashboard {
   height: 100%;
   background-image: linear-gradient($light-blue-gray);
+  font-family: "Outfit";
   // background-color: $light-gray;
 
   &__main {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem 2rem;
     margin-bottom: auto;
     display: flex;
     flex-direction: column;
@@ -25,9 +26,9 @@
   &__welcome {
     margin: 0rem;
     text-align: center;
-    @include text-style(1.5rem, 700, 2rem);
+    @include text-style(1.5rem, 500, 2rem);
     @include tablet {
-      @include text-style(1.75rem, 700, 2.25rem);
+      @include text-style(1.75rem, 500, 2.25rem);
     }
   }
   &__log-out {
@@ -53,5 +54,17 @@
   }
   &__card {
     border: 1px solid $dark-gray;
+    padding: 1rem 0.5rem;
+    border-radius: 1rem;
+    &-title {
+      margin: 0rem;
+      @include text-style(1rem, 500, 1.25rem);
+      @include tablet {
+        @include text-style(1.25rem, 500, 1.75rem);
+      }
+    }
+  }
+  &__icon {
+    @include dimensions(3.125rem, 3.125rem);
   }
 }

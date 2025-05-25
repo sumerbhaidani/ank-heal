@@ -85,7 +85,10 @@ function App() {
             path="/user/dashboard"
             element={
               <PrivateRoute>
-                <LoginDashboard portalLink={VITE_STRIPE_CUSTOMER_PORTAL} />{" "}
+                <LoginDashboard
+                  baseUrl={baseUrl}
+                  portalLink={VITE_STRIPE_CUSTOMER_PORTAL}
+                />{" "}
               </PrivateRoute>
             }
           />
