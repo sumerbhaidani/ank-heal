@@ -1,29 +1,48 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.signup-form {
-  display: flex;
-  gap: 0.25rem;
-  flex-direction: column;
-  width: max-content;
-  margin: auto;
-  padding: 1.5rem;
-  border: 1px $dark-gray solid;
-  &__input {
-    margin-bottom: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px $dark-gray solid;
+.signup {
+  height: 100%;
+  background-color: $light-blue-gray;
+  &__message {
+    font-family: "Outfit";
+    text-align: center;
+    @include text-style(1.5rem, 500, 2rem);
+    @include tablet {
+      @include text-style(1.75rem, 500, 2.25rem);
+    }
   }
-  &__submit-button {
-    background-color: $background-blue;
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 2rem;
-    width: max-content;
-    align-self: center;
-    &:hover {
-      cursor: pointer;
+  &-form {
+    display: flex;
+    gap: 0.25rem;
+    flex-direction: column;
+    width: 18.75rem;
+    max-width: 70%;
+    margin: 4rem auto 2rem;
+    padding: 1.5rem;
+    border: 1px $dark-gray solid;
+    border-radius: 1rem;
+    background-color: $white;
+    &__input {
+      margin-bottom: 0.5rem;
+      padding: 0.375rem 0.625rem;
+      border-radius: 0.5rem;
+      border: 2px $dark-gray solid;
+      outline: none;
+      &:focus {
+        border: 2px solid $background-blue;
+      }
+    }
+    &__submit-button {
+      background-color: $background-blue;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 2rem;
+      width: max-content;
+      align-self: center;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

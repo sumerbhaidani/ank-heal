@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { UserAuth } from "../../utils/AuthContext.jsx";
 import "./SignUp.scss";
 import axios from "axios";
+import HeaderOnlyLogo from "../../components/HeaderOnlyLogo/HeaderOnlyLogo.jsx";
 
 function SignUp({ baseUrl }) {
   const [email, setEmail] = useState("");
@@ -62,46 +63,52 @@ function SignUp({ baseUrl }) {
   }
 
   return (
-    <form className="signup-form" onSubmit={handleSignUp}>
-      <label className="signup-form__label">Name</label>
-      <input
-        type="text"
-        className="signup-form__input"
-        placeholder="Preferred Name"
-        value={name}
-        onChange={handleNameChange}
-      />
-      <label htmlFor="" className="signup-form__label">
-        Email
-      </label>
-      <input
-        type="email"
-        className="signup-form__input"
-        placeholder="Email"
-        value={email}
-        onChange={handleEmailChange}
-      />
-      <label htmlFor="" className="signup-form__label">
-        Password
-      </label>
-      <input
-        type="password"
-        className="signup-form__input"
-        placeholder="Password"
-        value={password}
-        onChange={handlePasswordChange}
-      />
-      <p className="signup-form__rule">
-        Password must be at least 8 characters
-      </p>
-      {error === true ? (
-        <p className="signup-form__error">
-          Unable to sign up right, please try again later.
-        </p>
-      ) : null}
+    <div className="signup">
+      {" "}
+      <HeaderOnlyLogo />
+      <form className="signup-form" onSubmit={handleSignUp}>
+        <h2 className="signup__message">Sign Up</h2>
 
-      <button className="signup-form__submit-button">Sign Up</button>
-    </form>
+        <label className="signup-form__label">Name</label>
+        <input
+          type="text"
+          className="signup-form__input"
+          placeholder="Preferred Name"
+          value={name}
+          onChange={handleNameChange}
+        />
+        <label htmlFor="" className="signup-form__label">
+          Email
+        </label>
+        <input
+          type="email"
+          className="signup-form__input"
+          placeholder="Email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <label htmlFor="" className="signup-form__label">
+          Password
+        </label>
+        <input
+          type="password"
+          className="signup-form__input"
+          placeholder="Password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        <p className="signup-form__rule">
+          Password must be at least 8 characters
+        </p>
+        {error === true ? (
+          <p className="signup-form__error">
+            Unable to sign up right, please try again later.
+          </p>
+        ) : null}
+
+        <button className="signup-form__submit-button">Sign Up</button>
+      </form>
+    </div>
   );
 }
 
