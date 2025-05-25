@@ -118,7 +118,12 @@ function LoginDashboard({ baseUrl, portalLink }) {
         <div className="dashboard__card">
           <img src={EvalIcon} alt="" className="dashboard__icon" />
           <section className="dashboard__card-text">
-            <h3 className="dashboard__card-title">Take an Evaluation Here</h3>
+            <h3 className="dashboard__card-title">
+              Take an Evaluation{" "}
+              <Link to="/questionnaire" className="dashboard__card-redirect">
+                Here
+              </Link>
+            </h3>
             {recentEval.length !== 0 ? (
               <h4 className="dashboard__card-empty">
                 Recommended Date for Next Evaluation:{" "}
@@ -130,12 +135,7 @@ function LoginDashboard({ baseUrl, portalLink }) {
                   year: "numeric",
                 })}
               </h4>
-            ) : (
-              <h4 className="dashboard__card-empty">
-                Unavailable: Insufficient information about ankle health to
-                provide a recommendation.
-              </h4>
-            )}
+            ) : null}
           </section>
         </div>
         <a
