@@ -91,11 +91,30 @@ function LoginDashboard({ baseUrl, portalLink }) {
                 )}
               </Link>
             ) : (
-              <h4 className="dashboard__card-empty">No Survey Result Found</h4>
+              <h4 className="dashboard__card-empty">No Exercise List Found</h4>
             )}
           </section>
         </div>
-        <div className="dashboard__card">Recommended Sessions per Week</div>
+        <div className="dashboard__card">
+          <img
+            src={ClockIcon}
+            alt="Clock Icon for Recommended Sessions Per Week"
+            className="dashboard__icon"
+          />
+          <section className="dashboard__card-text">
+            <h3 className="dashboard__card-title">
+              Recommended Exercise Sessions Frequency:
+            </h3>
+            {recentEval.length !== 0 ? (
+              <h4 className="dashboard__card-empty">3-4 Times per Week</h4>
+            ) : (
+              <h4 className="dashboard__card-empty">
+                Unavailable: Insufficient information about ankle health to
+                provide a recommendation.
+              </h4>
+            )}
+          </section>
+        </div>
         <div className="dashboard__card">Take an Evaluation Here!</div>
         <a
           href={`${portalLink}?prefilled_email=${session.user.email}`}

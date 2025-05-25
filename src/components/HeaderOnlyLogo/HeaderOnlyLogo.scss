@@ -4,7 +4,7 @@
 .header-only {
   // background-image: linear-gradient(to right, $background-blue, $light-blue);
   // // background-color: $light-blue;
-  padding: 0.5rem 1rem;
+  // padding: 0.5rem 1rem;
 
   &__logo {
     display: flex;
@@ -13,7 +13,7 @@
     text-decoration: none;
     padding: 0rem;
     &-image {
-      @include dimensions(4.25rem, 4.25rem);
+      @include dimensions(4.6875rem, 4.6875rem);
     }
   }
   &__nav-redirect {
