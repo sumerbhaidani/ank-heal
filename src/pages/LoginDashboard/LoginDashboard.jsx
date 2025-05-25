@@ -116,7 +116,11 @@ function LoginDashboard({ baseUrl, portalLink }) {
           </section>
         </div>
         <div className="dashboard__card">
-          <img src={EvalIcon} alt="" className="dashboard__icon" />
+          <img
+            src={EvalIcon}
+            alt="Evaluation Icon for Questionnaire"
+            className="dashboard__icon"
+          />
           <section className="dashboard__card-text">
             <h3 className="dashboard__card-title">
               Take an Evaluation{" "}
