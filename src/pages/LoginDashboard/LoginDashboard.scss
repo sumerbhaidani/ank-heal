@@ -56,12 +56,31 @@
     border: 1px solid $dark-gray;
     padding: 1rem 0.5rem;
     border-radius: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
     &-title {
       margin: 0rem;
       @include text-style(1rem, 500, 1.25rem);
       @include tablet {
         @include text-style(1.25rem, 500, 1.75rem);
       }
+    }
+    &-redirect {
+      color: $background-blue;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &-empty {
+      margin: 0rem;
+      @include text-style(1rem, 400, 1.25rem);
+    }
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
   }
   &__icon {

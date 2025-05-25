@@ -72,16 +72,28 @@ function LoginDashboard({ baseUrl, portalLink }) {
             alt="Past Evaluations Icon"
             className="dashboard__icon"
           />
-          <h3 className="dashboard__card-title">
-            Most Recent Evaluation Taken On:
-          </h3>
-          <Link to={`/evaluation/${recentEval?.survey_id}`}>
-            {new Date(Number(recentEval?.created_at)).toLocaleString("en-US", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
-          </Link>
+          <section className="dashboard__card-text">
+            <h3 className="dashboard__card-title">
+              Most Recent Evaluation Taken On:
+            </h3>
+            {recentEval.length !== 0 ? (
+              <Link
+                to={`/evaluation/${recentEval?.survey_id}`}
+                className="dashboard__card-redirect"
+              >
+                {new Date(Number(recentEval?.created_at)).toLocaleString(
+                  "en-US",
+                  {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  }
+                )}
+              </Link>
+            ) : (
+              <h4 className="dashboard__card-empty">No Survey Result Found</h4>
+            )}
+          </section>
         </div>
         <div className="dashboard__card">Recommended Sessions per Week</div>
         <div className="dashboard__card">Take an Evaluation Here!</div>
