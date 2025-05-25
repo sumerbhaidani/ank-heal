@@ -58,9 +58,9 @@ function Login() {
     }
   }, []);
   return (
-    <>
+    <div className="login-page">
       <HeaderOnlyLogo />
-      <section className="account-benefits">
+      {/* <section className="account-benefits">
         <ul className="account-benefits__title">
           With an Account, you can:
           <li className="account-benefits__list">
@@ -71,9 +71,9 @@ function Login() {
           <li className="account-benefits__list"></li>
           <li className="account-benefits__list"></li>
         </ul>
-      </section>
+      </section> */}
       <form onSubmit={handleSignIn} className="login-form">
-        <h2 className="form__message">Welcome Back</h2>
+        <h2 className="login-form__message">Welcome Back</h2>
         <label htmlFor="" className="login-form__label">
           Email
         </label>
@@ -103,7 +103,7 @@ function Login() {
         <p className="login-form__forgot-pass">Forgot your password?</p>
       </Link> */}
       </form>
-    </>
+    </div>
   );
 }
 

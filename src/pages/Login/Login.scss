@@ -1,18 +1,36 @@
 @use "../../styles/partials/variables" as *;
-
+@use "../../styles/partials/mixins" as *;
+.login-page {
+  height: 100%;
+  background-color: $light-blue-gray;
+}
 .login-form {
   display: flex;
   gap: 0.25rem;
   flex-direction: column;
-  width: 30%;
-  margin: auto;
+  width: 18.75rem;
+  max-width: 70%;
+  margin: 4rem auto 2rem;
   padding: 1.5rem;
   border: 1px $dark-gray solid;
+  background-color: $white;
+  &__message {
+    font-family: "Outfit";
+    text-align: center;
+    @include text-style(1.5rem, 500, 2rem);
+    @include tablet {
+      @include text-style(1.75rem, 500, 2.25rem);
+    }
+  }
   &__input {
     margin-bottom: 0.5rem;
-    padding: 0.25rem 0.5rem;
+    padding: 0.375rem 0.625rem;
     border-radius: 0.5rem;
-    border: 1px $dark-gray solid;
+    border: 2px $dark-gray solid;
+    outline: none;
+    &:focus {
+      border: 2px solid $background-blue;
+    }
   }
   &__submit-button {
     background-color: $background-blue;

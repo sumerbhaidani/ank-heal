@@ -2,8 +2,8 @@
 @use "../../styles/partials/variables" as *;
 
 .header-only {
-  background-image: linear-gradient(to right, $background-blue, $light-blue);
-  // background-color: $light-blue;
+  // background-image: linear-gradient(to right, $background-blue, $light-blue);
+  // // background-color: $light-blue;
   padding: 0.5rem 1rem;
 
   &__logo {
