@@ -3,8 +3,8 @@
 
 .dashboard {
   height: 100%;
-  // background-image: linear-gradient($light-blue-gray, $light-blue);
-  background-color: $light-gray;
+  background-image: linear-gradient($light-blue-gray);
+  // background-color: $light-gray;
 
   &__main {
     padding: 2rem 1rem;
@@ -20,6 +20,7 @@
   &__heading {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   &__welcome {
     margin: 0rem;
@@ -49,5 +50,8 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+  &__card {
+    border: 1px solid $dark-gray;
   }
 }
