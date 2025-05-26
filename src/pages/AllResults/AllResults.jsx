@@ -35,9 +35,6 @@ function AllResults({ baseUrl }) {
           click a page below to view the exercises. <br /> The exercises are
           meant to challenge you, not hurt you, if you feel pain at any point
           during the exercise, stop immediately.
-          <br /> It is recommended to do an evalution every week if injured.{" "}
-          <br />
-          For best results, do the full list of results every other day.
         </p>
         <div className="all-results__categories">
           <h4 className="all-results__date">Date Evaluated</h4>

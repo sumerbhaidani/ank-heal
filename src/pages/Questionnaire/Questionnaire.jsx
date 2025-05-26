@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import FormModal from "../../components/FormModal/FormModal.jsx";
 import "./Questionnaire.scss";
@@ -16,6 +16,7 @@ function Questionnaire({ baseUrl }) {
 
   const [isFormSubmit, setisFormSubmit] = useState(false);
 
+  const { session } = UserAuth();
   const rawUserInfo = localStorage.getItem("userId");
   const userId = JSON.parse(rawUserInfo);
 
@@ -42,6 +43,20 @@ function Questionnaire({ baseUrl }) {
   function handleSmallHops(e) {
     setSmallHops(e.target.value);
   }
+
+  async function checkPlan() {
+    try {
+      const response = await axios.get(`${baseUrl}/user/${session.user.id}`);
+      console.log(response.data[0].subscription_status);
+    } catch (err) {
+      console.error(`Unable to check if plan is active`);
+    }
+  }
+
+  useEffect(() => {
+    checkPlan();
+  });
+
   async function sendResponse(arr, id) {
     try {
       const response = await axios.post(`${baseUrl}/survey`, {
