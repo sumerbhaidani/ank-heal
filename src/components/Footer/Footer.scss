@@ -9,6 +9,7 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 2rem 1rem;
+  font-family: "Outfit";
   @include tablet {
     padding: 1rem 2rem;
   }
@@ -42,11 +43,12 @@
       margin-left: auto;
     }
     &-single {
-      color: $white;
-      text-decoration: $white;
+      color: $light-gray;
+      text-decoration: none;
       width: max-content;
       @include text-style(0.875rem, 300, 1rem);
       &:hover {
+        color: $white;
         text-decoration: underline;
       }
       @include tablet {
