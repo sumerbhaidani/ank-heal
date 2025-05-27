@@ -4,6 +4,7 @@ import FormModal from "../../components/FormModal/FormModal.jsx";
 import "./Questionnaire.scss";
 import { UserAuth } from "../../utils/AuthContext.jsx";
 import Header from "../../components/Header/Header.jsx";
+import PlanValidation from "../../components/PlanValidation/PlanValidation.jsx";
 
 function Questionnaire({ baseUrl }) {
   const [standQuestion, setStandQuestion] = useState("");
@@ -13,6 +14,7 @@ function Questionnaire({ baseUrl }) {
   const [squatQuestion, setSquatQuestion] = useState(1);
   const [smallHops, setSmallHops] = useState("");
   const [surveyId, setSurveyId] = useState("");
+  const [initialMessage, setInitialMessage] = useState(true);
 
   const [isFormSubmit, setisFormSubmit] = useState(false);
 
@@ -44,18 +46,18 @@ function Questionnaire({ baseUrl }) {
     setSmallHops(e.target.value);
   }
 
-  async function checkPlan() {
-    try {
-      const response = await axios.get(`${baseUrl}/user/${session.user.id}`);
-      console.log(response.data[0].subscription_status);
-    } catch (err) {
-      console.error(`Unable to check if plan is active`);
-    }
-  }
+  // async function checkPlan() {
+  //   try {
+  //     const response = await axios.get(`${baseUrl}/user/${session.user.id}`);
+  //     console.log(response.data[0].subscription_status);
+  //   } catch (err) {
+  //     console.error(`Unable to check if plan is active`);
+  //   }
+  // }
 
-  useEffect(() => {
-    checkPlan();
-  });
+  // useEffect(() => {
+  //   checkPlan();
+  // }, []);
 
   async function sendResponse(arr, id) {
     try {
@@ -144,6 +146,7 @@ function Questionnaire({ baseUrl }) {
   };
   return (
     <>
+      {initialMessage === true ? <>Test</> : null}
       <Header />
       <form className="question-form" onSubmit={formSubmit}>
         <h2 className="question-form__instruction">
