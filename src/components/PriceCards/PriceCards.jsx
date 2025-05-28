@@ -13,7 +13,6 @@ function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
       const response = await axios.post(
         `${baseUrl}/subscription/checkout-session`,
         {
-          customerId: customerId,
           priceId: priceId,
           userId: session.user.id,
           email: session.user.email,

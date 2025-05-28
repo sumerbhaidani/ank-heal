@@ -146,7 +146,7 @@ function Questionnaire({ baseUrl }) {
   };
   return (
     <>
-      {initialMessage === true ? <>Test</> : null}
+      {/* {initialMessage === true ? <PlanValidation baseUrl={baseUrl} /> : null} */}
       <Header />
       <form className="question-form" onSubmit={formSubmit}>
         <h2 className="question-form__instruction">
