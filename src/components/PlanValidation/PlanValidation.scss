@@ -1,2 +1,8 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+
+.plan-validation {
+  position: fixed;
+  background-color: $light-blue-gray;
+  height: 100%;
+}
