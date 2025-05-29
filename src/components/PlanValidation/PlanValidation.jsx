@@ -19,6 +19,7 @@ function PlanValidation({ baseUrl }) {
       }
     } catch (err) {
       console.error(`Unable to check if plan is active`);
+      setUserPlan(false);
     }
   }
 
@@ -29,12 +30,15 @@ function PlanValidation({ baseUrl }) {
   return (
     <div className="plan-validation">
       <h2 className="plan-validation__header">
-        {loading === true ? "Verifying Subscription" : "Subscription Needed"}
+        {loading === true ? "Verifying Subscription..." : "Subscription Needed"}
       </h2>
       <h3 className="plan-validation__message">
         To access this part of the site, you need to have an active
-        subscription. If you don't have an active subscription, you will see a
-        button below to redirect{" "}
+        subscription.
+        <br />
+        {userPlan === true
+          ? "Click the button below to proceed."
+          : "You must have an active subscription to access this part of the site. Click the button below to sign up for a subscription plan to access this content."}{" "}
       </h3>
     </div>
   );

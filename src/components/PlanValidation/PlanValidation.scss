@@ -4,5 +4,5 @@
 .plan-validation {
   position: fixed;
   background-color: $light-blue-gray;
-  height: 100%;
+  @include dimensions(100%, 100%);
 }
