@@ -5,4 +5,25 @@
   position: fixed;
   background-color: $light-blue-gray;
   @include dimensions(100%, 100%);
+  font-family: "Outfit";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__header {
+    @include text-style(1.5rem, 500, 2rem);
+  }
+  &__hide-button {
+    background-color: $background-blue;
+    color: $white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    width: max-content;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__redirect {
+    @extend .plan-validation__hide-button;
+    text-decoration: none;
+  }
 }

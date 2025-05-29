@@ -2,6 +2,7 @@ import "./PlanValidation.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { UserAuth } from "../../utils/AuthContext";
+import { Link } from "react-router";
 
 function PlanValidation({ baseUrl }) {
   const [userPlan, setUserPlan] = useState(false);
@@ -40,6 +41,14 @@ function PlanValidation({ baseUrl }) {
           ? "Click the button below to proceed."
           : "You must have an active subscription to access this part of the site. Click the button below to sign up for a subscription plan to access this content."}{" "}
       </h3>
+      {/* <div className="plan-validation__redirect"> */}
+      {userPlan === true ? (
+        <div className="plan-validation__hide-button">Begin evaluation</div>
+      ) : (
+        <Link to="/pricing" className="plan-validation__redirect">
+          Select a subscription plan
+        </Link>
+      )}
     </div>
   );
 }
