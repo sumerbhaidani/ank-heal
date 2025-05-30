@@ -47,21 +47,31 @@ function PlanValidation({ baseUrl }) {
         subscription.{" "}
         {loading === false ? "View your subscription status below." : null}
       </h3>
-      <h4 className="plan-validation__instruction">
-        {userPlan === true
-          ? "Click the button below to proceed."
-          : "Click the button below to sign up for a subscription plan to access this content."}{" "}
-      </h4>
-      {/* <div className="plan-validation__redirect"> */}
-      {userPlan === true ? (
-        <div className="plan-validation__hide-button" onClick={handleIsVisible}>
-          Begin evaluation
-        </div>
-      ) : (
-        <Link to="/pricing" className="plan-validation__redirect">
-          Select a subscription plan
-        </Link>
-      )}
+      {loading === false ? (
+        userPlan === true ? (
+          <>
+            <h4 className="plan-validation__instruction">
+              Click the button below to proceed.
+            </h4>
+            <div
+              className="plan-validation__hide-button"
+              onClick={handleIsVisible}
+            >
+              Begin evaluation
+            </div>
+          </>
+        ) : (
+          <>
+            <h4 className="plan-validation__instruction">
+              Click the button below to sign up for a subscription plan to
+              access this content.
+            </h4>
+            <Link to="/pricing" className="plan-validation__redirect">
+              Select a subscription plan
+            </Link>
+          </>
+        )
+      ) : null}
     </div>
   ) : null;
 }
