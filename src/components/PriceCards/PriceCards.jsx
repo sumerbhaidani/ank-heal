@@ -56,10 +56,10 @@ function PriceCards({ monthlyStripeKey, yearlyStripeKey, baseUrl }) {
       </div>
       <div className="price-card__single price-card--yearly">
         {" "}
-        <p className="price-card__deal">SAVE 28%</p>
+        <p className="price-card__deal">SAVE 22%</p>
         <div className="price-card__yearly-info">
           <h4 className="price-card__product-name">ANNUAL</h4>
-          <p className="price-card__price">$129.99</p>
+          <p className="price-card__price">$139.99</p>
           <p className="price-card__plan-length">PER YEAR</p>
           <p className="price-card__yearly-detail">
             Everything in Monthly, plus:
