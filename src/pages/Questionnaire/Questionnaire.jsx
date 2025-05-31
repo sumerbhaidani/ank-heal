@@ -46,18 +46,26 @@ function Questionnaire({ baseUrl }) {
     setSmallHops(e.target.value);
   }
 
-  // async function checkPlan() {
-  //   try {
-  //     const response = await axios.get(`${baseUrl}/user/${session.user.id}`);
-  //     console.log(response.data[0].subscription_status);
-  //   } catch (err) {
-  //     console.error(`Unable to check if plan is active`);
-  //   }
-  // }
+  const [userPlan, setUserPlan] = useState(false);
 
-  // useEffect(() => {
-  //   checkPlan();
-  // }, []);
+  async function checkPlan() {
+    try {
+      const response = await axios.get(`${baseUrl}/user/${session.user.id}`);
+
+      if (response.data[0].subscription_status === "active") {
+        setUserPlan(true);
+      } else {
+        setUserPlan(false);
+      }
+    } catch (err) {
+      console.error(`Unable to check if plan is active`);
+      setUserPlan(false);
+    }
+  }
+
+  useEffect(() => {
+    checkPlan();
+  }, []);
 
   async function sendResponse(arr, id) {
     try {
@@ -148,204 +156,206 @@ function Questionnaire({ baseUrl }) {
     <>
       {initialMessage === true ? <PlanValidation baseUrl={baseUrl} /> : null}
       <Header />
-      <form className="question-form" onSubmit={formSubmit}>
-        <h2 className="question-form__instruction">
-          Answer the questions below based on how your ankle feels. Ensure you
-          have enough space to move if needed.
-        </h2>
-        <div className="question-form__single-question">
-          <label htmlFor="" className="question-form__question">
-            Are you able to stand on your feet?
-          </label>
-          <div className="question-form__response">
-            <input
-              type="radio"
-              id="q1Yes"
-              name="q1"
-              value="Yes"
-              checked={standQuestion === "Yes"}
-              onChange={handleStandQuestionChange}
-              className="question-form__response-input"
-            />
-            <label htmlFor="q1Yes" className="question-form__response-label">
-              Yes
+      {userPlan === true ? (
+        <form className="question-form" onSubmit={formSubmit}>
+          <h2 className="question-form__instruction">
+            Answer the questions below based on how your ankle feels. Ensure you
+            have enough space to move if needed.
+          </h2>
+          <div className="question-form__single-question">
+            <label htmlFor="" className="question-form__question">
+              Are you able to stand on your feet?
             </label>
+            <div className="question-form__response">
+              <input
+                type="radio"
+                id="q1Yes"
+                name="q1"
+                value="Yes"
+                checked={standQuestion === "Yes"}
+                onChange={handleStandQuestionChange}
+                className="question-form__response-input"
+              />
+              <label htmlFor="q1Yes" className="question-form__response-label">
+                Yes
+              </label>
+            </div>
+            <div className="question-form__response">
+              <input
+                type="radio"
+                id="q1No"
+                name="q1"
+                value="No"
+                checked={standQuestion === "No"}
+                onChange={handleStandQuestionChange}
+                className="question-form__response-input"
+              />
+              <label htmlFor="q1No" className="question-form__response-label">
+                No
+              </label>
+            </div>
           </div>
-          <div className="question-form__response">
-            <input
-              type="radio"
-              id="q1No"
-              name="q1"
-              value="No"
-              checked={standQuestion === "No"}
-              onChange={handleStandQuestionChange}
-              className="question-form__response-input"
-            />
-            <label htmlFor="q1No" className="question-form__response-label">
-              No
+          <div className="question-form__single-question">
+            <label htmlFor="" className="question-form__question">
+              With the other leg bent at least 45°, can you balance on the
+              injured foot for 10 seconds without feeling pain?
             </label>
+            <div className="question-form__response">
+              <input
+                type="radio"
+                id="q2Yes"
+                name="q2"
+                value="Yes"
+                checked={balanceQuestion === "Yes"}
+                onChange={handleBalanceQuestionChange}
+                className="question-form__response-input"
+              />
+              <label htmlFor="q2Yes" className="question-form__response-label">
+                Yes
+              </label>
+            </div>
+            <div className="question-form__response">
+              <input
+                type="radio"
+                id="q2No"
+                name="q2"
+                value="No"
+                checked={balanceQuestion === "No"}
+                onChange={handleBalanceQuestionChange}
+                className="question-form__response-input"
+              />
+              <label htmlFor="q2No" className="question-form__response-label">
+                No
+              </label>
+            </div>
           </div>
-        </div>
-        <div className="question-form__single-question">
-          <label htmlFor="" className="question-form__question">
-            With the other leg bent at least 45°, can you balance on the injured
-            foot for 10 seconds without feeling pain?
-          </label>
-          <div className="question-form__response">
-            <input
-              type="radio"
-              id="q2Yes"
-              name="q2"
-              value="Yes"
-              checked={balanceQuestion === "Yes"}
-              onChange={handleBalanceQuestionChange}
-              className="question-form__response-input"
-            />
-            <label htmlFor="q2Yes" className="question-form__response-label">
-              Yes
+          <div className="question-form__single-question">
+            <label htmlFor="" className="question-form__question">
+              On a scale of 1-5, how much does it hurt when you walk? Drag the
+              slider to your response.
+              <br />
+              (1 = no pain, walking fine | 3 = moderate pain but able to walk |
+              5 = very painful and unable to walk){" "}
             </label>
+            <div className="question-form__response">
+              <input
+                type="range"
+                className="question-form__range-response"
+                value={walkPain}
+                min="1"
+                max="5"
+                onChange={handleWalkPain}
+                list="values"
+              />
+              <datalist id="values">
+                <option value="1" label="1"></option>
+                <option value="2" label="2"></option>
+                <option value="3" label="3"></option>
+                <option value="4" label="4"></option>
+                <option value="5" label="5"></option>
+              </datalist>
+            </div>
           </div>
-          <div className="question-form__response">
-            <input
-              type="radio"
-              id="q2No"
-              name="q2"
-              value="No"
-              checked={balanceQuestion === "No"}
-              onChange={handleBalanceQuestionChange}
-              className="question-form__response-input"
-            />
-            <label htmlFor="q2No" className="question-form__response-label">
-              No
+          <div className="question-form__single-question">
+            <label htmlFor="" className="question-form__question">
+              With your feet flat on the ground, can you push up from the ground
+              using your heels (calf raises)?
             </label>
+            <div className="question-form__response">
+              <input
+                type="radio"
+                id="q4Yes"
+                name="q4"
+                value="Yes"
+                checked={calfRaise === "Yes"}
+                onChange={handleCalfRaise}
+                className="question-form__response-input"
+              />
+              <label htmlFor="q4Yes" className="question-form__response-label">
+                Yes
+              </label>
+            </div>
+            <div className="question-form__response">
+              <input
+                type="radio"
+                id="q4No"
+                name="q4"
+                value="No"
+                checked={calfRaise === "No"}
+                onChange={handleCalfRaise}
+                className="question-form__response-input"
+              />
+              <label htmlFor="q4No" className="question-form__response-label">
+                No
+              </label>
+            </div>
           </div>
-        </div>
-        <div className="question-form__single-question">
-          <label htmlFor="" className="question-form__question">
-            On a scale of 1-5, how much does it hurt when you walk? Drag the
-            slider to your response.
-            <br />
-            (1 = no pain, walking fine | 3 = moderate pain but able to walk | 5
-            = very painful and unable to walk){" "}
-          </label>
-          <div className="question-form__response">
-            <input
-              type="range"
-              className="question-form__range-response"
-              value={walkPain}
-              min="1"
-              max="5"
-              onChange={handleWalkPain}
-              list="values"
-            />
-            <datalist id="values">
-              <option value="1" label="1"></option>
-              <option value="2" label="2"></option>
-              <option value="3" label="3"></option>
-              <option value="4" label="4"></option>
-              <option value="5" label="5"></option>
-            </datalist>
-          </div>
-        </div>
-        <div className="question-form__single-question">
-          <label htmlFor="" className="question-form__question">
-            With your feet flat on the ground, can you push up from the ground
-            using your heels (calf raises)?
-          </label>
-          <div className="question-form__response">
-            <input
-              type="radio"
-              id="q4Yes"
-              name="q4"
-              value="Yes"
-              checked={calfRaise === "Yes"}
-              onChange={handleCalfRaise}
-              className="question-form__response-input"
-            />
-            <label htmlFor="q4Yes" className="question-form__response-label">
-              Yes
+          <div className="question-form__single-question">
+            <label htmlFor="" className="question-form__question">
+              On a scale of 1-5, how far down can you squat? Drag the slider to
+              your response. <br />
+              (1 = Not able | 3 = half squat (legs bent 45°) | 5 = full squat
+              with ease){" "}
             </label>
+            <div className="question-form__response">
+              <input
+                type="range"
+                className="question-form__range-response"
+                min="1"
+                max="5"
+                value={squatQuestion}
+                onChange={handleSquatQuestion}
+                list="values"
+              />
+              <datalist id="values">
+                <option value="1" label="1"></option>
+                <option value="2" label="2"></option>
+                <option value="3" label="3"></option>
+                <option value="4" label="4"></option>
+                <option value="5" label="5"></option>
+              </datalist>
+            </div>
           </div>
-          <div className="question-form__response">
-            <input
-              type="radio"
-              id="q4No"
-              name="q4"
-              value="No"
-              checked={calfRaise === "No"}
-              onChange={handleCalfRaise}
-              className="question-form__response-input"
-            />
-            <label htmlFor="q4No" className="question-form__response-label">
-              No
+          <div className="question-form__single-question">
+            <label htmlFor="" className="question-form__question">
+              Are you able to take 5 small hops, with each hop landing about 1.5
+              feet away from your starting position?
             </label>
+            <div className="question-form__response">
+              <input
+                type="radio"
+                id="q6Yes"
+                name="q6"
+                value="Yes"
+                checked={smallHops === "Yes"}
+                onChange={handleSmallHops}
+                className="question-form__response-input"
+              />
+              <label htmlFor="q6Yes" className="question-form__response-label">
+                Yes
+              </label>
+            </div>
+            <div className="question-form__response">
+              <input
+                type="radio"
+                id="q6No"
+                name="q6"
+                value="No"
+                checked={smallHops === "No"}
+                onChange={handleSmallHops}
+                className="question-form__response-input"
+              />
+              <label htmlFor="q6No" className="question-form__response-label">
+                No
+              </label>
+            </div>
           </div>
-        </div>
-        <div className="question-form__single-question">
-          <label htmlFor="" className="question-form__question">
-            On a scale of 1-5, how far down can you squat? Drag the slider to
-            your response. <br />
-            (1 = Not able | 3 = half squat (legs bent 45°) | 5 = full squat with
-            ease){" "}
-          </label>
-          <div className="question-form__response">
-            <input
-              type="range"
-              className="question-form__range-response"
-              min="1"
-              max="5"
-              value={squatQuestion}
-              onChange={handleSquatQuestion}
-              list="values"
-            />
-            <datalist id="values">
-              <option value="1" label="1"></option>
-              <option value="2" label="2"></option>
-              <option value="3" label="3"></option>
-              <option value="4" label="4"></option>
-              <option value="5" label="5"></option>
-            </datalist>
-          </div>
-        </div>
-        <div className="question-form__single-question">
-          <label htmlFor="" className="question-form__question">
-            Are you able to take 5 small hops, with each hop landing about 1.5
-            feet away from your starting position?
-          </label>
-          <div className="question-form__response">
-            <input
-              type="radio"
-              id="q6Yes"
-              name="q6"
-              value="Yes"
-              checked={smallHops === "Yes"}
-              onChange={handleSmallHops}
-              className="question-form__response-input"
-            />
-            <label htmlFor="q6Yes" className="question-form__response-label">
-              Yes
-            </label>
-          </div>
-          <div className="question-form__response">
-            <input
-              type="radio"
-              id="q6No"
-              name="q6"
-              value="No"
-              checked={smallHops === "No"}
-              onChange={handleSmallHops}
-              className="question-form__response-input"
-            />
-            <label htmlFor="q6No" className="question-form__response-label">
-              No
-            </label>
-          </div>
-        </div>
-        {isFormSubmit === true ? <FormModal id={surveyId} /> : null}
-        <button type="submit" className="question-form__button">
-          Submit Evaluation
-        </button>
-      </form>
+          {isFormSubmit === true ? <FormModal id={surveyId} /> : null}
+          <button type="submit" className="question-form__button">
+            Submit Evaluation
+          </button>
+        </form>
+      ) : null}
       <p className="question-form__copyright">
         Copyright AnkHeal Inc. &copy; 2025 All RIghts Reserved
       </p>
