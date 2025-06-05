@@ -106,7 +106,7 @@ function App() {
           <Route path="/checkout/success" element={<CheckoutSuccess />} />
           <Route path="/checkout/cancel" element={<CheckoutCancel />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/user/forgot-password" element={<ForgotPassword />} />
+          {/* <Route path="/user/forgot-password" element={<ForgotPassword />} /> */}
         </Routes>
       </BrowserRouter>
     </AuthContextProvider>

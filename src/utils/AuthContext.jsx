@@ -114,6 +114,7 @@ export function AuthContextProvider({ children }) {
     </AuthContext.Provider>
   );
 }
+
 export function UserAuth() {
   const context = useContext(AuthContext);
 

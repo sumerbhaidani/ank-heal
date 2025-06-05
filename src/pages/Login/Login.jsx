@@ -99,9 +99,9 @@ function Login() {
         <Link to="/user/signup" className="login-form__redirect">
           <p className="login-form__sign-up">Create an Account</p>
         </Link>
-        <Link to="/user/forgot-password" className="login-form__redirect">
+        {/* <Link to="/user/forgot-password" className="login-form__redirect">
           <p className="login-form__forgot-password">Forgot Password</p>
-        </Link>
+        </Link> */}
       </form>
     </div>
   );
