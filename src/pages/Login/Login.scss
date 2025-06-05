@@ -40,14 +40,13 @@
     border-radius: 2rem;
     width: max-content;
     align-self: center;
+    margin: 0.5rem 0rem 1rem;
     &:hover {
       cursor: pointer;
     }
   }
   &__sign-up {
-    width: max-content;
     color: $background-blue;
-    text-decoration: none;
     margin-bottom: 0rem;
   }
   &__redirect {
@@ -58,5 +57,8 @@
       text-decoration: underline;
       color: $background-blue;
     }
+  }
+  &__forgot-password {
+    @extend .login-form__sign-up;
   }
 }
