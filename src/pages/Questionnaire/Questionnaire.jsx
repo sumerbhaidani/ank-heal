@@ -357,7 +357,7 @@ function Questionnaire({ baseUrl }) {
         </form>
       ) : null}
       <p className="question-form__copyright">
-        Copyright AnkHeal Inc. &copy; 2025 All RIghts Reserved
+        Copyright AnkHeal Inc. &copy; 2025 All Rights Reserved
       </p>
     </>
   );

@@ -76,7 +76,7 @@ function LoginDashboard({ baseUrl, portalLink }) {
             <h3 className="dashboard__card-title">
               Most Recent Evaluation Taken On:
             </h3>
-            {recentEval.length !== 0 ? (
+            {recentEval ? (
               <Link
                 to={`/evaluation/${recentEval?.survey_id}`}
                 className="dashboard__card-redirect"
@@ -105,7 +105,7 @@ function LoginDashboard({ baseUrl, portalLink }) {
             <h3 className="dashboard__card-title">
               Recommended Exercise Sessions Frequency:
             </h3>
-            {recentEval.length !== 0 ? (
+            {recentEval ? (
               <h4 className="dashboard__card-empty">3-4 Times per Week</h4>
             ) : (
               <h4 className="dashboard__card-empty">
@@ -128,7 +128,7 @@ function LoginDashboard({ baseUrl, portalLink }) {
                 Here
               </Link>
             </h3>
-            {recentEval.length !== 0 ? (
+            {recentEval ? (
               <h4 className="dashboard__card-empty">
                 Recommended Date for Next Evaluation:{" "}
                 {new Date(
