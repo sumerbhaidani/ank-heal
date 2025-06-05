@@ -18,6 +18,7 @@ import CheckoutCancel from "./pages/CheckoutCancel/CheckoutCancel.jsx";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import FAQ from "./pages/FAQ/FAQ.jsx";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
 
 function App() {
   const {
@@ -105,6 +106,7 @@ function App() {
           <Route path="/checkout/success" element={<CheckoutSuccess />} />
           <Route path="/checkout/cancel" element={<CheckoutCancel />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/user/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </BrowserRouter>
     </AuthContextProvider>
