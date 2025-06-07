@@ -4,13 +4,14 @@ import { UserAuth } from "../../utils/AuthContext.jsx";
 import "./SignUp.scss";
 import axios from "axios";
 import HeaderOnlyLogo from "../../components/HeaderOnlyLogo/HeaderOnlyLogo.jsx";
+import Loading from "../../components/Loading/Loading.jsx";
 
 function SignUp({ baseUrl }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [error, SetError] = useState(false);
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const { session, signUpNewUser } = UserAuth();
   const navigate = useNavigate();
@@ -77,6 +78,8 @@ function SignUp({ baseUrl }) {
   useEffect(() => {
     serverActivate();
   }, []);
+
+  if (loading) return <Loading />;
 
   return (
     <div className="signup">

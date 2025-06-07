@@ -29,6 +29,16 @@ export function AuthContextProvider({ children }) {
 
     const userId = data?.user?.id;
 
+    try {
+      const response = await axios.get(`${baseUrl}/`);
+      console.log(response.data);
+    } catch (error) {
+      console.error(
+        "Initial connection with server unsuccessful, please try again: ",
+        error
+      );
+    }
+
     let stripeResponse;
     try {
       stripeResponse = await axios.post(
@@ -46,7 +56,10 @@ export function AuthContextProvider({ children }) {
     }
 
     if (!customerId) {
-      console.error("Unable to retrieve customer id", error);
+      console.error(
+        "Unable to retrieve customer id from Stripe response",
+        error
+      );
       return { success: false, error };
     }
     try {
