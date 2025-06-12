@@ -28,11 +28,22 @@
   .exercise-list_reps {
     margin: 0.5rem 0rem;
   }
+  .past-results__print-button {
+    display: none;
+  }
 }
 
 .past-results {
   margin: 0rem 3rem auto;
   padding: 2rem 0rem;
+  &__print-button {
+    margin-left: auto;
+    padding: 0.5rem 1rem;
+    border: 1px $dark-gray solid;
+    &:hover {
+      cursor: pointer;
+    }
+  }
   &__header {
     display: flex;
     flex-direction: column;

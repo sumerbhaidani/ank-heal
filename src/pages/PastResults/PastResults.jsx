@@ -49,6 +49,10 @@ function PastResults({ baseUrl }) {
     return each.exercise_id === singleSurvey.exercise_4;
   });
 
+  function handlePrint() {
+    window.print();
+  }
+
   useEffect(() => {
     getSingleSurvey();
     getExercises();
@@ -59,6 +63,9 @@ function PastResults({ baseUrl }) {
       <div className="past-results">
         {singleSurvey ? (
           <div className="past-results__header">
+            <div onClick={handlePrint} className="past-results__print-button">
+              Print
+            </div>
             <h4 className="past-results__header-title">
               Exercise list for evaluation on:{" "}
               {new Date(Number(singleSurvey.created_at)).toLocaleDateString(
