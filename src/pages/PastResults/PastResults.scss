@@ -43,6 +43,10 @@
     background-color: $light-gray;
     font-family: "Outfit";
     border-radius: 0.5rem;
+    width: max-content;
+    @include desktop {
+      width: 100%;
+    }
     &:hover {
       cursor: pointer;
       background-color: $dark-gray;

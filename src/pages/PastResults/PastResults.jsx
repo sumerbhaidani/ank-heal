@@ -61,11 +61,11 @@ function PastResults({ baseUrl }) {
     <>
       <Header />
       <div className="past-results">
+        <div onClick={handlePrint} className="past-results__print-button">
+          Print List
+        </div>
         {singleSurvey ? (
           <div className="past-results__header">
-            <div onClick={handlePrint} className="past-results__print-button">
-              Print List
-            </div>
             <h4 className="past-results__header-title">
               Exercise list for evaluation on:{" "}
               {new Date(Number(singleSurvey.created_at)).toLocaleDateString(
