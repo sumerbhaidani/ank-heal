@@ -40,8 +40,13 @@
     margin-left: auto;
     padding: 0.5rem 1rem;
     border: 1px $dark-gray solid;
+    background-color: $light-gray;
+    font-family: "Outfit";
+    border-radius: 0.5rem;
     &:hover {
       cursor: pointer;
+      background-color: $dark-gray;
+      color: $white;
     }
   }
   &__header {

@@ -64,7 +64,7 @@ function PastResults({ baseUrl }) {
         {singleSurvey ? (
           <div className="past-results__header">
             <div onClick={handlePrint} className="past-results__print-button">
-              Print
+              Print List
             </div>
             <h4 className="past-results__header-title">
               Exercise list for evaluation on:{" "}
