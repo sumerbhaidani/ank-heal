@@ -67,7 +67,7 @@ function Footer() {
               </svg>
             </a>
             <a
-              href="https://www.facebook.com/profile.php?id=61575089157050"
+              href="https://www.facebook.com/ankheal/"
               className="footer_redirect"
               target="_blank"
               aria-label="Click here to navigate to AnkHeal's Facebook page"

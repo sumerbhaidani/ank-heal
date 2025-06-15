@@ -38,16 +38,6 @@ function LoginDashboard({ baseUrl, portalLink }) {
     }
   }
 
-  // console.log(
-  //   new Date(
-  //     Number(recentEval?.created_at).toLocaleString("en-US", {
-  //       month: "long",
-  //       day: "numeric",
-  //       year: "numeric",
-  //     })
-  //   )
-  // );
-
   useEffect(() => {
     getRecentEval();
   }, []);

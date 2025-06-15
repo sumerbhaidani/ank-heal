@@ -11,6 +11,21 @@ function PastResults({ baseUrl }) {
 
   async function getSingleSurvey() {
     try {
+      // try{
+      //   async function serverActivate() {
+      //     try {
+      //       const response = await axios.get(`${baseUrl}/`);
+      //       console.log(response.data);
+      //     } catch (error) {
+      //       console.error(
+      //         "Initial connection with server unsuccessful, please try again: ",
+      //         error
+      //       );
+      //     }
+      //   }
+      // } catch (err) {
+      //   console.error(`Server inactive: ${err}`)
+      // }
       const response = await axios.get(`${baseUrl}/survey/${id}`);
       setSingleSurvey(response.data);
     } catch (error) {
