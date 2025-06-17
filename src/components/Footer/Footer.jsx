@@ -38,21 +38,10 @@ function Footer() {
           <h5 className="footer__section-title">Connect with us!</h5>
           <div className="footer__socials-logos">
             <a
-              href="https://www.instagram.com/ankheal"
-              className="footer__redirect"
-              target="_blank"
-              aria-label="Click here to navigate to AnkHeal's Instagram page"
-            >
-              <img
-                src={InstagramLogo}
-                alt="Instagram Logo"
-                className="footer__instagram"
-              />
-            </a>
-            <a
               href="mailto:ankhealinc@gmail.com"
               className="footer__redirect"
               aria-label="Click here to email the AnkHeal team"
+              title="Email"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -68,10 +57,24 @@ function Footer() {
               </svg>
             </a>
             <a
+              href="https://www.instagram.com/ankheal"
+              className="footer__redirect"
+              target="_blank"
+              aria-label="Click here to navigate to AnkHeal's Instagram page"
+              title="Instagram"
+            >
+              <img
+                src={InstagramLogo}
+                alt="Instagram Logo"
+                className="footer__instagram"
+              />
+            </a>
+            <a
               href="https://www.facebook.com/ankheal/"
               className="footer_redirect"
               target="_blank"
               aria-label="Click here to navigate to AnkHeal's Facebook page"
+              title="Facebook"
             >
               <img
                 src={FacebookLogo}
@@ -84,6 +87,7 @@ function Footer() {
               className="footer_redirect"
               target="_blank"
               aria-label="Click here to navigate to AnkHeal's X page"
+              title="Twitter/X"
             >
               <img
                 src={TwitterLogo}
@@ -96,6 +100,7 @@ function Footer() {
               className="footer_redirect"
               target="_blank"
               aria-label="Click here to navigate to AnkHeal's Youtube page"
+              title="Youtube"
             >
               <svg
                 fill="#fff"
