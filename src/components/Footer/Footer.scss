@@ -76,7 +76,7 @@
       gap: 0.5rem;
       &-logos {
         display: flex;
-        gap: 0.5rem;
+        gap: 1.25rem;
         @include tablet {
           justify-content: space-evenly;
         }
